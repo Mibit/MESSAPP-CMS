@@ -48,18 +48,7 @@ class Login extends CI_Controller {
             throw new Exception("Geben Sie Username und Passwort ein.");
         }
 
-        $user = new UserData();
-        $thisUser = $user->loadMultipleFromDatabase('username = "' . $username . '"');
-        
-        if (!count($thisUser)) {
-            throw new Exception('Die Anmeldung war nicht erfolgreich. Geben Sie g&uuml;ltige Daten ein.');
-        }
-        $thisUser = array_shift($thisUser);
-
-        //Check against password
-        if(md5($password) != $thisUser->password) {
-            throw new Exception('Die Anmeldung war nicht erfolgreich. Geben Sie g&uuml;ltige Daten ein.');
-        }
+        $thisUser = UserData::checkAuthentification($username, $password);
         
         $_SESSION["user"] = $thisUser;
         
