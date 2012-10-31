@@ -12,7 +12,7 @@ class Studiengang extends MA_Controller {
     }
     
     public function index() {
-    	
+    	// 
         $stg = new StudiengangData();
         
         $variables["page_title"] = "Studieng&auml;nge";
