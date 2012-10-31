@@ -34,17 +34,16 @@ function getFormFieldArray($fieldname, $method = "post") {
 }
 
 function getFormFieldImage($fieldname) {
-    if($_FILES[$fieldname]["tmp_name"]) {
-      $tmpName = $_FILES[$fieldname]["tmp_name"];
-	$fp = fopen($tmpName, 'r');
-    $data = fread($fp, filesize($tmpName));
-    fclose($fp);
+    if($tmpName = $_FILES[$fieldname]["tmp_name"]) {
+    	$_FILES[$fieldname]["tmp_name"];
+		$fp = fopen($tmpName, 'r');
+    	$data = fread($fp, filesize($tmpName));
+    	fclose($fp);
     
-    return $data;
-  } else {
-    return null;
-  }
-
+    	return $data;
+  	} else {
+    	return null;
+  	}
 }
 
 function translateNullToHTML($value) {
