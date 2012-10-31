@@ -10,7 +10,9 @@ class Update extends CI_Controller {
 	
 	/*
 	 * current URL
-	 * http://localhost/MessApp/index.php/update/getChangedData/1/update/3ac340832f29c11538fbe2d6f75e8bcc
+	 * local: http://localhost/MessApp/index.php/update/getChangedData/1/update/3ac340832f29c11538fbe2d6f75e8bcc
+	 * server: http://www.wi.fh-kufstein.ac.at:60880/messapp/index.php/update/getChangedData/1/update/3ac340832f29c11538fbe2d6f75e8bcc
+	 * Updatefunktion (JSON String) für Synchronisation mit App
 	 */
 	public function getChangedData($unixTimestamp, $username, $password) {
 		
