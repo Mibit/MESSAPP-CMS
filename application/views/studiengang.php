@@ -11,7 +11,7 @@
                             </td>
                             <td><label for="highlights">Highlights: </label><?php echo form_input(array("name" => "highlights", "value" => $stg->highlights)); ?></td>
                             <td><label for="titelbild">Titelbild: </label><?php echo form_upload(array("name" => "titelbild", "value" => $stg->titelbild)); ?></td>
-                            <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigeba", "value" => $stg->freigabe)); ?></td>
+                            <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => $stg->freigabe)); ?></td>
                         </tr>
 					</table>
 			</fieldset>
