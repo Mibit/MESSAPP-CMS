@@ -13,7 +13,40 @@ class StudiengangData extends MA_Model {
 	public function __construct($stgID = null) {
 		parent::__construct();
 		
+		$this->switchToNormalMode();
+        
+        $this->loadFromDatabase($stgID);
+	}
+	
+	public function getValidStudiengaenge($timestamp) {
+		return $this->loadMultipleFromDatabase("timestamp > $timestamp and freigabe = true");
+	}
+	
+	public function getInvalidStudiengaenge($timestamp) {
+		$studiengaenge = $this->getObjects("timestamp > $timestamp and freigabe = false");
+		
+		$this->switchToDeletedMode(true);
+		
+		$studiengaenge = array_merge($studiengaenge, $this->getObjects("timestamp > $timestamp"));
+		
+		$this->switchToNormalMode();
+		
+		return $studiengaenge;
+	}
+
+	private function switchToDeletedMode($getDeleted = false) {
+		$this->setTableName("geloeschte_studiengaenge");
+		$this->dbfields = array();
+		
+		if(!$getDeleted) {
+			$this->setPrimary("temp");
+			$this->addNumericField("stgID");
+		}
+	}
+	
+	private function switchToNormalMode() {
 		$this->setTableName("studiengaenge");
+		$this->dbfields = array();
 		
 		$this->setPrimary("stgID");
 		$this->addStringField("stgName");
@@ -21,10 +54,15 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("highlights");
 		$this->addStringField("titelbild");
 		$this->addBooleanField("freigabe");
-        
-        $this->loadFromDatabase($stgID);
 	}
-
+	
+	public function delete() {
+		$this->switchToDeletedMode();
+		$this->save();
+		$this->switchToNormalMode();
+		
+		parent::delete();
+	}
     
     public function __toString() {
         if($this->stgID) {

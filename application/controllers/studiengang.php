@@ -69,7 +69,7 @@ class Studiengang extends MA_Controller {
                 $this->addError("Diese Anrede existiert bereits.");
             }
         }
-
+        
         $this->edit(null,$stg);
     }
     

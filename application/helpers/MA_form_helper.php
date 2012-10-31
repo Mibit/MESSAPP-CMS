@@ -34,7 +34,7 @@ function getFormFieldArray($fieldname, $method = "post") {
 }
 
 function getFormFieldImage($fieldname) {
-    if($tmpName = $_FILES[$fieldname]["tmp_name"]) {
+    if(array_key_exists($fieldname, $_FILES) && $tmpName = $_FILES[$fieldname]["tmp_name"]) {
     	$_FILES[$fieldname]["tmp_name"];
 		$fp = fopen($tmpName, 'r');
     	$data = fread($fp, filesize($tmpName));

@@ -6,6 +6,7 @@ class Update extends CI_Controller {
 		parent::__construct();
 		
 		$this->load->model("UserData");
+		$this->load->model("StudiengangData");
 	}
 	
 	/*
@@ -18,34 +19,35 @@ class Update extends CI_Controller {
 		
 		UserData::checkAuthentification($username, $password, false);
 		
+		$timestamp = $this->db->query("select UNIX_TIMESTAMP() as timestamp")->row()->timestamp;
+		
+		$stg = new StudiengangData();
+	
 		$studiengaenge = array();
+		foreach($stg->getValidStudiengaenge($unixTimestamp) as $stg) {
+			$studiengang = new stdClass();
+			$studiengang->stgID = $stg->stgID;
+			$studiengang->stgName = $stg->stgName;
+			$studiengang->stgArt = $stg->stgArt;
+			$studiengang->highlights = $stg->highlights;
+			$studiengang->titelbild = base64_encode($stg->titelbild);
+			
+			$studiengaenge[] = $studiengang;
+		}
 		
-		$studiengaenge[0] = new stdClass();
-		$studiengaenge[0]->stgID = 1;
-		$studiengaenge[0]->stgName = "Web Business & Technology VZ";
-		$studiengaenge[0]->stgArt = "B";
-		$studiengaenge[0]->highlights = "sample Highlights";
-		$studiengaenge[0]->titelbild = $this->getImageCoded("testdata/test.jpg");
+		$entfernteStudiengaenge = array();
+		foreach($stg->getInvalidStudiengaenge($unixTimestamp) as $stg) {
+			$entfernteStudiengaenge[] = $stg->stgID;
+		}
 		
-		$studiengaenge[1] = new stdClass();
-		$studiengaenge[1]->stgID = 1;
-		$studiengaenge[1]->stgName = "Facility Management & Immobilienwirtschaft VZ";
-		$studiengaenge[1]->stgArt = "B";
-		$studiengaenge[1]->highlights = "sample Highlights";
-		$studiengaenge[1]->titelbild = $this->getImageCoded("testdata/test2.jpg");
-		
-		$json = array("studiengaenge" => $studiengaenge /*, fh_kufstein ...*/);
+		$json = array(
+						"timestamp" => $timestamp, 
+						"studiengaenge" => $studiengaenge,
+						"entfernte_studiengaenge" => $entfernteStudiengaenge
+						 /*, fh_kufstein ...*/
+		);
 		
 		print json_encode($json);
-	}
-	
-	private function getImageCoded($path) {
-		$tmpName = ($path);
-		$fp = fopen($tmpName, 'r');
-        $data = fread($fp, filesize($tmpName));
-        fclose($fp);
-        
-        return base64_encode($data);
 	}
 }
 

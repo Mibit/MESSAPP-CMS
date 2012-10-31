@@ -88,7 +88,7 @@ class MA_Model extends CI_Model {
 
     function getObjects($where = "", $order = null, $ordertype = "ASC", $limitFrom = null, $limitCount = null) {
 
-        $sql = "SELECT " . $this->primary . ", " . implode(", ", $this->dbfields) . " FROM $this->tablename";
+        $sql = "SELECT " . $this->primary . (count($this->dbfields) ? ", " . implode(", ", $this->dbfields) : "") . " FROM $this->tablename";
         if ($where != "") {
             $sql .= " WHERE $where";
         }
