@@ -33,6 +33,14 @@ function getFormFieldArray($fieldname, $method = "post") {
     return is_array(getFormFieldValue($fieldname,$method)) ? getFormFieldValue($fieldname,$method) : ( getFormFieldValue($fieldname,$method) ? Array(getFormFieldValue($fieldname,$method)) : Array() );
 }
 
+function getFormFieldImage($fieldname) {
+	$fp = fopen($_FILES[$fieldname], 'r');
+    $data = fread($fp, filesize($tmpName));
+    fclose($fp);
+    
+    return $data;
+}
+
 function translateNullToHTML($value) {
     if ($value == null)
         return "&nbsp;";

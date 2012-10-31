@@ -49,22 +49,29 @@ class Studiengang extends MA_Controller {
     public function save() {
         $stg = new StudiengangData( getFormFieldValue("stgID") );
 
-        $this->form_validation->set_rules('stgName', 'Studiengangsname', 'required|max_length[50]');
+        $this->form_validation->set_rules('stgName', 'Studiengangsname', 'required|max_length[30]');
+        $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'required|max_length[1]');
+        $this->form_validation->set_rules('highlights', 'Highlights', 'required|max_length[300]');
+        $this->form_validation->set_rules('titelbild', 'Titelbild', 'required');
         
         $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein!');
         $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben!');
 
-        $anrede->anrede = getFormFieldValue("anrede");
+        $stg->stgName = getFormFieldValue("stgName");
+        $stg->stgArt = getFormFieldValue("stgArt");
+        $stg->highlights = getFormFieldValue("highlights");
+        $stg->titelbild = getFormFieldImage("titelbild");
+        $stg->freigabe = getFormFieldValue("freigabe");
 
         if($this->form_validation->run()) {
-            if($anrede->save()) {
+            if($stg->save()) {
                 $this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
             }else{
                 $this->addError("Diese Anrede existiert bereits.");
             }
         }
 
-        $this->edit(null,$anrede);
+        $this->edit(null,$stg);
     }
     
     public function delete($stgID) {
