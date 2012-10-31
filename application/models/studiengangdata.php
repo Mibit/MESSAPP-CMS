@@ -19,15 +19,15 @@ class StudiengangData extends MA_Model {
 	}
 	
 	public function getValidStudiengaenge($timestamp) {
-		return $this->loadMultipleFromDatabase("timestamp > $timestamp and freigabe = true");
+		return $this->loadMultipleFromDatabase("timestamp > \"".MA_Model::timestampToDatetime($timestamp)."\" and freigabe = true");
 	}
 	
 	public function getInvalidStudiengaenge($timestamp) {
-		$studiengaenge = $this->getObjects("timestamp > $timestamp and freigabe = false");
+		$studiengaenge = $this->getObjects("timestamp > \"".MA_Model::timestampToDatetime($timestamp)."\" and freigabe = false");
 		
 		$this->switchToDeletedMode(true);
 		
-		$studiengaenge = array_merge($studiengaenge, $this->getObjects("timestamp > $timestamp"));
+		$studiengaenge = array_merge($studiengaenge, $this->getObjects("timestamp > \"".MA_Model::timestampToDatetime($timestamp)."\""));
 		
 		$this->switchToNormalMode();
 		

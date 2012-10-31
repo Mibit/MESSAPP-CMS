@@ -19,7 +19,7 @@ class Update extends CI_Controller {
 		
 		UserData::checkAuthentification($username, $password, false);
 		
-		$timestamp = $this->db->query("select UNIX_TIMESTAMP() as timestamp")->row()->timestamp;
+		$current_timestamp = $this->db->query("select UNIX_TIMESTAMP() as timestamp")->row()->timestamp;
 		
 		$stg = new StudiengangData();
 	
@@ -41,7 +41,7 @@ class Update extends CI_Controller {
 		}
 		
 		$json = array(
-						"timestamp" => $timestamp, 
+						"timestamp" => $current_timestamp, 
 						"studiengaenge" => $studiengaenge,
 						"entfernte_studiengaenge" => $entfernteStudiengaenge
 						 /*, fh_kufstein ...*/
