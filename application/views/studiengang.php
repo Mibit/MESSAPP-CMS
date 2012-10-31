@@ -11,7 +11,7 @@
                             	<label for="stgArt"> Master </label><?php echo form_radio(array("name" => "stgArt", "value" => "M")); ?>
                             </td>
                         </tr><tr>
-                            <td><label for="highlights">Highlights: </label><?php echo form_input(array("name" => "highlights", "value" => $stg->highlights)); ?></td>
+                            <td><label for="highlights">Highlights: </label><?php echo form_textarea(array("name" => "highlights", "value" => $stg->highlights)); ?></td>
                         </tr><tr>
                             <td><label for="titelbild">Titelbild: </label><?php echo form_upload(array("name" => "titelbild", "value" => $stg->titelbild)); ?></td>
                         </tr><tr>
