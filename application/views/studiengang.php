@@ -16,6 +16,8 @@
                             <td><label for="titelbild">Titelbild: </label><?php echo form_upload(array("name" => "titelbild", "value" => $stg->titelbild)); ?></td>
                         </tr><tr>
                             <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => $stg->freigabe)); ?></td>
+                        </tr><tr>
+                        	<td><?php echo form_submit(array("name" => "submit", "value" => "Speichern"))?>
                         </tr>
 					</table>
 			</fieldset>
