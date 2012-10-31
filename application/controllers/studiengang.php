@@ -51,8 +51,7 @@ class Studiengang extends MA_Controller {
 
         $this->form_validation->set_rules('stgName', 'Studiengangsname', 'required|max_length[30]');
         $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'required|max_length[1]');
-        $this->form_validation->set_rules('highlights', 'Highlights', 'required|max_length[300]');
-        $this->form_validation->set_rules('titelbild', 'Titelbild', 'required');
+        $this->form_validation->set_rules('highlights', 'Highlights', 'max_length[300]');
         
         $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein!');
         $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben!');

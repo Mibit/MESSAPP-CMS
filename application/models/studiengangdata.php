@@ -19,7 +19,7 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgName");
 		$this->addStringField("stgArt");
 		$this->addStringField("highlights");
-		$this->addNumericField("titelbild");
+		$this->addStringField("titelbild");
 		$this->addBooleanField("freigabe");
         
         $this->loadFromDatabase($stgID);
