@@ -21,7 +21,7 @@
 			<td><?php echo $counter; ?>
 			</td>
 			<td align="center"><a
-				href="<?php if($item->canDelete == true) { echo $my_url . "delete/" . $item->stgID; } ?>">L&ouml;schen
+				href="<?php echo $my_url . "delete/" . $item->stgID; ?>">L&ouml;schen
 			</a>
 			</td>
 			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgName); ?>
