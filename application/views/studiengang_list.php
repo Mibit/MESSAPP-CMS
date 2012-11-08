@@ -3,7 +3,7 @@
 		<tr>
 			<th>&nbsp;#&nbsp;</th>
 			<th>&nbsp;</th>
-			<th><?php echo sort_header("stgID", "Studiengang", $sortCol, $sortDir); ?><a href="<?php echo $my_url."edit" ?>" >Neu</a>
+			<th><?php echo sort_header("stgID", "Studiengang", $sortCol, $sortDir); ?><a href="<?php echo $my_url."edit" ?>" >&nbsp;&nbsp;Neu</a>
 			</th>
 		</tr>
 	</thead>
