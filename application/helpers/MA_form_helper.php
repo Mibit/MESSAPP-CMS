@@ -4,9 +4,9 @@ function sort_header($field, $caption, $sortCol, $sortDir) {
     $template_url = base_url() . 'application/views/template/';
     $html = '<a title="Click to sort by this column" href="javascript: ';
     if ($field == $sortCol && $sortDir == 'desc') {
-        $html .= "tableOrdering('$field','asc','');\">$caption&nbsp;<img alt=\"\" src=\"{$template_url}images/sort_desc.png\"></a>";
+        $html .= "tableOrdering('$field','asc','');\">$caption</a>";
     } else if ($field == $sortCol && $sortDir == 'asc') {
-        $html .= "tableOrdering('$field','desc','');\">$caption&nbsp;<img alt=\"\" src=\"{$template_url}images/sort_asc.png\"></a>";
+        $html .= "tableOrdering('$field','desc','');\">$caption</a>";
     } else {
         $html .= "tableOrdering('$field','asc','');\">$caption</a>";
     }
