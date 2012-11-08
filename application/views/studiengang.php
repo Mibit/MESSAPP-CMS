@@ -7,8 +7,8 @@
                         <tr>
                             <td><label for="stgName">Studiengangsname: </label><?php echo form_input(array("name" => "stgName", "value" => $stg->stgName)); ?></td>
                         </tr><tr>
-                            <td><label for="stgArt">Bachelor </label><?php echo form_radio(array("name" => "stgArt", "value" => "B")); ?>
-                            	<label for="stgArt"> Master </label><?php echo form_radio(array("name" => "stgArt", "value" => "M")); ?>
+                            <td><label for="stgArt">Bachelor </label><?php echo form_radio(array("name" => "stgArt", "value" => "B", $stg->stgArt=="B"?true:false)); ?>
+                            	<label for="stgArt"> Master </label><?php echo form_radio(array("name" => "stgArt", "value" => "M", $stg->stgArt=="M"?true:false)); ?>
                             </td>
                         </tr><tr>
                             <td><label for="highlights">Highlights: </label><?php echo form_textarea(array("name" => "highlights", "value" => $stg->highlights)); ?></td>
