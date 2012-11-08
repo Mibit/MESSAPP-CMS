@@ -20,13 +20,9 @@ class Studiengang extends MA_Controller {
         //Listenansicht setzen (Sortierung, Filterfunktion)
         $this->setList(true);
         $this->setListItems( $stg->loadMultipleFromDatabase() );
-
-        //Toolbar setzen
-        $toolbar[] = array("name" => "new", "caption" => "Neu", "url" => $this->getMyUrl() . "edit");
-        $variables['toolbar'] = $toolbar;
         
         //AC Methode um Views anzuzeigen
-        $this->loadView('studiengang', $variables);
+        $this->loadView('studiengang_list', $variables);
     }
     
     public function edit($stgID = null, $stg = null) {
@@ -62,6 +58,12 @@ class Studiengang extends MA_Controller {
         $stg->titelbild = getFormFieldImage("titelbild");
         $stg->freigabe = getFormFieldValue("freigabe");
 
+        if($stg->freigabe) {
+        	if(!($stg->stgName && $stg->stgArt && $stg->hightlights && $stg->titelbild)) {
+        		$stg->freigabe = false;
+        		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
+        	}
+        }
         if($this->form_validation->run()) {
             if($stg->save()) {
                 $this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
