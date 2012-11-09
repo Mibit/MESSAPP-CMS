@@ -13,7 +13,12 @@
                         </tr><tr>
                             <td><label for="highlights">Highlights: </label><?php echo form_textarea(array("name" => "highlights", "value" => $stg->highlights)); ?></td>
                         </tr><tr>
-                            <td><label for="titelbild">Titelbild: </label><?php echo form_upload(array("name" => "titelbild", "value" => $stg->titelbild)); ?></td>
+                            <td><label for="titelbild">Titelbild: </label>
+                            	<div>
+                            		<?php if($stg->titelbild) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->titelbild). "\" />"; } ?>
+                            		<?php echo form_upload(array("name" => "titelbild", "value" => $stg->titelbild)); ?>
+                            	</div>
+                            </td>
                         </tr><tr>
                             <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => $stg->freigabe)); ?></td>
                         </tr><tr>
