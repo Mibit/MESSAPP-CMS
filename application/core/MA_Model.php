@@ -127,7 +127,7 @@ class MA_Model extends CI_Model {
             $dbField = $this->dbfields[$counter];
             switch($this->types[$counter]) {
                 case self::DB_TYPE_STRING :
-                    $values[] = "\"" . mysql_escape_string($this->$dbField) . "\"";
+                    $values[] = "\"" . mysql_real_escape_string($this->$dbField) . "\"";
                     break;
                 case self::DB_TYPE_NUMERIC :
                     if($this->$dbField === null) {
