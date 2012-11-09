@@ -20,7 +20,7 @@
                             	</div>
                             </td>
                         </tr><tr>
-                            <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => $stg->freigabe)); ?></td>
+                            <td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?></td>
                         </tr><tr>
                         	<td><?php echo form_submit(array("name" => "submit", "value" => "Speichern"))?>&nbsp;&nbsp;<?php echo form_button(array("name" => "back", "value" => true, "content" => "Zur&uuml;ck", "onClick" => "window.location.replace('$my_url')"))?>
                         </tr>

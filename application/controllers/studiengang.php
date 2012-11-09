@@ -27,8 +27,9 @@ class Studiengang extends MA_Controller {
     
     public function edit($stgID = null, $stg = null) {
         
-        $stg = new StudiengangData($stgID);
-        
+    	if(!$stg) {
+        	$stg = new StudiengangData($stgID);
+    	}
         $variables["page_title"] = $stg;
         
         $variables["stg"] = $stg;
@@ -55,12 +56,14 @@ class Studiengang extends MA_Controller {
         $stg->stgName = getFormFieldValue("stgName");
         $stg->stgArt = getFormFieldValue("stgArt");
         $stg->highlights = getFormFieldValue("highlights");
-        $stg->titelbild = getFormFieldImage("titelbild");
-        $stg->freigabe = getFormFieldValue("freigabe");
+        if(getFormFieldImage("titelbild")) {
+        	$stg->titelbild = getFormFieldImage("titelbild");
+        }
+        $stg->freigabe = getFormFieldValue("freigabe") ? true : false	;
 
         if($stg->freigabe) {
         	// Freigabe nur wenn alle Felder ausgefüllt sind
-        	if(!($stg->stgName && $stg->stgArt && $stg->hightlights && $stg->titelbild)) {
+        	if(!($stg->stgName && $stg->stgArt && $stg->highlights && $stg->titelbild)) {
         		$stg->freigabe = false;
         		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
         	}
