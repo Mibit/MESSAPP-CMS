@@ -27,7 +27,7 @@ class Update extends CI_Controller {
 		foreach($stg->getValidStudiengaenge($unixTimestamp) as $stg) {
 			$studiengang = new stdClass();
 			$studiengang->stgID = $stg->stgID;
-			$studiengang->stgName = $stg->stgKBez;
+			$studiengang->stgName = $stg->stgKBez; //
 			$studiengang->stgArt = $stg->stgArt;
 			$studiengang->highlights = $stg->stgHighlights;
 			$studiengang->titelbild = base64_encode($stg->stgImage);
