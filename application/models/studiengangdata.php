@@ -4,10 +4,10 @@ class StudiengangData extends MA_Model {
 	
 	// SQL Fields
 	public $stgID;
-	public $stgName;
+	public $stgKBez;
 	public $stgArt;
-	public $highlights;
-	public $titelbild;
+	public $stgHighlights;
+	public $stgImage;
 	public $freigabe;
 	
 	public function __construct($stgID = null) {
@@ -49,10 +49,10 @@ class StudiengangData extends MA_Model {
 		$this->dbfields = array();
 		
 		$this->setPrimary("stgID");
-		$this->addStringField("stgName");
+		$this->addStringField("stgKBez");
 		$this->addStringField("stgArt");
-		$this->addStringField("highlights");
-		$this->addStringField("titelbild");
+		$this->addStringField("stgHighlights");
+		$this->addStringField("stgImage");
 		$this->addBooleanField("freigabe");
 	}
 	
