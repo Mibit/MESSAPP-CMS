@@ -53,6 +53,10 @@ class MA_Controller extends CI_Controller {
 		
 		$template = $this->templatePath."layout";
             
+		if(!isset($variables["header"])) {
+			$variables["header"] = "";
+		}
+		
 		$variables['template_url'] = base_url().APPPATH.'views/'.$this->templatePath;
 		
 		$variables['my_url'] = $this->getMyUrl();
@@ -93,6 +97,9 @@ class MA_Controller extends CI_Controller {
 			$variablesSidebar['base_url'] = $this->getBaseUrl();
 			$variablesSidebar['my_url'] = $this->getMyUrl();
 			$variables['sidebar'] = $this->load->view($this->sidebarTemplate, $variablesSidebar, true);
+			
+        	$variables['header'] .= "<script src=\"" . $variables['template_url'] . "js/sidebar.js\"></script>";
+ 
       	} else {
       		$variables['sidebar'] = null;
       	}

@@ -37,7 +37,7 @@ class Studiengang extends MA_Controller {
         //Sidebar aktivieren
         $this->setIsSidebar(true);
         $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"),$stg->stgID, "studiengang_sidebar");
-        
+       
         /*
         //Toolbar setzen
         $toolbar[] = array("name" => "save", "caption" => "Speichern", "url" => "javascript: submitbutton('save')");
@@ -158,7 +158,11 @@ class Studiengang extends MA_Controller {
         }
         if($this->form_validation->run()) {
             if($stg->save()) {
-                $this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
+            	if($target = getFormFieldValue("target")) {
+            		redirect($target);
+            	} else {
+                	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
+            	}
             }else{
                 $this->addError("Diese Anrede existiert bereits.");
             }

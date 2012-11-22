@@ -93,6 +93,7 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgHImage2");
 		$this->addStringField("stgBigH");
 		$this->addStringField("stgCurriculumImage");
+		$this->addStringField("stgFOrganisationsform");
 		$this->addStringField("stgFStudienplaetze");
 		$this->addStringField("stgFBewerbungsmodus");
 		$this->addStringField("stgFDauer");

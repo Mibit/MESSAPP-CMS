@@ -63,7 +63,7 @@ class UserData extends MA_Model {
     	$user = new UserData();
         $thisUser = $user->loadUserByUsername($username);
     
-        if (!$thisUser || $thisUser->onlyUpdate) {
+        if (!$thisUser || $hashPassword && $thisUser->onlyUpdate) {
             throw new Exception('Die Anmeldung war nicht erfolgreich. Geben Sie g&uuml;ltige Daten ein.');
         }
         
