@@ -12,6 +12,11 @@ class MA_Controller extends CI_Controller {
     private $alert = Array();
     private $error = Array();
 
+	//Sidebar
+	public $isSidebar = false;
+	public $sidebar = Array();
+	public $sidebarTemplate;
+	
 	//Listenansicht
 	protected $isList = false;
 	protected $listItems = array();
@@ -52,7 +57,7 @@ class MA_Controller extends CI_Controller {
 		
 		$variables['my_url'] = $this->getMyUrl();
 		
-            $search = "";
+        $search = "";
                    
 		if($this->isList) {
 			$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
@@ -82,6 +87,15 @@ class MA_Controller extends CI_Controller {
 			$variables['sortDir'] = isset($_REQUEST['sortDir']) ? $_REQUEST['sortDir'] : "";
 			$variables['search'] = $search;
 		}
+		
+		if($this->isSidebar) {
+			$variablesSidebar = $this->sidebar;
+			$variablesSidebar['base_url'] = $this->getBaseUrl();
+			$variablesSidebar['my_url'] = $this->getMyUrl();
+			$variables['sidebar'] = $this->load->view($this->sidebarTemplate, $variablesSidebar, true);
+      	} else {
+      		$variables['sidebar'] = null;
+      	}
 		
         $variables["info"] = $this->getInfo();
 		$variables["success"] = $this->getSuccess();
@@ -303,6 +317,17 @@ class MA_Controller extends CI_Controller {
     function getLimit() {
     	return $this->limit;
     }
+		
+	function setIsSidebar($isSidebar) {
+		$this->isSidebar = $isSidebar;
+	}
+    
+	function setSidebar($diskriminatoren, $items, $activeElementID, $template) {
+		$this->sidebar["diskriminatoren"] = $diskriminatoren;
+		$this->sidebar["items"] = $items;
+		$this->sidebar["activeElementID"] = $activeElementID;
+		$this->sidebarTemplate = $template;
+	}
 }
 	
 ?>

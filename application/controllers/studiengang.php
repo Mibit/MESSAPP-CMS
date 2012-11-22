@@ -34,11 +34,17 @@ class Studiengang extends MA_Controller {
         
         $variables["stg"] = $stg;
         
+        //Sidebar aktivieren
+        $this->setIsSidebar(true);
+        $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"),$stg->stgID, "studiengang_sidebar");
+        
+        /*
         //Toolbar setzen
         $toolbar[] = array("name" => "save", "caption" => "Speichern", "url" => "javascript: submitbutton('save')");
-        $toolbar[] = array("name" => "back", "caption" => "Zurück", "url" => $this->getMyUrl() . "index");
+        $toolbar[] = array("name" => "back", "caption" => "Zurï¿½ck", "url" => $this->getMyUrl() . "index");
         $variables['toolbar'] = $toolbar;
-            
+        */
+        
         //AC Methode um Views anzuzeigen
         $this->loadView("studiengang",$variables);
     }
@@ -143,7 +149,7 @@ class Studiengang extends MA_Controller {
 
         if($stg->freigabe) {
         	/*
-        	// Freigabe nur wenn alle Felder ausgefüllt sind
+        	// Freigabe nur wenn alle Felder ausgefï¿½llt sind
         	if(!($stg->stgName && $stg->stgArt && $stg->highlights && $stg->titelbild)) {
         		$stg->freigabe = false;
         		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");

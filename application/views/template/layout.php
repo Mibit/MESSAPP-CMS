@@ -15,8 +15,9 @@
 	
 		<?php echo $systemMessages; ?>
 	
+		<?php echo $sidebar; ?>
+		
 		<?php echo $mainContent; ?>
-	    
 	    
 	    <noscript>
 	    	Warning! JavaScript must be enabled for proper operation of the Administrator back-end.
