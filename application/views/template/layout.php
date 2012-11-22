@@ -14,8 +14,9 @@
 	<body>
 	
 		<?php echo $systemMessages; ?>
-	
-		<?php echo $sidebar; ?>
+		
+		<div style="float: left"><?php echo $sidebar; ?></div>
+		
 		
 		<?php echo $mainContent; ?>
 	    
