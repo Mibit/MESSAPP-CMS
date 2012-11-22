@@ -36,7 +36,7 @@ class Studiengang extends MA_Controller {
         
         //Toolbar setzen
         $toolbar[] = array("name" => "save", "caption" => "Speichern", "url" => "javascript: submitbutton('save')");
-        $toolbar[] = array("name" => "back", "caption" => "ZurÃ¼ck", "url" => $this->getMyUrl() . "index");
+        $toolbar[] = array("name" => "back", "caption" => "Zurück", "url" => $this->getMyUrl() . "index");
         $variables['toolbar'] = $toolbar;
             
         //AC Methode um Views anzuzeigen
@@ -143,7 +143,7 @@ class Studiengang extends MA_Controller {
 
         if($stg->freigabe) {
         	/*
-        	// Freigabe nur wenn alle Felder ausgefÃ¼llt sind
+        	// Freigabe nur wenn alle Felder ausgefüllt sind
         	if(!($stg->stgName && $stg->stgArt && $stg->highlights && $stg->titelbild)) {
         		$stg->freigabe = false;
         		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");

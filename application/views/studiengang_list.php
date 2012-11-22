@@ -3,7 +3,7 @@
 		<tr>
 			<th>&nbsp;#&nbsp;</th>
 			<th>&nbsp;</th>
-			<th><?php echo sort_header("stgID", "Studiengang", $sortCol, $sortDir); ?>&nbsp;&nbsp;<a href="<?php echo $my_url."edit" ?>" >Neu</a>
+			<th><?php echo sort_header("stgKBez", "Studiengang", $sortCol, $sortDir); ?>&nbsp;&nbsp;<a href="<?php echo $my_url."edit" ?>" >Neu</a>
 			</th>
 		</tr>
 	</thead>
@@ -24,7 +24,7 @@
 				href="<?php echo $my_url . "delete/" . $item->stgID; ?>">L&ouml;schen
 			</a>
 			</td>
-			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgName); ?>
+			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgKBez); ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>
