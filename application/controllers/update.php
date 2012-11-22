@@ -22,22 +22,27 @@ class Update extends CI_Controller {
 		$current_timestamp = $this->db->query("select UNIX_TIMESTAMP() as timestamp")->row()->timestamp;
 		
 		$stg = new StudiengangData();
-	
+		$fields = array_merge(Array($stg->primary), $stg->dbfields);
+		array_splice($fields, count($fields)-1); // last field will be removed --> freigabe
+		
 		$studiengaenge = array();
 		foreach($stg->getValidStudiengaenge($unixTimestamp) as $stg) {
-			$studiengang = new stdClass();
-			$studiengang->stgID = $stg->stgID;
-			$studiengang->stgName = $stg->stgKBez;
-			$studiengang->stgArt = $stg->stgArt;
-			$studiengang->highlights = $stg->stgHighlights;
-			$studiengang->titelbild = base64_encode($stg->stgImage);
 			
+			$studiengang = new stdClass();
+			foreach($fields as $field) {
+				if(strpos($field, "Image")!==false) {
+					$studiengang->$field = base64_encode($stg->$field);
+				} else {
+					$studiengang->$field = $stg->$field;
+				}
+			}		
+				
 			$studiengaenge[] = $studiengang;
 		}
 		
 		$entfernteStudiengaenge = array();
 		foreach($stg->getInvalidStudiengaenge($unixTimestamp) as $stg) {
-			$entfernteStudiengaenge[] = $stg->stgID;
+			$entfernteStudiengaenge[] = $stg->{$stg->primary};
 		}
 		
 		$json = array(

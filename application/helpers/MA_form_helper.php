@@ -33,6 +33,10 @@ function getFormFieldArray($fieldname, $method = "post") {
     return is_array(getFormFieldValue($fieldname,$method)) ? getFormFieldValue($fieldname,$method) : ( getFormFieldValue($fieldname,$method) ? Array(getFormFieldValue($fieldname,$method)) : Array() );
 }
 
+function getFormFieldBoolean($fieldname, $method = "post") {
+	return getFormFieldValue($fieldname, $method) ? true : false;
+}
+
 function getFormFieldImage($fieldname) {
     if(array_key_exists($fieldname, $_FILES) && $tmpName = $_FILES[$fieldname]["tmp_name"]) {
     	$_FILES[$fieldname]["tmp_name"];

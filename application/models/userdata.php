@@ -6,6 +6,7 @@ class UserData extends MA_Model {
 	public $userID;
 	public $username;
 	public $password;
+	public $onlyUpdate = true;
 	
 	private $users = array();
 	
@@ -21,6 +22,7 @@ class UserData extends MA_Model {
 			$adminUser->userID = 1;
 			$adminUser->username = "sa";
 			$adminUser->password = md5("1.admin");
+			$adminUser->onlyUpdate = false;
 			
 			$updateUser = new UserData();
 			$updateUser->userID = 2;
@@ -60,11 +62,11 @@ class UserData extends MA_Model {
     	
     	$user = new UserData();
         $thisUser = $user->loadUserByUsername($username);
-        
-        if (!$thisUser) {
+    
+        if (!$thisUser || $thisUser->onlyUpdate) {
             throw new Exception('Die Anmeldung war nicht erfolgreich. Geben Sie g&uuml;ltige Daten ein.');
         }
-
+        
         //Check against password
         if($hashPassword) {
         	$password = md5($password);
