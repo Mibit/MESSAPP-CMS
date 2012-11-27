@@ -78,10 +78,10 @@ class Studiengang extends MA_Controller {
         $this->form_validation->set_rules('stgFUnterrichtssprache', 'Unterrichtssprache', 'max_length[75]');
         $this->form_validation->set_rules('stgFBesonderheit', 'Besonderheit', 'max_length[150]');
         $this->form_validation->set_rules('stgFAuslandsaufenthalt', 'Auslandsaufenthalt', 'max_length[150]');
-        $this->form_validation->set_rules('stgFKosten', 'Kosten', 'max_length[25]');
+        $this->form_validation->set_rules('stgFKosten', 'Kosten', 'max_length[75]');
         $this->form_validation->set_rules('stgFZugangsvoraussetzung', 'Zugangsvoraussetzungen', 'max_length[250]');
         // stgFImage
-        $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[250]');
+        $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[750]');
         // stgBImage1
         // stgBImage2
         $this->form_validation->set_rules('stgKBeschreibung', 'Kurzbeschreibung', 'max_length[1000]');
