@@ -34,6 +34,9 @@ class Studiengang extends MA_Controller {
         
         $variables["stg"] = $stg;
         
+        // HTML Editor hinzufügen
+        $this->setHtmlEditor(true);
+       
         //Sidebar aktivieren
         $this->setIsSidebar(true);
         $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"),$stg->stgID, "studiengang_sidebar");

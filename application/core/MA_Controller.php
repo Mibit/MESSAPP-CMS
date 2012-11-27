@@ -13,6 +13,9 @@ class MA_Controller extends CI_Controller {
     private $error = Array();
 
 	//Sidebar
+	public $isHtmlEditor = false;
+	
+	//Sidebar
 	public $isSidebar = false;
 	public $sidebar = Array();
 	public $sidebarTemplate;
@@ -62,7 +65,12 @@ class MA_Controller extends CI_Controller {
 		$variables['my_url'] = $this->getMyUrl();
 		
         $search = "";
-                   
+	
+		if($this->isHtmlEditor) {
+			$variables['header'] .= "<script src=\"" . base_url() . "application/third_party/tiny_mce/tiny_mce.js\"></script>";
+			$variables["header"] .= "<script src=\"{$variables['template_url']}js/custom_tinymce.js\"></script>";
+		}
+		        
 		if($this->isList) {
 			$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 			$sortCol = isset($_REQUEST['sortCol']) ? $_REQUEST['sortCol'] : "";
@@ -312,11 +320,11 @@ class MA_Controller extends CI_Controller {
     protected function setListItems($listItems) {
     	$this->listItems = $listItems;
     }
- 
+
 	function setList($isList) {
 		$this->isList = $isList;
 	}
-        
+	  
     function setLimit($limit) {
     	$this->limit = $limit;
     }
@@ -335,6 +343,11 @@ class MA_Controller extends CI_Controller {
 		$this->sidebar["activeElementID"] = $activeElementID;
 		$this->sidebarTemplate = $template;
 	}
+	
+	function setHtmlEditor($isHtmlEditor) {
+		$this->isHtmlEditor = $isHtmlEditor;
+	}
+      
 }
 	
 ?>
