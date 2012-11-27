@@ -73,7 +73,7 @@ class StudiengangData extends MA_Model {
 		}
 	}
 	
-	private function switchToNormalMode() {
+	private function switchToNormalMode($imagesIncluded = true) {
 		$this->setTableName("studiengaenge");
 		$this->dbfields = array();
 		
@@ -82,17 +82,12 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgBez");
 		$this->addStringField("stgArt");
 		$this->addStringField("stgStgL");
-		$this->addStringField("stgStgLImage");
 		$this->addStringField("stgStgA");
-		$this->addStringField("stgStgAImage");
 		$this->addStringField("stgQuote");
 		$this->addStringField("stgHighlights");
 		$this->addStringField("stgStgLInfo");
 		$this->addStringField("stgStgAInfo");
-		$this->addStringField("stgHImage1");
-		$this->addStringField("stgHImage2");
 		$this->addStringField("stgBigH");
-		$this->addStringField("stgCurriculumImage");
 		$this->addStringField("stgFOrganisationsform");
 		$this->addStringField("stgFStudienplaetze");
 		$this->addStringField("stgFBewerbungsmodus");
@@ -103,15 +98,42 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgFAuslandsaufenthalt");
 		$this->addStringField("stgFKosten");
 		$this->addStringField("stgFZugangsvoraussetzungen");
-		$this->addStringField("stgFImage");
 		$this->addStringField("stgBFelder");
-		$this->addStringField("stgBImage1");
-		$this->addStringField("stgBImage2");
 		$this->addStringField("stgKBeschreibung");
-		$this->addStringField("stgKImage1");
-		$this->addStringField("stgKImage2");
-		$this->addStringField("stgImage");
 		$this->addBooleanField("freigabe");
+		
+		if($imagesIncluded) {
+			$this->addStringField("stgStgLImage");
+			$this->addStringField("stgStgAImage");
+			$this->addStringField("stgHImage1");
+			$this->addStringField("stgHImage2");
+			$this->addStringField("stgCurriculumImage");
+			$this->addStringField("stgFImage");
+			$this->addStringField("stgBImage1");
+			$this->addStringField("stgBImage2");
+			$this->addStringField("stgKImage1");
+			$this->addStringField("stgKImage2");
+			$this->addStringField("stgImage");
+		}
+	}
+	
+	public function save($dbfield = null) {
+		if($dbfield) {
+			$this->dbfields = array();
+			$this->setPrimary("stgID");
+			$this->addStringField($dbfield);
+			
+			$save = parent::save();
+			$this->switchToNormalMode();
+			
+			return $save;
+		} else {
+			$this->switchToNormalMode(false);
+			$save = parent::save();
+			$this->switchToNormalMode();
+			
+			return $save;
+		}
 	}
 	
 	public function delete() {
