@@ -18,9 +18,9 @@
 	<h1>MessApp CMS</h1>
 			<?php echo form_open("{$my_url}/authentification", array("name" => "loginForm", "id" => "loginForm")); ?>
 			<label for="username">Username</label>
-			<?php echo form_input(array("name" => "username", "id" => "username"), $username); ?>
+			<?php echo form_input(array("name" => "username", "id" => "username", "style" => "width: 160px;"), $username); ?>
 			<br /> <label for="password">Passwort</label>&nbsp;&nbsp;&nbsp;<input name="password"
-				id="password" type="password" /> <br /> <input type="submit"
+				id="password" type="password" style="width: 160px;"/> <br /> <input type="submit"
 				value="Login" />
 
 			<?php echo form_close(); ?>
