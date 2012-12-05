@@ -1,0 +1,24 @@
+@CHARSET "ISO-8859-1";
+
+body {
+    text-align: center;
+}
+
+img.fhLogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+div.loginBg {
+	background-image: url(../images/ipad.png);
+	background-size: 320px 210px;
+	background-repeat:no-repeat;
+	background-position: center;
+	height: 310px;
+	width: 320px;
+	margin-left:auto;
+	margin-right:auto;
+	font-family: Arial;
+	font-size: 12pt;
+}
