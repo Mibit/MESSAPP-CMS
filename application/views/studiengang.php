@@ -2,7 +2,7 @@
 <?php echo form_hidden("stgID", $stg->stgID); ?>
 <?php echo form_hidden("target"); ?>
 <div class="col width-100">
-<fieldset><legend>Studieng&auml;nge</legend>
+<fieldset><legend>Studiengang</legend>
 <table>
 	<tr>
 		<td><label for="stgKBez">Kurzbezeichnung des Studiengangs: </label><?php echo form_input(array("name" => "stgKBez", "value" => $stg->stgKBez)); ?></td>
@@ -15,6 +15,10 @@
 		<label for="stgArt"> Master </label><?php echo form_radio(array("name" => "stgArt", "value" => "M", "checked" => ($stg->stgArt=="M"? "checked": "") )); ?>
 		</td>
 	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Studiengangsleitung</legend>
+<table>
 	<tr>
 		<td><label for="stgStgL">Name der Studiengangsleitung: </label><?php echo form_input(array("name" => "stgStgL", "value" => $stg->stgStgL)); ?></td>
 	</tr>
@@ -38,17 +42,22 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label for="stgQuote">Zitat: </label><?php echo form_textarea(array("name" => "stgQuote", "value" => $stg->stgQuote)); ?></td>
-	</tr>
-	<tr>
-		<td><label for="stgHighlights">Kurze Highlights: </label><?php echo form_textarea(array("name" => "stgHighlights", "value" => $stg->stgHighlights)); ?></td>
-	</tr>
-	<tr>
 		<td><label for="stgStgLInfo">Info zum Studiengangsleiter: </label><?php echo form_input(array("name" => "stgStgLInfo", "value" => $stg->stgStgLInfo)); ?></td>
 	</tr>
 	<tr>
 		<td><label for="stgStgAInfo">Info zur Studiengangsassistenz: </label><?php echo form_input(array("name" => "stgStgAInfo", "value" => $stg->stgStgAInfo)); ?></td>
 	</tr>
+	<tr>
+		<td><label for="stgQuote">Zitat: </label><?php echo form_textarea(array("name" => "stgQuote", "value" => $stg->stgQuote)); ?></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Highlights</legend>
+<table>
+	<tr>
+		<td><label for="stgHighlights">Kurze Highlights: </label><?php echo form_textarea(array("name" => "stgHighlights", "value" => $stg->stgHighlights)); ?></td>
+	</tr>
+
 	<tr>
 		<td><label for="stgHImage1">Highlightsbild 1: </label>
 		<div><?php if($stg->stgHImage1) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage1). "\" />"; } ?>
@@ -66,6 +75,10 @@
 	<tr>
 		<td><label for="stgBigH">Gro&szlig;e Highlights: </label><?php echo form_textarea(array("name" => "stgBigH", "value" => $stg->stgBigH)); ?></td>
 	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Curriculum</legend>
+<table>
 	<tr>
 		<td><label for="stgCurriculumImage">Bild des Curriculums: </label>
 		<div><?php if($stg->stgCurriculumImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage). "\" />"; } ?>
@@ -73,6 +86,10 @@
 		</div>
 		</td>
 	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Fakten</legend>
+<table>
 	<tr>
 		<td><label for="stgFOrganisationsform"> Vollzeit </label><?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
 		<label for="stgFOrganisationsform"> berufsbegleitend </label><?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "bb", "checked" => ($stg->stgFOrganisationsform=="bb"? "checked": "") )); ?>
@@ -112,6 +129,10 @@
 		</div>
 		</td>
 	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Berufsfelder</legend>
+<table>
 	<tr>
 		<td><label for="stgBFelder">Berufsfelder: </label><?php echo form_textarea(array("name" => "stgBFelder", "value" => $stg->stgBFelder)); ?></td>
 	</tr>
@@ -146,6 +167,10 @@
 		</div>
 		</td>
 	</tr>
+</table>
+</fieldset>
+<fieldset><legend>Bild zum Studiengang</legend>
+<table>
 	<tr>
 		<td><label for="stgImage">Titelbild des Studienganges: </label>
 		<div><?php if($stg->stgImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgImage). "\" />"; } ?>
