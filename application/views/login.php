@@ -15,7 +15,7 @@
 		style="width: 25%; height: 25%" />
 	<?php echo $systemMessages; ?>
 	<div class="loginBg">
-	<br />
+	<h1>MessApp CMS</h1>
 			<?php echo form_open("{$my_url}/authentification", array("name" => "loginForm", "id" => "loginForm")); ?>
 			<label for="username">Username</label>
 			<?php echo form_input(array("name" => "username", "id" => "username"), $username); ?>

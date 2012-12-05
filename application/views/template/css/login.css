@@ -11,6 +11,7 @@ img.fhLogo {
 }
 
 div.loginBg {
+	padding-top: 120px;
 	background-image: url(../images/ipad.png);
 	background-size: 320px 210px;
 	background-repeat:no-repeat;
