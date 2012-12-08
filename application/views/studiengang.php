@@ -173,7 +173,7 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label for="freigabe">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?></td>
+		<td></td>
 	</tr>
 	<tr>
 		<td>&nbsp;&nbsp;<?php echo form_button(array("name" => "back", "value" => true, "content" => "Zur&uuml;ck", "onClick" => "window.location.replace('$my_url')"))?>
@@ -183,7 +183,7 @@
 </fieldset>
 </div>
 
-<div id="status"><?php echo form_submit(array("name" => "submit", "value" => "Speichern"))?></div>
+<div id="status"><?php echo $systemMessages; ?>&nbsp;|&nbsp;<label for="freigabe" style="font-weight: bold">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?>&nbsp;&nbsp;<?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button"))?></div>
 
 <div class="clr"></div>
 <?php echo form_close(); ?>
