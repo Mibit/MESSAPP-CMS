@@ -25,7 +25,7 @@
 	<tr>
 		<td><label for="stgStgLImage">Bild der Studiengangsleitung: <br />
 		</label>
-		<div><?php if($stg->stgStgLImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgLImage). "\" />"; } ?>
+		<div><a href="<?php echo "http://localhost/MessApp/d.png"?>" class="thickbox"><?php if($stg->stgStgLImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgLImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgStgLImage", "value" => $stg->stgStgLImage)); ?>
 		</div>
 		</td>
@@ -36,7 +36,7 @@
 	<tr>
 		<td><label for="stgStgAImage">Bild der Studiengangsasistenz: <br />
 		</label>
-		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgStgAImage)?>" class="thickbox"><?php if($stg->stgStgAImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgAImage). "\" />"; } ?></a>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgStgAImage) ?>" class="thickbox"><?php if($stg->stgStgAImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgAImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgStgAImage", "value" => $stg->stgStgAImage)); ?>
 		</div>
 		</td>
