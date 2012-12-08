@@ -1,9 +1,11 @@
-<table class="adminlist" cellpadding="0" cellspacing="0">
+<table class="adminlist" cellpadding="0" cellspacing="2">
 	<thead>
 		<tr>
 			<th>&nbsp;#&nbsp;</th>
-			<th>&nbsp;</th>
-			<th><?php echo sort_header("stgKBez", "Studiengang", $sortCol, $sortDir); ?>&nbsp;&nbsp;<a href="<?php echo $my_url."edit" ?>" class="new"><img alt="Neuer Studiengang" src="<?php echo $template_url ?>images/new.png" /></a>
+			<th><a href="<?php echo $my_url."edit" ?>" class="new"><img alt="Neuer Studiengang" src="<?php echo $template_url ?>images/new.png" /></a></th>
+			<th><?php echo sort_header("stgKBez", "Kurzbezeichnung", $sortCol, $sortDir); ?>
+			</th>
+			<th><?php echo sort_header("stgBez", "Studiengang", $sortCol, $sortDir); ?>
 			</th>
 		</tr>
 	</thead>
@@ -26,6 +28,8 @@
 			</a>
 			</td>
 			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgKBez); ?>
+			</td>
+			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgBez); ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>

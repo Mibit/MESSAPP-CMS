@@ -19,11 +19,10 @@
 body {
 	font-family: Tahoma, eurosti, Verdana, Geneva, sans-serif;
 	background-color: rgb(212,217,223);
-	padding: 10px;	
+	padding: 12px;	
+	margin: 0;
 }
 
-body > div {
-}
 
 div.stgForm label { 
 	display: inline-block;
@@ -240,15 +239,95 @@ a.new img {
 	height: 25px;	
 }
 
-form#listForm table.adminlist tbody th, form#listForm table.adminlist tbody td {
-	padding: 4px;
+form#listForm table.adminlist thead th, form#listForm table.adminlist tbody td {
+	padding: 3px 12px;
+	text-align: left;
 }
 
 form#listForm table.adminlist tbody td, form#listForm table.adminlist thead th {
 	margin: 0;
-	border-bottom: thin solid black;
+	border-bottom: thin solid #999;
 }
 
 form#listForm table.adminlist thead tr, form#listForm table.adminlist tbody tr.row1 {
-	background-color: #CCC;
+	//background-color: #CCC;
 }
+
+form#listForm table.adminlist thead {
+	color: #666;
+}
+
+form#listForm table.adminlist thead a {
+	color: rgb(0,99,166);
+	text-decoration: none;
+}
+
+
+form#listForm table.adminlist a:hover {
+	text-decoration: underline;
+}
+
+form#listForm table.adminlist tbody {
+	color: #666;
+}
+
+form#listForm table.adminlist tbody a {
+	color: rgb(0,99,166);
+	text-decoration: none;
+}
+
+
+div#status {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	padding: 10px 0;
+	width: 100%;
+	
+	color: #333333;
+	border-top: thin solid #DDDDDD;
+	background-color: #EEEEEE;
+}
+
+button, div#prompt div.button {
+	white-space: nowrap;
+	padding: 5px;
+	font-size: 1.6em;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: center;
+}
+
+div#status div.button {
+	width: 170px;
+	height: auto;
+	margin: 0 10px;
+	
+	border: thin solid rgb(145,199,95);
+	background: rgb(144,216,27);
+	color: white;
+	
+}
+
+div#status div.button, {
+	border: thin solid rgb(145,199,95);
+	background: rgb(144,216,27);
+	color: white;
+}
+
+div#status div.button:hover, {
+	border: thin solid rgb(145,199,95);
+	background: rgb(195,249,145);
+	color: #666666;
+}
+
+div.overflow div.button {
+	white-space: nowrap;
+	padding: 0px;
+	cursor: pointer;
+	text-align: center;
+	
+	height: 17px;
+}
+
+
