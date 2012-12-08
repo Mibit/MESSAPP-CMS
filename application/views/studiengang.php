@@ -1,7 +1,7 @@
 <?php echo form_open("{$my_url}save", array("name" => "form", "id" => "form", "enctype" => "multipart/form-data")); ?>
 <?php echo form_hidden("stgID", $stg->stgID); ?>
 <?php echo form_hidden("target"); ?>
-<div class="col width-100">
+<div class="stgForm">
 <fieldset><legend>Studiengang</legend>
 <table>
 	<tr>
@@ -25,7 +25,7 @@
 	<tr>
 		<td><label for="stgStgLImage">Bild der Studiengangsleitung: <br />
 		</label>
-		<div><a href="<?php echo "http://localhost/MessApp/d.png"?>" class="thickbox"><?php if($stg->stgStgLImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgLImage). "\" />"; } ?></a>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgStgLImage) ?>" class="thickbox"><?php if($stg->stgStgLImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgLImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgStgLImage", "value" => $stg->stgStgLImage)); ?>
 		</div>
 		</td>
@@ -36,7 +36,7 @@
 	<tr>
 		<td><label for="stgStgAImage">Bild der Studiengangsasistenz: <br />
 		</label>
-		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgStgAImage) ?>" class="thickbox"><?php if($stg->stgStgAImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgAImage). "\" />"; } ?></a>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgStgAImage) ?>" class="thickbox"><?php if($stg->stgStgAImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgStgAImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgStgAImage", "value" => $stg->stgStgAImage)); ?>
 		</div>
 		</td>
@@ -60,14 +60,14 @@
 
 	<tr>
 		<td><label for="stgHImage1">Highlightsbild 1: </label>
-		<div><?php if($stg->stgHImage1) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage1). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgHImage1) ?>" class="thickbox"><?php if($stg->stgHImage1) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage1). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgHImage1", "value" => $stg->stgHImage1)); ?>
 		</div>
 		</td>
 	</tr>
 	<tr>
 		<td><label for="stgHImage2">Highlightsbild 2: </label>
-		<div><?php if($stg->stgHImage2) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage2). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgHImage2) ?>" class="thickbox"><?php if($stg->stgHImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgHImage2", "value" => $stg->stgHImage2)); ?>
 		</div>
 		</td>
@@ -81,7 +81,7 @@
 <table>
 	<tr>
 		<td><label for="stgCurriculumImage">Bild des Curriculums: </label>
-		<div><?php if($stg->stgCurriculumImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage) ?>" class="thickbox"><?php if($stg->stgCurriculumImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgCurriculumImage", "value" => $stg->stgCurriculumImage)); ?>
 		</div>
 		</td>
@@ -124,7 +124,7 @@
 	</tr>
 	<tr>
 		<td><label for="stgFImage">Faktenbild: </label>
-		<div><?php if($stg->stgFImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgFImage). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgFImage) ?>" class="thickbox"><?php if($stg->stgFImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgFImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgFImage", "value" => $stg->stgFImage)); ?>
 		</div>
 		</td>
@@ -138,14 +138,14 @@
 	</tr>
 	<tr>
 		<td><label for="stgBImage1">Berufsfelderbild 1: </label>
-		<div><?php if($stg->stgBImage1) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgBImage1). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgBImage1) ?>" class="thickbox"><?php if($stg->stgBImage1) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgBImage1). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgBImage1", "value" => $stg->stgBImage1)); ?>
 		</div>
 		</td>
 	</tr>
 	<tr>
 		<td><label for="stgBImage2">Berufsfelderbild 2: </label>
-		<div><?php if($stg->stgBImage2) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgBImage2). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgBImage2) ?>" class="thickbox"><?php if($stg->stgBImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgBImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgBImage2", "value" => $stg->stgBImage2)); ?>
 		</div>
 		</td>
@@ -155,14 +155,14 @@
 	</tr>
 	<tr>
 		<td><label for="stgKImage1">Bild 1 zur Kurzbeschreibung: </label>
-		<div><?php if($stg->stgKImage1) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage1). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgKImage1) ?>" class="thickbox"><?php if($stg->stgKImage1) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage1). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgKImage1", "value" => $stg->stgKImage1)); ?>
 		</div>
 		</td>
 	</tr>
 	<tr>
 		<td><label for="stgKImage2">Bild 2 zur Kurzbeschreibung: </label>
-		<div><?php if($stg->stgKImage2) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage2). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgKImage2) ?>" class="thickbox"><?php if($stg->stgKImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgKImage2", "value" => $stg->stgKImage2)); ?>
 		</div>
 		</td>
@@ -173,7 +173,7 @@
 <table>
 	<tr>
 		<td><label for="stgImage">Titelbild des Studienganges: </label>
-		<div><?php if($stg->stgImage) { echo "<img height=\"150\" src=\"data:image/jpeg;base64," . base64_encode($stg->stgImage). "\" />"; } ?>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgImage) ?>" class="thickbox"><?php if($stg->stgImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgImage", "value" => $stg->stgImage)); ?>
 		</div>
 		</td>
