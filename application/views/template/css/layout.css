@@ -21,6 +21,11 @@ body {
 	font-family: Tahoma, eurosti, Verdana, Geneva, sans-serif;
 }
 
+div.stgForm label { 
+	display: inline-block;
+	width: 270px;
+}
+
 div.stgForm img {
 	width: 75px;
 	heigth: 75px;

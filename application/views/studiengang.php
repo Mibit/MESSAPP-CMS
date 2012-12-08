@@ -11,8 +11,8 @@
 		<td><label for="stgBez">Voller Studiengangsname: </label><?php echo form_input(array("name" => "stgBez", "value" => $stg->stgBez)); ?></td>
 	</tr>
 	<tr>
-		<td><label for="stgArt">Bachelor </label><?php echo form_radio(array("name" => "stgArt", "value" => "B", "checked" => ($stg->stgArt=="B"? "checked": "") )); ?>
-		<label for="stgArt"> Master </label><?php echo form_radio(array("name" => "stgArt", "value" => "M", "checked" => ($stg->stgArt=="M"? "checked": "") )); ?>
+		<td><label>Art des Studiengangs: </label>Bachelor&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "B", "checked" => ($stg->stgArt=="B"? "checked": "") )); ?>
+		&nbsp;Master&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "M", "checked" => ($stg->stgArt=="M"? "checked": "") )); ?>
 		</td>
 	</tr>
 </table>
@@ -64,8 +64,6 @@
 		<?php echo form_upload(array("name" => "stgHImage1", "value" => $stg->stgHImage1)); ?>
 		</div>
 		</td>
-	</tr>
-	<tr>
 		<td><label for="stgHImage2">Highlightsbild 2: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgHImage2) ?>" class="thickbox"><?php if($stg->stgHImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgHImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgHImage2", "value" => $stg->stgHImage2)); ?>
@@ -91,8 +89,8 @@
 <fieldset><legend>Fakten</legend>
 <table>
 	<tr>
-		<td><label for="stgFOrganisationsform"> Vollzeit </label><?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
-		<label for="stgFOrganisationsform"> berufsbegleitend </label><?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "bb", "checked" => ($stg->stgFOrganisationsform=="bb"? "checked": "") )); ?>
+		<td><label>Organisationsform: </label>Vollzeit&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
+		&nbsp;berufsbegleitend&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "bb", "checked" => ($stg->stgFOrganisationsform=="bb"? "checked": "") )); ?>
 		</td>
 	</tr>
 	<tr>
@@ -142,8 +140,6 @@
 		<?php echo form_upload(array("name" => "stgBImage1", "value" => $stg->stgBImage1)); ?>
 		</div>
 		</td>
-	</tr>
-	<tr>
 		<td><label for="stgBImage2">Berufsfelderbild 2: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgBImage2) ?>" class="thickbox"><?php if($stg->stgBImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgBImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgBImage2", "value" => $stg->stgBImage2)); ?>
@@ -159,8 +155,6 @@
 		<?php echo form_upload(array("name" => "stgKImage1", "value" => $stg->stgKImage1)); ?>
 		</div>
 		</td>
-	</tr>
-	<tr>
 		<td><label for="stgKImage2">Bild 2 zur Kurzbeschreibung: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgKImage2) ?>" class="thickbox"><?php if($stg->stgKImage2) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage2). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgKImage2", "value" => $stg->stgKImage2)); ?>
