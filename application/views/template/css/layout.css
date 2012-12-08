@@ -39,6 +39,18 @@ div.stgForm legend {
 	text-decoration: underline;
 }
 
+div.stgForm fieldset>table {
+	border-spacing: 10px;
+}
+
+div.stgForm input[type=text] {
+	width: 400px;
+}
+
+textarea { 
+	width: 400px; 
+}
+
 div.clear {
 	clear: both;
 }
