@@ -3,7 +3,7 @@
 	<input type="hidden" name="page" id="page" value="<?php echo $page; ?>" />
 	<input type="hidden" name="sortCol" id="sortCol" value="<?php echo $sortCol; ?>" />
 	<input type="hidden" name="sortDir" id="sortDir" value="<?php echo $sortDir; ?>" />
-
+<!-- 
 	<table>
 		<tr>
 			<td>
@@ -14,7 +14,7 @@
 			</td>
 		</tr>
 	</table>
-	
+ -->
 	<?php echo $mainContent; ?>
  	
 </form>

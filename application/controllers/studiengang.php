@@ -43,6 +43,8 @@ class Studiengang extends MA_Controller {
        
         //Thickbox für Bilder aktivieren
         $this->setUseThickbox(true);
+
+        $this->setStudiengangDetail($this->getMyUrl() . "edit");
         
         /*
         //Toolbar setzen

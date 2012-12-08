@@ -23,6 +23,8 @@ class MA_Controller extends CI_Controller {
 	//Thickbox
 	public $useThickbox = false;
 	
+	public $studiengangDetail = null;
+	
 	//Listenansicht
 	protected $isList = false;
 	protected $listItems = array();
@@ -66,6 +68,8 @@ class MA_Controller extends CI_Controller {
 		$variables['template_url'] = base_url().APPPATH.'views/'.$this->templatePath;
 		
 		$variables['my_url'] = $this->getMyUrl();
+		
+		$variables['studiengangDetail'] = $this->studiengangDetail;
 		
         $search = "";
 	
@@ -360,6 +364,9 @@ class MA_Controller extends CI_Controller {
 		$this->useThickbox = $useThickbox;
 	}
       
+	function setStudiengangDetail($studiengangDetail) {
+		$this->studiengangDetail = $studiengangDetail;
+	}
 }
 	
 ?>

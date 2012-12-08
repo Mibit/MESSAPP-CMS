@@ -84,12 +84,12 @@ div#headerbar div.separator-left {
 	padding: 1px 7px;
 }
 
-div#headerbar div#home {
+div#headerbar div#home, div#headerbar div#new {
 	float: left;
 	width: auto;
 }
 
-div#headerbar div#home div {
+div#headerbar div#home div, div#headerbar div#new div {
 	position: absolute;	
 	
 	-moz-border-radius: 7px;
@@ -112,7 +112,7 @@ h1 {
 	padding: 0;
 }
 
-div#headerbar div#home div:hover {
+div#headerbar div#home div:hover, div#headerbar div#new div:hover {
 	
 	background-color: rgb(0,99,166);
 	opacity: 0.5;
@@ -121,7 +121,7 @@ div#headerbar div#home div:hover {
 	cursor: pointer;
 }
 
-div#headerbar div#home img {
+div#headerbar div#home img, div#headerbar div#new img {
 	height: 30px;
 }
 
@@ -230,4 +230,25 @@ div#sidebar div.sidebarItemBox .itemCategory {
 div#sidebar div.sidebarItemBox .itemCategory li {
 
 	list-style-image: url(../images/sidebar_leaf.gif);
+}
+
+a.delete img {
+	height: 20px;	
+}
+
+a.new img {
+	height: 25px;	
+}
+
+form#listForm table.adminlist tbody th, form#listForm table.adminlist tbody td {
+	padding: 4px;
+}
+
+form#listForm table.adminlist tbody td, form#listForm table.adminlist thead th {
+	margin: 0;
+	border-bottom: thin solid black;
+}
+
+form#listForm table.adminlist thead tr, form#listForm table.adminlist tbody tr.row1 {
+	background-color: #CCC;
 }
