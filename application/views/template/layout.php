@@ -12,7 +12,7 @@
 	
 	</head>
 	<body>
-	
+		
 		<div id="headerbar">
 			<div id="home" class="separator-right">
 				<div>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<?php echo $systemMessages; ?>
+		<?php if(!$studiengangDetail) echo $systemMessages; ?>
 		<div id="sidebar">
 			<?php echo $sidebar; ?>
 		</div>
@@ -52,5 +52,5 @@
 	    <noscript>
 	    	Warning! JavaScript must be enabled for proper operation of the Administrator back-end.
 	    </noscript>
-	    
+	    <input type="hidden" name="templateURL" value="<?php echo $template_url; ?>" />
 </html>

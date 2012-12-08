@@ -128,8 +128,10 @@ class MA_Controller extends CI_Controller {
 		$variables["success"] = $this->getSuccess();
 		$variables["alert"] = $this->getAlert();
         $variables["error"] = $this->getError();
-            
-		$variables["mainContent"] = $this->load->view($view, $variables, true);
+        
+        $variables["systemMessages"] = $this->load->view($this->templatePath."system_messages", $variables, true);
+		
+        $variables["mainContent"] = $this->load->view($view, $variables, true);
 		
 		if($this->isList) {
 			$variables["mainContent"] = $this->load->view($this->templatePath."list", $variables, true);
@@ -138,7 +140,6 @@ class MA_Controller extends CI_Controller {
 		if($returnContent) {
 			return $mainContent;
 		} else {
-            $variables["systemMessages"] = $this->load->view($this->templatePath."system_messages", $variables, true);
 			$this->load->view($template, $variables);
 		}
 				

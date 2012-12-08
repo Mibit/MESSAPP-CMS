@@ -2,7 +2,7 @@
 <?php echo form_hidden("stgID", $stg->stgID); ?>
 <?php echo form_hidden("target"); ?>
 <div class="stgForm">
-<fieldset><legend>Studiengang</legend>
+<fieldset><legend><a id="Studiengang">Studiengang</a></legend>
 <table>
 	<tr>
 		<td><label for="stgKBez">Kurzbezeichnung des Studiengangs: </label><?php echo form_input(array("name" => "stgKBez", "value" => $stg->stgKBez)); ?></td>
@@ -17,7 +17,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Studiengangsleitung</legend>
+<fieldset><legend><a id="Studiengangsleitung">Studiengangsleitung</a></legend>
 <table>
 	<tr>
 		<td><label for="stgStgL">Name der Studiengangsleitung: </label><?php echo form_input(array("name" => "stgStgL", "value" => $stg->stgStgL)); ?></td>
@@ -52,7 +52,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Highlights</legend>
+<fieldset><legend><a id="Highlights">Highlights</a></legend>
 <table>
 	<tr>
 		<td><label for="stgHighlights">Kurze Highlights: </label><?php echo form_textarea(array("name" => "stgHighlights", "value" => $stg->stgHighlights)); ?></td>
@@ -75,7 +75,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Curriculum</legend>
+<fieldset><legend><a id="Curriculum">Curriculum</a></legend>
 <table>
 	<tr>
 		<td><label for="stgCurriculumImage">Bild des Curriculums: </label>
@@ -86,7 +86,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Fakten</legend>
+<fieldset><legend><a id="Fakten">Fakten</a></legend>
 <table>
 	<tr>
 		<td><label>Organisationsform: </label>Vollzeit&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
@@ -129,7 +129,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Berufsfelder</legend>
+<fieldset><legend><a id="Berufsfelder">Berufsfelder</a></legend>
 <table>
 	<tr>
 		<td><label for="stgBFelder">Berufsfelder: </label><?php echo form_textarea(array("name" => "stgBFelder", "value" => $stg->stgBFelder)); ?></td>
@@ -163,7 +163,7 @@
 	</tr>
 </table>
 </fieldset>
-<fieldset><legend>Bild zum Studiengang</legend>
+<fieldset><legend><a id="BildzumStudiengang">Bild zum Studiengang</a></legend>
 <table>
 	<tr>
 		<td><label for="stgImage">Titelbild des Studienganges: </label>
@@ -175,15 +175,11 @@
 	<tr>
 		<td></td>
 	</tr>
-	<tr>
-		<td>&nbsp;&nbsp;<?php echo form_button(array("name" => "back", "value" => true, "content" => "Zur&uuml;ck", "onClick" => "window.location.replace('$my_url')"))?>
-	
-	</tr>
 </table>
 </fieldset>
 </div>
-
-<div id="status"><?php echo $systemMessages; ?>&nbsp;|&nbsp;<label for="freigabe" style="font-weight: bold">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?>&nbsp;&nbsp;<?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button"))?></div>
+<?php echo form_submit(array("style" => "display:none;")); ?>
+<div id="status"><?php echo $systemMessages; ?>&nbsp;&nbsp;<label for="freigabe" style="font-weight: bold">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?>&nbsp;&nbsp;<?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript:$('form#form input[type=\'submit\']').trigger('click');"))?></div>
 
 <div class="clr"></div>
 <?php echo form_close(); ?>

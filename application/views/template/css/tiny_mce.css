@@ -1,0 +1,15 @@
+@CHARSET "UTF-8";
+
+body {
+	font-family: Tahoma, Verdana, Geneva, sans-serif;
+}
+
+ul {
+	list-style: none;
+	margin-left: 10px;
+	padding-left: 1em;
+	text-indent: -2em;
+	}
+ul li:before {
+	content: ">> ";
+}
