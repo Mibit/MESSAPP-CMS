@@ -14,7 +14,7 @@
 	<body>
 	
 		<div id="headerbar">
-			<div id="logout" valign="bottom">
+			<div id="logout">
 				<a href="<?php echo base_url().index_page()."/login/logout"; ?>">
 					<img src="<?php echo $template_url; ?>images/logout.png" alt="logout" />
 				</a>
@@ -22,12 +22,14 @@
 		</div>
 		<div class="clear"></div>
 		<?php echo $systemMessages; ?>
+		<div id="sidebar">
+			<?php echo $sidebar; ?>
+		</div>
+		<div style="clear: right"></div>
 		
-		<div style="float: left"><?php echo $sidebar; ?></div>
-		
-		
-		<?php echo $mainContent; ?>
-	    
+		<div id="content">
+			<?php echo $mainContent; ?>
+	    </div>
 	    <noscript>
 	    	Warning! JavaScript must be enabled for proper operation of the Administrator back-end.
 	    </noscript>

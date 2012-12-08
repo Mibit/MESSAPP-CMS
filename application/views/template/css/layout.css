@@ -1,5 +1,26 @@
 @CHARSET "UTF-8";
 
+
+@font-face {
+	font-family: 'eurosti';
+	src: url('../fonts/eurosti.eot');
+	src: local('☺'), url('../fonts/eurosti.woff') format('woff'), url('../fonts/eurosti.ttf') format('truetype'), url('../fonts/eurosti.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'eurostib';
+	src: url('../fonts/eurostib.eot');
+	src: local('☺'), url('../fonts/eurostib.woff') format('woff'), url('../fonts/eurostib.ttf') format('truetype'), url('../fonts/eurostib.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	
+	font-family: Tahoma, eurosti, Verdana, Geneva, sans-serif;
+}
+
 div.clear {
 	clear: both;
 }
@@ -9,16 +30,117 @@ div#headerbar {
 	height: 35px;
 	border: thin solid grey;
 	background-color: #DDDDDD;
+	
+	
+	border: 3px solid rgb(0,99,166);
+	border-style: outset;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
 }
-
 
 div#logout {
 	float: right;
 }
 
-
 div#logout img {
 	height: 30px;
 	width: auto;
 	margin: 2px;
+}
+
+div#sidebar {
+	
+	float: left;
+	height: 100%;
+	width: 200px;
+	
+	border: 3px solid rgb(0,99,166);
+	border-style: outset;
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	
+	background-color: #EFEFEF;
+	padding: 5px;
+	margin-top: 15px;
+	
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+div#content {
+	display: inline-block;
+	width: auto;
+	margin-left: 20px;
+}
+
+div#sidebar div.sidebarDiskriminatorBox {
+	
+	margin: 5px;
+	border: thin solid rgb(0,99,166);
+	background-color: rgb(0,99,166);
+	color: #FFFFFF;
+	
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	padding: 3px 5px 0 5px;
+}
+
+div#sidebar div.sidebarDiskriminatorBox:hover {
+	
+	background-color: #FFFFFF;
+	color: rgb(0,99,166);
+	cursor: pointer;
+}
+
+div#sidebar .open {
+	
+	float:left;
+	margin: 0 7px 0 0;
+	padding: 0 4px;
+	border: thin solid rgb(0,99,166);
+
+	background-color: rgb(0,99,166);
+	color: #FFFFFF;
+	
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	
+	font-family: monospace;
+	font-size: 12pt;
+	text-decoration: none !important;
+}
+
+div#sidebar .open:hover {
+	cursor: default;
+}
+
+div#sidebar div.sidebarItemBox {
+	margin-top: 5px;
+	margin-left: 15px;	
+}
+
+div#sidebar div.sidebarItemBox a.caption   {
+	
+	color: rgb(0,99,166);
+	font-family: eurostib, Verdana, Geneva, sans-serif;
+}
+
+div#sidebar div.sidebarItemBox a.caption:hover, div#sidebar div.sidebarItemBox .itemCategory a:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+div#sidebar div.sidebarItemBox .itemCategory {
+	
+	color: rgb(0,99,166);
+	text-indent: 0px;
+	margin: 0px;
+	padding-left: 30px;
+	
+}
+
+div#sidebar div.sidebarItemBox .itemCategory li {
+
+	list-style-image: url(../images/sidebar_leaf.gif);
 }

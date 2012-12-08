@@ -1,16 +1,41 @@
-<div>
-	<div id="sidebarDiskriminatorBox">
-			<a onClick="javascript:redirectWithSave('<?php echo $my_url."index"; ?>');" id="sidebarDiskriminator">
+<?php 
+	$subCategories = Array(
+				"Studiengang",
+				"Studiengangsleitung",
+				"Highlights",
+				"Curriculum",
+				"Fakten",
+				"Berufsfelder",
+				"Bild zum Studiengang"
+			);
+
+?>
+	<div class="sidebarDiskriminatorBox">
+			<a onClick="javascript:redirectWithSave('<?php echo $my_url."index"; ?>');">
 				Studieng&auml;nge
 			</a>
 	</div>
+	
 	<?php foreach($items as $item) : ?>
+	
+		<?php $active = ($item->stgID == $activeElementID ? true : false); ?>
+		
 		<div class="sidebarItemBox">
-			<a onClick="javascript:redirectWithSave('<?php echo $my_url."edit/".$item->stgID; ?>');" class="sidebarItem <?php if($activeElementID==$item->stgID) echo " active "; ?>">
+			<div class="open"><a onClick="javascript:changeSubcategoryState(this, $(this).parent().siblings('.itemCategory'));" opened="<?php echo $active ? 1 : 0;?>" ><?php echo $active ? "-" : "+";?></a></div>
+			<a class="caption" onClick="javascript:redirectWithSave('<?php echo $my_url."edit/".$item->stgID; ?>', <?php echo $active ? 1 : 0;?>);" class="sidebarItem <?php if($activeElementID==$item->stgID) echo " active "; ?>">
 				<?php echo $item->stgKBez; ?>
 			</a>
+			<ul class="itemCategory" style="display: <?php echo $active ? "show" : "none"; ?>">
+				<?php foreach($subCategories as $category) : ?>
+				<li>
+					<a onClick="javascript:redirectWithSave('<?php echo $my_url."edit/".$item->stgID . "#" . str_replace(" ", "", $category); ?>', <?php echo $active ? 1 : 0; ?>);" class="sidebarItem <?php if($activeElementID==$item->stgID) echo " active "; ?>">
+						<?php echo $category; ?>
+					</a>
+				</li>
+				<?php endforeach; ?>
+			</ul>
 		</div>
+		
 	<?php endforeach; ?>
 	
-</div>
-<div class="clr"></div>
+	

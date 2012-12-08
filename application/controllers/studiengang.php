@@ -39,8 +39,9 @@ class Studiengang extends MA_Controller {
        
         //Sidebar aktivieren
         $this->setIsSidebar(true);
-        $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"),$stg->stgID, "studiengang_sidebar");
+        $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"), $stg->stgID, "studiengang_sidebar");
        
+        
         /*
         //Toolbar setzen
         $toolbar[] = array("name" => "save", "caption" => "Speichern", "url" => "javascript: submitbutton('save')");

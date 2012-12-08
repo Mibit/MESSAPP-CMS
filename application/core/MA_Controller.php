@@ -100,17 +100,17 @@ class MA_Controller extends CI_Controller {
 			$variables['search'] = $search;
 		}
 		
-		if($this->isSidebar) {
-			$variablesSidebar = $this->sidebar;
-			$variablesSidebar['base_url'] = $this->getBaseUrl();
-			$variablesSidebar['my_url'] = $this->getMyUrl();
-			$variables['sidebar'] = $this->load->view($this->sidebarTemplate, $variablesSidebar, true);
-			
-        	$variables['header'] .= "<script src=\"" . $variables['template_url'] . "js/sidebar.js\"></script>";
- 
-      	} else {
-      		$variables['sidebar'] = null;
-      	}
+		// Sidebar
+		if(!$this->isSidebar) {
+			$this->setSidebar(null,null,null, "template/sidebar");
+		}
+		$variablesSidebar = $this->sidebar;
+		$variablesSidebar['base_url'] = $this->getBaseUrl();
+		$variablesSidebar['my_url'] = $this->getMyUrl();
+		$variables['sidebar'] = $this->load->view($this->sidebarTemplate, $variablesSidebar, true);
+		
+        $variables['header'] .= "<script src=\"" . $variables['template_url'] . "js/sidebar.js\"></script>";
+      	// Ende Sidebar
 		
         $variables["info"] = $this->getInfo();
 		$variables["success"] = $this->getSuccess();
