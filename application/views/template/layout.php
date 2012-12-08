@@ -14,6 +14,14 @@
 	<body>
 	
 		<div id="headerbar">
+			<div id="home">
+				<div>
+					<a href="<?php echo base_url().index_page()."/" . $this->router->routes["default_controller"]; ?>">
+						<img alt="home" src="<?php echo $template_url; ?>images/home.png" />
+					</a>
+				</div>
+				<img alt="home" src="<?php echo $template_url; ?>images/home.png" />
+			</div>
 			<div id="logout">
 				<a href="<?php echo base_url().index_page()."/login/logout"; ?>">
 					<img src="<?php echo $template_url; ?>images/logout.png" alt="logout" />

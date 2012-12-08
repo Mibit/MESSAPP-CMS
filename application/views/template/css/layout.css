@@ -31,14 +31,37 @@ div#headerbar {
 	border: thin solid grey;
 	background-color: #DDDDDD;
 	
-	
 	border: 3px solid rgb(0,99,166);
 	border-style: outset;
 	-moz-border-radius: 7px;
 	border-radius: 7px;
 }
 
-div#logout {
+div#headerbar div#home {
+	float: left;
+	width: auto;
+}
+
+div#headerbar div#home div {
+	position: absolute;	
+}
+
+div#headerbar div#home div:hover {
+	
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	background-color: rgb(0,99,166);
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	
+	cursor: pointer;
+}
+
+div#headerbar div#home img {
+	height: 30px;
+}
+
+div#headerbar div#logout {
 	float: right;
 }
 
