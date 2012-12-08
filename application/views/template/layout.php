@@ -14,7 +14,7 @@
 	<body>
 	
 		<div id="headerbar">
-			<div id="home">
+			<div id="home" class="separator-right">
 				<div>
 					<a href="<?php echo base_url().index_page()."/" . $this->router->routes["default_controller"]; ?>">
 						<img alt="home" src="<?php echo $template_url; ?>images/home.png" />
@@ -22,7 +22,8 @@
 				</div>
 				<img alt="home" src="<?php echo $template_url; ?>images/home.png" />
 			</div>
-			<div id="logout">
+			<div id="pageTitle"><h1><?php echo $page_title; ?></h1></div>
+			<div id="logout" class="separator-left">
 				<a href="<?php echo base_url().index_page()."/login/logout"; ?>">
 					<img src="<?php echo $template_url; ?>images/logout.png" alt="logout" />
 				</a>

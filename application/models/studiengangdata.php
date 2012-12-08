@@ -146,7 +146,7 @@ class StudiengangData extends MA_Model {
     
     public function __toString() {
         if($this->stgID) {
-            return "Studiengang ".$this->stgID;
+            return "Studiengang ".$this->stgKBez;
         } else {
             return "neuer Studiengang";
         }
