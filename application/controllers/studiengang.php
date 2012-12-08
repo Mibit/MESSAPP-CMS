@@ -41,6 +41,8 @@ class Studiengang extends MA_Controller {
         $this->setIsSidebar(true);
         $this->setSidebar(null,$stg->loadMultipleFromDatabase("", "stgKBez", "asc"), $stg->stgID, "studiengang_sidebar");
        
+        //Thickbox für Bilder aktivieren
+        $this->setUseThickbox(true);
         
         /*
         //Toolbar setzen

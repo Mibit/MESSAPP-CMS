@@ -20,6 +20,9 @@ class MA_Controller extends CI_Controller {
 	public $sidebar = Array();
 	public $sidebarTemplate;
 	
+	//Thickbox
+	public $useThickbox = false;
+	
 	//Listenansicht
 	protected $isList = false;
 	protected $listItems = array();
@@ -69,6 +72,11 @@ class MA_Controller extends CI_Controller {
 		if($this->isHtmlEditor) {
 			$variables['header'] .= "<script src=\"" . base_url() . "application/third_party/tiny_mce/tiny_mce.js\"></script>";
 			$variables["header"] .= "<script src=\"{$variables['template_url']}js/custom_tinymce.js\"></script>";
+		}
+		
+		if($this->useThickbox) {
+			$variables["header"] .= "<script src=\"{$variables['template_url']}js/thickbox.js\"></script>";
+			$variables["header"] .= "<link rel=\"stylesheet\" href=\"{$variables['template_url']}css/thickbox.css\" />";
 		}
 		        
 		if($this->isList) {
@@ -346,6 +354,10 @@ class MA_Controller extends CI_Controller {
 	
 	function setHtmlEditor($isHtmlEditor) {
 		$this->isHtmlEditor = $isHtmlEditor;
+	}
+	
+	function setUseThickbox($useThickbox) {
+		$this->useThickbox = $useThickbox;
 	}
       
 }
