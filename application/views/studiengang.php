@@ -168,12 +168,12 @@
 	<tr>
 		<td><label for="stgImage">Titelbild des Studienganges: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgImage) ?>" class="thickbox"><?php if($stg->stgImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgImage). "\" />"; } ?></a>
-		<?php echo form_upload(array("name" => "stgImage", "value" => $stg->stgImage)); ?><br />
+		<?php echo form_upload(array("name" => "stgImage", "value" => $stg->stgImage)); ?><br /><br />
 		</div>
 		</td>
 	</tr>
 	<tr>
-		<td><label for="freigabe">Freigeben: </label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?></td>
+		<td><label for="freigabe">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?></td>
 	</tr>
 	<tr>
 		<td>&nbsp;&nbsp;<?php echo form_button(array("name" => "back", "value" => true, "content" => "Zur&uuml;ck", "onClick" => "window.location.replace('$my_url')"))?>
