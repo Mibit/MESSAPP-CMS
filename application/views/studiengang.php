@@ -181,5 +181,5 @@
 <?php echo form_submit(array("style" => "display:none;")); ?>
 <div id="status"><?php echo $systemMessages; ?>&nbsp;&nbsp;<label for="freigabe" style="font-weight: bold">Freigeben:&nbsp;</label><?php echo form_checkbox(array("name" => "freigabe", "value" => "1", "checked" => ($stg->freigabe ? "checked": "") )); ?>&nbsp;&nbsp;<?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript:$('form#form input[type=\'submit\']').trigger('click');"))?></div>
 
-<div class="clr"></div>
+<div class="clr" style="margin-bottom: <?php echo ((count($info) + count($success) + count($alert) + count($error))* 47  + (validation_errors() ? 47 + ((substr_count(validation_errors(), "<p>")-1) * 21) : 0) + 50); ?>px"></div>
 <?php echo form_close(); ?>

@@ -63,9 +63,9 @@ class Studiengang extends MA_Controller {
     	try {
         $stg = new StudiengangData( getFormFieldValue("stgID") );
 
-        $this->form_validation->set_rules('stgKBez', 'Kurzbezeichnung des Studiengangs', 'required|max_length[5]');
-        $this->form_validation->set_rules('stgBez', 'Voller Studiengangsname', 'required|max_length[60]');
-        $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'required|max_length[1]');
+        $this->form_validation->set_rules('stgKBez', 'Kurzbezeichnung des Studiengangs', 'max_length[5]');
+        $this->form_validation->set_rules('stgBez', 'Voller Studiengangsname', 'max_length[60]');
+        $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'max_length[1]');
         $this->form_validation->set_rules('stgStgL', 'Name der Studiengangsleitung', 'max_length[75]');
         // stgStgLImage
         $this->form_validation->set_rules('stgStgA', 'Name der Studiengangsassistenz', 'max_length[75]');
@@ -78,7 +78,7 @@ class Studiengang extends MA_Controller {
         // stgHImage2
         $this->form_validation->set_rules('stgBigH', 'Gro&szlig;e Highlights', 'max_length[750]');
         // stgCurriculumImage
-        $this->form_validation->set_rules('stgFOrganisationsform', 'Organisationsform', 'required|max_length[2]');
+        $this->form_validation->set_rules('stgFOrganisationsform', 'Organisationsform', 'max_length[2]');
         $this->form_validation->set_rules('stgFStudienplaetze', 'Anzahl der Studienpl&auml;tze', 'max_length[3]');
         $this->form_validation->set_rules('stgFBewerbungsmodus', 'Bewerbungsmodus', 'max_length[100]');
         $this->form_validation->set_rules('stgFDauer', 'Dauer', 'max_length[15]');
@@ -132,91 +132,91 @@ class Studiengang extends MA_Controller {
     	
         if($image = getFormFieldImage("stgStgLImage")) {
         	$stg->stgStgLImage = $image;
+	    	if(!$stg->save("stgStgLImage")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgStgLImage")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgStgAImage")) {
         	$stg->stgStgAImage = $image;
+	    	if(!$stg->save("stgStgAImage")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgStgAImage")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgHImage1")) {
         	$stg->stgHImage1 = $image;
+	    	if(!$stg->save("stgHImage1")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgHImage1")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgHImage2")) {
         	$stg->stgHImage2 = $image;
+	    	if(!$stg->save("stgHImage2")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgHImage2")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgCurriculumImage")) {
         	$stg->stgCurriculumImage = $image;
+	    	if(!$stg->save("stgCurriculumImage")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgCurriculumImage")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgFImage")) {
         	$stg->stgFImage = $image;
+	    	if(!$stg->save("stgFImage")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgFImage")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgBImage1")) {
         	$stg->stgBImage1 = $image;
+	    	if(!$stg->save("stgBImage1")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgBImage1")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgBImage2")) {
         	$stg->stgBImage2 = $image;
+	    	if(!$stg->save("stgBImage2")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgBImage2")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgKImage1")) {
         	$stg->stgKImage1 = $image;
+	    	if(!$stg->save("stgKImage1")) {
+				throw new Exception($validation);
+	    	}
         }
-    	if(!$stg->save("stgKImage1")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgKImage2")) {
         	$stg->stgKImage2 = $image;
+        	if(!$stg->save("stgKImage2")) {
+        		throw new Exception($validation);
+        	}
         }
-    	if(!$stg->save("stgKImage2")) {
-			throw new Exception($validation);
-    	}
     	
         if($image = getFormFieldImage("stgImage")) {
         	$stg->stgImage = $image;
+        	if(!$stg->save("stgImage")) {
+        		throw new Exception($validation);
+        	}
         }
-    	if(!$stg->save("stgImage")) {
-			throw new Exception($validation);
-    	}
+    	
         
         $stg->freigabe = getFormFieldBoolean("freigabe");
 
         if($stg->freigabe) {
-        	/*
-        	// Freigabe nur wenn alle Felder ausgef�llt sind
-        	if(!($stg->stgName && $stg->stgArt && $stg->highlights && $stg->titelbild)) {
+        	
+        	// Freigabe nur wenn alle Felder ausgefüllt sind
+        	if(!($stg->stgKBez && $stg->stgBez && $stg->stgArt && $stg->stgFOrganisationsform && $stg->titelbild)) {
         		$stg->freigabe = false;
         		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
         	}
-        	*/
         }
         
         if($stg->save()) {
