@@ -38,6 +38,7 @@ class StudiengangData extends MA_Model {
 	public $stgKImage2;
 	public $stgImage;
 	public $freigabe;
+	public $timestamp;
 	
 	public function __construct($stgID = null) {
 		parent::__construct();
@@ -66,6 +67,7 @@ class StudiengangData extends MA_Model {
 	private function switchToDeletedMode($getDeleted = false) {
 		$this->setTableName("geloeschte_studiengaenge");
 		$this->dbfields = array();
+		$this->types = array();
 		
 		if(!$getDeleted) {
 			$this->setPrimary("temp");
@@ -73,9 +75,16 @@ class StudiengangData extends MA_Model {
 		}
 	}
 	
-	private function switchToNormalMode($imagesIncluded = true) {
+	public function loadMultipleFromDatabase($SQLWhere = null,$order = '', $ordertype = "ASC", $limitFrom = NULL, $limitCount = NULL) {
+		$this->switchToNormalMode(false, true);
+		
+		return parent::loadMultipleFromDatabase($SQLWhere,$order, $ordertype, $limitFrom, $limitCount);
+	}
+	
+	private function switchToNormalMode($imagesIncluded = true, $timestampIncluded = false) {
 		$this->setTableName("studiengaenge");
 		$this->dbfields = array();
+		$this->types = array();
 		
 		$this->setPrimary("stgID");
 		$this->addStringField("stgKBez");
@@ -115,6 +124,10 @@ class StudiengangData extends MA_Model {
 			$this->addStringField("stgKImage2");
 			$this->addStringField("stgImage");
 		}
+		
+		if($timestampIncluded) {
+			$this->addDateField("timestamp");
+		}
 	}
 	
 	public function save($dbfield = null) {
@@ -152,4 +165,5 @@ class StudiengangData extends MA_Model {
         }
     }
 
+    public function getTimestampFormatted() { return MA_Model::timestampToDatetime($this->timestamp); }
 }

@@ -49,7 +49,7 @@ class MA_Model extends CI_Model {
     function loadFromDbObject(&$dbobject, $id) {
         for ($counter = 0; $counter < count($this->dbfields); $counter++) {
             $dbfield = $this->dbfields[$counter];
-             
+            
             if ($this->types[$counter] == self::DB_TYPE_DATE) {
             	$this->$dbfield = self::datetimeToTimestamp($dbobject->$dbfield);
          	} else {
@@ -203,7 +203,7 @@ class MA_Model extends CI_Model {
     }
 
     public static function timestampToDatetime($timestamp) {
-        return date("Y-m-d H:i:s", $timestamp);
+        return date("d.m.Y H:i", $timestamp);
     }
 
     public static function datetimeToTimestamp($datetime) {

@@ -7,6 +7,8 @@
 			</th>
 			<th><?php echo sort_header("stgBez", "Studiengang", $sortCol, $sortDir); ?>
 			</th>
+			<th><?php echo sort_header("timestamp", "letzte &Auml;nderung", $sortCol, $sortDir); ?>
+			</th>
 		</tr>
 	</thead>
 	<tfoot>
@@ -30,6 +32,8 @@
 			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgKBez); ?>
 			</td>
 			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgBez); ?>
+			</td>
+			<td><?php echo $item->getTimestampFormatted(); ?>
 			</td>
 		</tr>
 		<?php endforeach; ?>

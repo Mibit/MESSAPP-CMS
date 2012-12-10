@@ -282,7 +282,7 @@ class MA_Controller extends CI_Controller {
         for ($itemCounter = count($listItems) - 1; $itemCounter >= 0; $itemCounter--) {
        		for ($i = 0; $i < $itemCounter; $i++) {
             	if ($listItems[$i]->$key > $listItems[$i + 1]->$key) {
-                    $tmp = $data[$i];
+                    $tmp = $listItems[$i];
                     $listItems[$i] = $listItems[$i + 1];       
                     $listItems[$i + 1] = $tmp;
                 }
