@@ -26,6 +26,7 @@ class Update extends CI_Controller {
 		array_splice($fields, count($fields)-1); // last field will be removed --> freigabe
 		
 		$studiengaenge = array();
+		
 		foreach($stg->getValidStudiengaenge($unixTimestamp) as $stg) {
 			
 			$studiengang = new stdClass();

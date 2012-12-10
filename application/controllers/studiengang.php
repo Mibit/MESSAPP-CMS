@@ -59,11 +59,12 @@ class Studiengang extends MA_Controller {
     
     public function save() {
     	$validation = "validation";
+    	$noInput = "noInput";
     	
     	try {
         $stg = new StudiengangData( getFormFieldValue("stgID") );
 
-        $this->form_validation->set_rules('stgKBez', 'Kurzbezeichnung des Studiengangs', 'max_length[5]');
+        $this->form_validation->set_rules('stgKBez', 'Kurzbezeichnung des Studiengangs', 'required|max_length[5]');
         $this->form_validation->set_rules('stgBez', 'Voller Studiengangsname', 'max_length[60]');
         $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'max_length[1]');
         $this->form_validation->set_rules('stgStgL', 'Name der Studiengangsleitung', 'max_length[75]');
@@ -125,6 +126,10 @@ class Studiengang extends MA_Controller {
         $stg->stgBFelder = getFormFieldValue("stgBFelder");
         $stg->stgStgA = getFormFieldValue("stgStgA");
     	$stg->stgKBeschreibung = getFormFieldValue("stgKBeschreibung");
+    	
+    	if($stg == new StudiengangData() && getFormFieldValue("target")) {
+    		throw new Exception($noInput);	
+    	}
     	
     	if(!$this->form_validation->run() || !$stg->save()) {
 			throw new Exception($validation);
@@ -213,7 +218,7 @@ class Studiengang extends MA_Controller {
         if($stg->freigabe) {
         	
         	// Freigabe nur wenn alle Felder ausgefüllt sind
-        	if(!($stg->stgKBez && $stg->stgBez && $stg->stgArt && $stg->stgFOrganisationsform && $stg->titelbild)) {
+        	if(!$stg->checkFreigabe()) {
         		$stg->freigabe = false;
         		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
         	}
@@ -230,7 +235,9 @@ class Studiengang extends MA_Controller {
        	}
         
     	} catch(Exception $ex) {
-    		if($ex->getMessage()!=$validation) {
+    		if($ex->getMessage()==$noInput && ($target = getFormFieldValue("target"))) {
+    			redirect($target);
+    		} elseif($ex->getMessage()!=$validation && $ex->getMessage()!=$noInput) {
     			$this->addError($ex->getMessage());
     		}
     	}
@@ -247,5 +254,24 @@ class Studiengang extends MA_Controller {
         }
         $this->index();
     } 
+    
+    public function freigabe($stgID, $freigabe) {
+    	try {
+    		$stg = new StudiengangData($stgID);
+    		if($freigabe) { 
+    			// Freigabe nur wenn alle Felder ausgefüllt sind
+    			if(!$stg->checkFreigabe()) {
+    				throw new Exception("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
+    			}
+    		}
+    		$stg->freigabe = $freigabe;
+    		$stg->save();
+    	} catch(Exception $e) {
+    		$this->addError($e->getMessage());
+    	}
+    	$this->index();
+    }
+    
+    
 
 }

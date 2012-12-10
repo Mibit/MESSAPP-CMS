@@ -45,6 +45,8 @@ function getFormFieldImage($fieldname) {
     	fclose($fp);
     
     	return $data;
+  	} else if(array_key_exists("{$fieldname}_hidden", $_POST)) {
+  		return base64_decode(getFormFieldValue("{$fieldname}_hidden", "post"));
   	} else {
     	return null;
   	}

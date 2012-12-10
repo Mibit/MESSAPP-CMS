@@ -18,23 +18,55 @@
 body {
     text-align: center;
 	font-family: Tahoma, eurosti, Verdana, Geneva, sans-serif;
-}
-
-img.fhLogo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto 
+	background-color: #FFFFFF;
 }
 
 div.loginBg {
-	padding-top: 120px;
-	background-image: url(../images/ipad.png);
-	background-size: 320px 210px;
-	background-repeat:no-repeat;
-	background-position: center;
-	height: 310px;
+	margin-top: 80px;
+	padding: 0 0 20px 0;
 	width: 320px;
 	margin-left:auto;
 	margin-right:auto;
 	font-size: 12pt;
+	
+	border: thin solid #CCC;
+
+	-moz-border-radius: 7px;
+	border-radius: 7px;
+	
+	text-align: center;
+}
+
+table#loginTable {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+
+h1 {
+	color: #000000;
+	margin: 10px 0 30px 0;
+}
+
+input[type="text"], input[type="password"] {
+	width: 155px;
+}
+
+input[type="submit"] {
+	margin-top: 10px;
+}
+
+button {
+	margin-top:15px;
+	font-size: 12pt;
+	font-weight: normal;
+}
+
+div#status {
+	height: auto;
+	padding: 0px;
+}
+
+dl#system-message {
+	margin-bottom: 16px;
 }

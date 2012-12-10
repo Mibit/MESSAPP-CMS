@@ -168,7 +168,8 @@
 	<tr>
 		<td><label for="stgImage">Titelbild des Studienganges: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgImage) ?>" class="thickbox"><?php if($stg->stgImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgImage). "\" />"; } ?></a>
-		<?php echo form_upload(array("name" => "stgImage", "value" => $stg->stgImage)); ?><br /><br />
+		<?php echo form_upload(array("name" => "stgImage")); ?><br /><br />
+		<?php echo form_hidden("stgImage_hidden", base64_encode($stg->stgImage)); ?>
 		</div>
 		</td>
 	</tr>

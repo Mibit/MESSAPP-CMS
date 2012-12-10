@@ -37,7 +37,7 @@
 			</td>
 			<td style="text-align: center;">
 				<a href="<?php echo $my_url . "freigabe/" . $item->stgID . "/" . ($item->freigabe ? 0 : 1); ?>">
-					<?php echo $item->freigabe ? "<img alt=\"freigegeben\" src=\"{$template_url}images/okay.png\" class=\"freigabe\" />" : "<img alt=\"freigegeben\" src=\"{$template_url}images/x.png\" class=\"freigabe\" />"; ?>
+					<?php echo $item->freigabe ? "<img alt=\"freigegeben\" src=\"{$template_url}images/okay.png\" height=\"20px\" />" : "<img alt=\"freigegeben\" src=\"{$template_url}images/x.png\" height=\"20px\" />"; ?>
 				</a>
 			</td>
 			<td><?php echo $item->getTimestampFormatted(); ?>

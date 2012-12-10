@@ -202,8 +202,12 @@ class MA_Model extends CI_Model {
         $this->db->query($sql);
     }
 
-    public static function timestampToDatetime($timestamp) {
-        return date("d.m.Y H:i", $timestamp);
+    public static function timestampToDatetime($timestamp, $mySqlFormat = true) {
+    	if($mySqlFormat) {
+        	return date("Y-m-d H:i:s", $timestamp);
+    	} else {
+    		return date("d.m.Y H:i", $timestamp);
+    	}
     }
 
     public static function datetimeToTimestamp($datetime) {

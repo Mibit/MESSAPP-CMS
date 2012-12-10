@@ -49,7 +49,7 @@ class StudiengangData extends MA_Model {
 	}
 	
 	public function getValidStudiengaenge($timestamp) {
-		return $this->loadMultipleFromDatabase("timestamp > \"".MA_Model::timestampToDatetime($timestamp)."\" and freigabe = true");
+		return parent::loadMultipleFromDatabase("timestamp > \"".MA_Model::timestampToDatetime($timestamp)."\" and freigabe = true");
 	}
 	
 	public function getInvalidStudiengaenge($timestamp) {
@@ -164,6 +164,20 @@ class StudiengangData extends MA_Model {
             return "neuer Studiengang";
         }
     }
+    
+    public function checkFreigabe() {
+    	try {
+    	$this->switchToNormalMode(true, false);
+    	foreach($this->dbfields as $key=>$dbfield) {
+    		if($this->types[$key] != self::DB_TYPE_BOOLEAN && !$this->$dbfield) {
+    			throw new Exception();
+    		}
+    	}
+    	return true;
+    	} catch(Exception $e) {
+    		return false;
+    	}
+    }
 
-    public function getTimestampFormatted() { return MA_Model::timestampToDatetime($this->timestamp); }
+    public function getTimestampFormatted() { return MA_Model::timestampToDatetime($this->timestamp, false); }
 }
