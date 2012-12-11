@@ -174,7 +174,7 @@ class Studiengang extends MA_Controller {
         
         // if no changes, then do not save the Studiengang -> timestamp will not be changed
         if($changedStudiengang == new StudiengangData($changedStudiengang->stgID)) {
-        	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert2.");
+        	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
         	throw new Exception($noChange);
         }
     	
