@@ -61,6 +61,20 @@ class Studiengang extends MA_Controller {
     	$validation = "validation";
     	$noInput = "noInput";
     	
+    	/* Deklarierung der Bildervariablen */
+    	$stgStgLImage;
+    	$stgStgAImage;
+    	$stgHImage1;
+    	$stgHImage2;
+    	$stgCurriculumImage;
+    	$stgFImage;
+    	$stgBImage1;
+    	$stgBImage2;
+    	$stgKImage1;
+    	$stgKImage2;
+    	$stgImage;
+    	/* */
+    	
     	try {
         $stg = new StudiengangData( getFormFieldValue("stgID") );
 
@@ -127,6 +141,18 @@ class Studiengang extends MA_Controller {
         $stg->stgStgA = getFormFieldValue("stgStgA");
     	$stg->stgKBeschreibung = getFormFieldValue("stgKBeschreibung");
     	
+    	$stgStgLImage = getFormFieldImage("stgStgLImage");
+    	$stgStgAImage = getFormFieldImage("stgStgAImage");
+    	$stgHImage1 = getFormFieldImage("stgHImage1");
+    	$stgHImage2 = getFormFieldImage("stgHImage2");
+    	$stgCurriculumImage = getFormFieldImage("stgCurriculumImage");
+    	$stgFImage = getFormFieldImage("stgFImage");
+    	$stgBImage1 = getFormFieldImage("stgBImage1");
+    	$stgBImage2 = getFormFieldImage("stgBImage2");
+    	$stgKImage1 = getFormFieldImage("stgKImage1");
+    	$stgKImage2 = getFormFieldImage("stgKImage2");
+    	$stgImage = getFormFieldImage("stgImage");
+    	
     	if($stg == new StudiengangData() && getFormFieldValue("target")) {
     		throw new Exception($noInput);	
     	}
@@ -135,83 +161,82 @@ class Studiengang extends MA_Controller {
 			throw new Exception($validation);
     	}
     	
-        if($image = getFormFieldImage("stgStgLImage")) {
-        	$stg->stgStgLImage = $image;
+        if($stgStgLImage) {
+        	$stg->stgStgLImage = $stgStgLImage;
 	    	if(!$stg->save("stgStgLImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgStgAImage")) {
-        	$stg->stgStgAImage = $image;
+        if($stgStgAImage) {
+        	$stg->stgStgAImage = $stgStgAImage;
 	    	if(!$stg->save("stgStgAImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgHImage1")) {
-        	$stg->stgHImage1 = $image;
+        if($stgHImage1) {
+        	$stg->stgHImage1 = $stgHImage1;
 	    	if(!$stg->save("stgHImage1")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgHImage2")) {
-        	$stg->stgHImage2 = $image;
+        if($stgHImage2) {
+        	$stg->stgHImage2 = $stgHImage2;
 	    	if(!$stg->save("stgHImage2")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgCurriculumImage")) {
-        	$stg->stgCurriculumImage = $image;
+        if($stgCurriculumImage) {
+        	$stg->stgCurriculumImage = $stgCurriculumImage;
 	    	if(!$stg->save("stgCurriculumImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgFImage")) {
-        	$stg->stgFImage = $image;
+        if($stgFImage) {
+        	$stg->stgFImage = $stgFImage;
 	    	if(!$stg->save("stgFImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgBImage1")) {
-        	$stg->stgBImage1 = $image;
+        if($stgBImage1) {
+        	$stg->stgBImage1 = $stgBImage1;
 	    	if(!$stg->save("stgBImage1")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgBImage2")) {
-        	$stg->stgBImage2 = $image;
+        if($stgBImage2) {
+        	$stg->stgBImage2 = $stgBImage2;
 	    	if(!$stg->save("stgBImage2")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgKImage1")) {
-        	$stg->stgKImage1 = $image;
+        if($stgKImage1) {
+        	$stg->stgKImage1 = $stgKImage1;
 	    	if(!$stg->save("stgKImage1")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($image = getFormFieldImage("stgKImage2")) {
-        	$stg->stgKImage2 = $image;
+        if($stgKImage2) {
+        	$stg->stgKImage2 = $stgKImage2;
         	if(!$stg->save("stgKImage2")) {
         		throw new Exception($validation);
         	}
         }
     	
-        if($image = getFormFieldImage("stgImage")) {
-        	$stg->stgImage = $image;
+        if($stgImage) {
+        	$stg->stgImage = $stgImage;
         	if(!$stg->save("stgImage")) {
         		throw new Exception($validation);
         	}
         }
-    	
         
         $stg->freigabe = getFormFieldBoolean("freigabe");
 
@@ -241,6 +266,19 @@ class Studiengang extends MA_Controller {
     			$this->addError($ex->getMessage());
     		}
     	}
+    	
+    	
+    	$stg->stgStgLImage = $stgStgLImage;
+    	$stg->stgStgAImage = $stgStgAImage;
+    	$stg->stgHImage1 = $stgHImage1;
+    	$stg->stgHImage2 = $stgHImage2;
+    	$stg->stgCurriculumImage = $stgCurriculumImage;
+    	$stg->stgFImage = $stgFImage;
+    	$stg->stgBImage1 = $stgBImage1;
+    	$stg->stgBImage2 = $stgBImage2;
+    	$stg->stgKImage1 = $stgKImage1;
+    	$stg->stgKImage2 = $stgKImage2;
+    	$stg->stgImage = $stgImage;
     	
         $this->edit(null,$stg);
     }
