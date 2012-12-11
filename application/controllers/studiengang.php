@@ -60,6 +60,7 @@ class Studiengang extends MA_Controller {
     public function save() {
     	$validation = "validation";
     	$noInput = "noInput";
+    	$noChange = "noChange";
     	
     	/* Deklarierung der Bildervariablen */
     	$stgStgLImage;
@@ -156,6 +157,26 @@ class Studiengang extends MA_Controller {
     	if($stg == new StudiengangData() && getFormFieldValue("target")) {
     		throw new Exception($noInput);	
     	}
+    	
+    	$changedStudiengang = clone $stg;
+    	$changedStudiengang->stgStgLImage = $stgStgLImage;
+    	$changedStudiengang->stgStgAImage = $stgStgAImage;
+    	$changedStudiengang->stgHImage1 = $stgHImage1;
+    	$changedStudiengang->stgHImage2 = $stgHImage2;
+    	$changedStudiengang->stgCurriculumImage = $stgCurriculumImage;
+    	$changedStudiengang->stgFImage = $stgFImage;
+    	$changedStudiengang->stgBImage1 = $stgBImage1;
+    	$changedStudiengang->stgBImage2 = $stgBImage2;
+    	$changedStudiengang->stgKImage1 = $stgKImage1;
+    	$changedStudiengang->stgKImage2 = $stgKImage2;
+    	$changedStudiengang->stgImage = $stgImage;
+        $changedStudiengang->freigabe = getFormFieldBoolean("freigabe");
+        
+        // if no changes, then do not save the Studiengang -> timestamp will not be changed
+        if($changedStudiengang == new StudiengangData($changedStudiengang->stgID)) {
+        	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert2.");
+        	throw new Exception($noChange);
+        }
     	
     	if(!$this->form_validation->run() || !$stg->save()) {
 			throw new Exception($validation);
@@ -260,9 +281,9 @@ class Studiengang extends MA_Controller {
        	}
         
     	} catch(Exception $ex) {
-    		if($ex->getMessage()==$noInput && ($target = getFormFieldValue("target"))) {
+    		if(($ex->getMessage()==$noInput || $ex->getMessage()==$noChange) && ($target = getFormFieldValue("target"))) {
     			redirect($target);
-    		} elseif($ex->getMessage()!=$validation && $ex->getMessage()!=$noInput) {
+    		} elseif($ex->getMessage()!=$validation && $ex->getMessage()!=$noInput && $ex->getMessage()!=$noChange) {
     			$this->addError($ex->getMessage());
     		}
     	}
