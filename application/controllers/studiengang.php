@@ -80,6 +80,8 @@ class Studiengang extends MA_Controller {
         $stg = new StudiengangData( getFormFieldValue("stgID") );
 
         $this->form_validation->set_rules('stgKBez', 'Kurzbezeichnung des Studiengangs', 'required|max_length[5]');
+        $this->form_validation->set_rules('stgFOrganisationsform', 'Organisationsform', 'required|max_length[2]');
+        
         $this->form_validation->set_rules('stgBez', 'Voller Studiengangsname', 'max_length[60]');
         $this->form_validation->set_rules('stgArt', 'Studiengangsart', 'max_length[1]');
         $this->form_validation->set_rules('stgStgL', 'Name der Studiengangsleitung', 'max_length[75]');
@@ -94,7 +96,6 @@ class Studiengang extends MA_Controller {
         // stgHImage2
         $this->form_validation->set_rules('stgBigH', 'Gro&szlig;e Highlights', 'max_length[750]');
         // stgCurriculumImage
-        $this->form_validation->set_rules('stgFOrganisationsform', 'Organisationsform', 'max_length[2]');
         $this->form_validation->set_rules('stgFStudienplaetze', 'Anzahl der Studienpl&auml;tze', 'max_length[3]');
         $this->form_validation->set_rules('stgFBewerbungsmodus', 'Bewerbungsmodus', 'max_length[100]');
         $this->form_validation->set_rules('stgFDauer', 'Dauer', 'max_length[15]');
@@ -177,7 +178,11 @@ class Studiengang extends MA_Controller {
         	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
         	throw new Exception($noChange);
         }
-    	
+        
+        if(!$this->checkDuplicate($stg->stgID, $stg->stgKBez, $stg->stgFOrganisationsform)) {
+        	throw new Exception("Dieser Studiengang existiert bereits in dieser Organisationsform.");
+        }
+        
     	if(!$this->form_validation->run() || !$stg->save()) {
 			throw new Exception($validation);
     	}
@@ -302,6 +307,18 @@ class Studiengang extends MA_Controller {
     	$stg->stgImage = $stgImage;
     	
         $this->edit(null,$stg);
+    }
+    
+    private function checkDuplicate($id, $kBez, $organisationsform) {
+    	
+    	$stg = new StudiengangData();
+    	$studiengaenge = $stg->getObjects(($id ? "stgID = $id and " : "")." stgKBez = \"$kBez\" and stgFOrganisationsform = \"$organisationsform\"");
+    	
+    	if(count($studiengaenge)) {
+    		return false;
+    	}
+    	
+    	return true;
     }
     
     public function delete($stgID) {
