@@ -312,7 +312,7 @@ class Studiengang extends MA_Controller {
     private function checkDuplicate($id, $kBez, $organisationsform) {
     	
     	$stg = new StudiengangData();
-    	$studiengaenge = $stg->getObjects(($id ? "stgID = $id and " : "")." stgKBez = \"$kBez\" and stgFOrganisationsform = \"$organisationsform\"");
+    	$studiengaenge = $stg->getObjects(($id ? "stgID <> $id and " : "")." stgKBez = \"$kBez\" and stgFOrganisationsform = \"$organisationsform\"");
     	
     	if(count($studiengaenge)) {
     		return false;
