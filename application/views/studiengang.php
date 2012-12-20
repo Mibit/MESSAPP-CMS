@@ -1,6 +1,7 @@
 <?php echo form_open("{$my_url}save", array("name" => "form", "id" => "form", "enctype" => "multipart/form-data")); ?>
 <?php echo form_hidden("stgID", $stg->stgID); ?>
 <?php echo form_hidden("target"); ?>
+<!-- Test -->
 <div class="stgForm">
 <fieldset><legend><a id="Studiengang">Studiengang</a></legend>
 <table>
