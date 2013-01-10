@@ -25,7 +25,7 @@ class Update extends CI_Controller {
 		$fields = array_merge(Array($stg->primary), $stg->dbfields);
 		array_splice($fields, count($fields)-1); // last field will be removed --> freigabe
 		
-		$studiengaenge = array();
+		$studiengaenge = array();		
 		
 		foreach($stg->getValidStudiengaenge($unixTimestamp) as $stg) {
 			

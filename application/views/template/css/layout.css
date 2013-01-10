@@ -426,3 +426,38 @@ a.new:hover {
 div.template {
 	display: none;
 }
+
+div.removeButtonContainer {
+	float:right;
+	width: 0px;
+	height: 0px;
+	
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+div.removeButton {
+	position:relative; 
+	right:0px;
+	top:-17px;
+	
+	width:20px;
+	height:20px; 
+	
+	line-height: 18px; 
+	text-align:center;
+	color:white;
+	
+	background-color: rgb(198,11,12);; 
+	border: 2px solid white;
+	-moz-border-radius:20px;
+	border-radius: 20px;
+}
+
+div.removeButton:hover {
+	color:rgb(198,11,12);
+	background-color: white;
+	border-color: rgb(198,11,12);
+	
+	cursor: pointer;
