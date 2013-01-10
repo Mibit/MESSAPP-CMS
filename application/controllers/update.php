@@ -34,7 +34,7 @@ class Update extends CI_Controller {
 				if(strpos($field, "Image")!==false) {
 					$studiengang->$field = base64_encode($stg->$field);
 				} else {
-					$studiengang->$field = $stg->$field;
+					$studiengang->$field = str_replace("\"", "\u0022", $stg->$field);
 				}
 			}		
 				
@@ -55,5 +55,7 @@ class Update extends CI_Controller {
 		
 		print json_encode($json);
 	}
+	
+	
 }
 
