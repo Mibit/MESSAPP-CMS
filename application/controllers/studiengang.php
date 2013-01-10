@@ -115,8 +115,8 @@ class Studiengang extends MA_Controller {
         // stgImage
         // freigabe
         
-        $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein!');
-        $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben!');
+        $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein.');
+        $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben.');
 
         $stg->stgKBez = getFormFieldValue("stgKBez");
         $stg->stgBez = getFormFieldValue("stgBez");

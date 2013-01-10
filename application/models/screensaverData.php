@@ -20,5 +20,10 @@ class ScreensaverData extends MA_Model {
         
         $this->loadFromDatabase($scrID);
 	}
+	
+	public function deleteMode() {
+		$this->dbfields = array();
+		$this->types = array();
+	}
 
 }

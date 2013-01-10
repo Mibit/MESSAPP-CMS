@@ -13,8 +13,12 @@
 
 		function addIndizes() {
 			$("div.stgForm > fieldset").each(function(index) {
-				$(this).children("*[name='scrID'], *[name='scrText1'], *[name='scrText2'], *[name='scrImage']").each(function() {
-					$(this).attr("name", $(this).attr("name")+index);
+				$(this).find("*[name]").each(function() {
+					if($(this).attr("name").indexOf("_hidden") !== -1) {
+						$(this).attr("name", $(this).attr("name").replace("_hidden","")+index+"_hidden");
+					} else {
+						$(this).attr("name", $(this).attr("name")+index);
+					}
 				});
 			});
 		}
@@ -91,8 +95,9 @@
 				<td>
 					<label for="scrImage">Bild: </label>
 					
-						<a href="<?php echo "data:image/jpeg;base64," . base64_encode($scr->scrImage) ?>" class="thickbox"><?php if($scr->scrImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->scrImage). "\" />"; } ?></a>
-						<?php echo form_upload(array("name" => "scrImage", "value" => $scr->scrImage)); ?>
+						<a href="<?php echo "data:image/jpeg;base64," . base64_encode($scr->scrImage) ?>" class="thickbox"><?php if($scr->scrImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($scr->scrImage). "\" />"; } ?></a>
+						<?php echo form_upload(array("name" => "scrImage")); ?>
+						<?php echo form_hidden("scrImage_hidden", base64_encode($scr->scrImage)); ?>
 				</td>
 			</tr>
 		</table>

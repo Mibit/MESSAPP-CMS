@@ -12,14 +12,14 @@ class AppScreensaver extends MA_Controller {
 	}
 
 	public function index($scr = null) {
-		//
+		
 		$screensaver = new ScreensaverData();
 
 		$variables["page_title"] = "App Screensaver";
 
-		if ($scr = null){
+		if (!$scr){
 			$variables["screensaver"] = $screensaver->loadMultipleFromDatabase();
-		} else if ($scr != null) {
+		} else {
 			$variables["screensaver"] = $scr;
 		}
 
@@ -28,44 +28,69 @@ class AppScreensaver extends MA_Controller {
 	}
 
 	public function save() {
-		 
+		
 		$validation = "validation";
-		$noInput = "noInput";
-		$noChange = "noChange";
 		 
-		/* Deklarierung der Bildvariable */
-		$scrImage;
 		 
 		$scrArray = array();
 		 
 		try {
+			
 			for($i=0; array_key_exists("scrID$i", $_POST); $i++){
-				 
-				$scr = new screensaverData( getFormFieldValue("scrID$i") );
-				$this->form_validation->set_rules('scrText1'.$i, 'Text 1', 'required|max_length[50]');
-				$this->form_validation->set_rules('scrText2'.$i, 'Text 2', 'required|max_length[50]');
+				$scrArray[] = new ScreensaverData( getFormFieldValue("scrID$i") );
+				$this->form_validation->set_rules('scrText1'.$i, ($i+1).' Eintrag Text 1', 'required|max_length[50]');
+				$this->form_validation->set_rules('scrText2'.$i, ($i+1).' Eintrag Text 2', 'required|max_length[50]');
 
-				$scrImage = getFormFieldImage("scrImage$i");
+				$scrArray[$i]->scrText1 = getFormFieldValue("scrText1$i");
+				$scrArray[$i]->scrText2 = getFormFieldValue("scrText2$i");
 
-				$scr->scrText1 = getFormFieldValue("scrText1$i");
-				$scr->scrText2 = getFormFieldValue("scrText2$i");
-
-				$scr->scrImage = getFormFieldImage("scrImage$i");
-
-				$scrArray[] = clone $scr;
+				$scrArray[$i]->scrImage = getFormFieldImage("scrImage$i");
 			}
 			
-			$this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben!');
+			$this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein.');
+			$this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben.');
 			
-			if($scr == new screensaverData() && getFormFieldValue("target")) {
-				throw new Exception($noInput);
+			foreach($scrArray as $key=>$scr) {
+				if(!$scr->scrImage) {
+					$this->addError("Die Eintr&auml;ge konnten nicht gespeichert werden, da das Bild im ".($key+1).". Eintrag fehlt.");
+				}
 			}
-
-			if(!$this->form_validation->run()) {
+			if(!$this->form_validation->run() || count($this->getError())) {
 				throw new Exception($validation);
+			}
+			
+			$scrIDArray = array();
+			foreach($scrArray as $scr) {
+				if(!$scr->save()) {
+					$this->addError("Die Eintr&auml;ge konnten nicht gespeichert werden.");
+					throw new Exception($validation);
+				}
+				
+				if($scr->scrID) {
+					$scrIDArray[] = $scr->scrID;
+				}
+			}
+			
+			// delete Entries which are not in $scrIDArray --> deleted from user			
+			$oldScr = new ScreensaverData();
+			$oldScr->deleteMode();
+			if(count($scrIDArray)) {
+				$oldScr = $oldScr->loadMultipleFromDatabase("scrID not in (".implode(",",$scrIDArray).")");
+			} else {
+				$oldScr = $oldScr->loadMultipleFromDatabase();
+			}
+			foreach($oldScr as $deleteScr) {
+				$deleteScr->delete();
+			}	
+			
+			$this->addSuccess("Die Eintr&auml;ge wurden erfolgreich gespeichert.");
+			
+		} catch(Exception $e) {
+			if($e->getMessage()!=$validation) {
+				$this->addError($e->getMessage());
 			}
 		}
 		 
-		 
+		$this->index($scrArray);
 	}
 }

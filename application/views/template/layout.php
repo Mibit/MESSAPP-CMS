@@ -40,7 +40,6 @@
 			</div>
 		</div>
 		<div class="clear"></div>
-		<?php if(!$studiengangDetail) echo $systemMessages; ?>
 		<div id="sidebar">
 			<?php echo $sidebar; ?>
 		</div>
