@@ -14,6 +14,7 @@
 	<tr>
 		<td><label>Art des Studiengangs: </label>Bachelor&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "B", "checked" => ($stg->stgArt=="B"? "checked": "") )); ?>
 		&nbsp;Master&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "M", "checked" => ($stg->stgArt=="M"? "checked": "") )); ?>
+		&nbsp;Post&nbsp;Graduate&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "P", "checked" => ($stg->stgArt=="P"? "checked": "") )); ?>
 		</td>
 	</tr>
 </table>
