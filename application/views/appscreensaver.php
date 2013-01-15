@@ -25,9 +25,7 @@
 	</script>
 
 	<fieldset>
-		<div class="removeButtonContainer">
-			<div class="removeButton" onClick="javascript: removeEntry(this);">x</div>
-		</div>
+		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
@@ -52,9 +50,7 @@
 <?php if(!count($screensaver)) : ?>
 		
 	<fieldset>
-		<div class="removeButtonContainer">
-			<div class="removeButton" onClick="javascript: removeEntry(this);">x</div>
-		</div>
+		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
@@ -80,9 +76,7 @@
 
 
 	<fieldset>
-		<div class="removeButtonContainer">
-			<div class="removeButton" onClick="javascript: removeEntry(this);">x</div>
-		</div>
+		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("scrID", $scr->scrID); ?>
 		<table>
 			<tr>
