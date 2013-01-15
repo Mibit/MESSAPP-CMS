@@ -88,13 +88,14 @@ class Studiengang extends MA_Controller {
 	        $this->form_validation->set_rules('stgStgA', 'Name der Studiengangsassistenz', 'max_length[75]');
 	        // stgStgAImage
 	        $this->form_validation->set_rules('stgStudent1Quote', 'Zitat Student 1', 'max_length[500]');
+	        // stgStudent1Image
 	        $this->form_validation->set_rules('stgStudent2Quote', 'Zitat Student 2', 'max_length[500]');
+	        // stgStudent2Image
 	        $this->form_validation->set_rules('stgQuote', 'Zitat', 'max_length[500]');
 	        $this->form_validation->set_rules('stgHighlights', 'Highlights', 'max_length[1000]');
 	        $this->form_validation->set_rules('stgStgLInfo', 'Info zum Studiengangsleiter', 'max_length[150]');
 	        $this->form_validation->set_rules('stgStgAInfo', 'Info zur Studiengangsassistenz', 'max_length[150]');
-	        // stgHImage1
-	        // stgHImage2
+	        // stgHImage
 	        // stgCurriculumImage
 	        $this->form_validation->set_rules('stgFStudienplaetze', 'Anzahl der Studienpl&auml;tze', 'max_length[3]');
 	        $this->form_validation->set_rules('stgFBewerbungsmodus', 'Bewerbungsmodus', 'max_length[100]');
@@ -106,12 +107,10 @@ class Studiengang extends MA_Controller {
 	        $this->form_validation->set_rules('stgFKosten', 'Kosten', 'max_length[75]');
 	        // stgFImage
 	        $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[750]');
-	        // stgBImage1
-	        // stgBImage2
+	        // stgBImage
 	        $this->form_validation->set_rules('stgKBeschreibung', 'Kurzbeschreibung', 'max_length[1000]');
-	        // stgKImage1
-	        // stgKImage2
-	        // stgImage
+	        // stgKImage
+	        // stgGridViewImage
 	        // freigabe
 	        
 	        $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein!');
