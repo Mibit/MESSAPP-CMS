@@ -1,5 +1,14 @@
 <?php
 
+function listBoxElements() {
+	
+	$removeButton = '<div class="removeButtonContainer">
+						<div class="removeButton" onClick="javascript: removeEntry(this);">x</div>
+					</div>';
+	
+	return $removeButton;
+}
+
 function sort_header($field, $caption, $sortCol, $sortDir) {
     $template_url = base_url() . 'application/views/template/';
     $html = '<a title="Click to sort by this column" href="javascript: ';
