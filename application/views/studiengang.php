@@ -17,6 +17,11 @@
 		&nbsp;Post&nbsp;Graduate&nbsp;<?php echo form_radio(array("name" => "stgArt", "value" => "P", "checked" => ($stg->stgArt=="P"? "checked": "") )); ?>
 		</td>
 	</tr>
+	<tr>
+		<td><label>Organisationsform: </label>Vollzeit&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
+		&nbsp;Berufsbegleitend&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "bb", "checked" => ($stg->stgFOrganisationsform=="bb"? "checked": "") )); ?>
+		</td>
+	</tr>
 </table>
 </fieldset>
 <fieldset><legend><a id="Studiengangsleitung">Studiengangsleitung</a></legend>
@@ -103,11 +108,6 @@
 <fieldset><legend><a id="Fakten">Fakten</a></legend>
 <table>
 	<tr>
-		<td><label>Organisationsform: </label>Vollzeit&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "vz", "checked" => ($stg->stgFOrganisationsform=="vz"? "checked": "") )); ?>
-		&nbsp;berufsbegleitend&nbsp;<?php echo form_radio(array("name" => "stgFOrganisationsform", "value" => "bb", "checked" => ($stg->stgFOrganisationsform=="bb"? "checked": "") )); ?>
-		</td>
-	</tr>
-	<tr>
 		<td><label for="stgFStudienplaetze">Anzahl der Studienpl&auml;tze: </label><?php echo form_input(array("name" => "stgFStudienplaetze", "value" => $stg->stgFStudienplaetze)); ?></td>
 	</tr>
 	<tr>
@@ -180,7 +180,7 @@
 <fieldset><legend><a id="Übersichtsbild">&Uuml;bersichtsbild</a></legend>
 <table>
 	<tr>
-		<td><label for="stgGridViewImage">Bild f&uuml; die &Uuml;bersicht: </label>
+		<td><label for="stgGridViewImage">Bild f&uuml;r die &Uuml;bersicht: </label>
 		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgGridViewImage) ?>" class="thickbox"><?php if($stg->stgGridViewImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgGridViewImage). "\" />"; } ?></a>
 		<?php echo form_upload(array("name" => "stgGridViewImage")); ?>
 		<?php echo form_hidden("stgGridViewImage_hidden", base64_encode($stg->stgGridViewImage)); ?>

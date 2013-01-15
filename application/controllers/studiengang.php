@@ -252,7 +252,7 @@ class Studiengang extends MA_Controller {
 	        }
 	        
 	        $stg->freigabe = getFormFieldBoolean("freigabe");
-	        
+	
 	        if($stg->freigabe) {
 	        	
 	        	// Freigabe nur wenn alle Felder ausgefüllt sind 
