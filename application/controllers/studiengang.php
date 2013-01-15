@@ -167,6 +167,11 @@ class Studiengang extends MA_Controller {
 	    	$changedStudiengang->stgGridViewImage = $stgGridViewImage;
 	        $changedStudiengang->freigabe = getFormFieldBoolean("freigabe");
 	        
+	        // bei leerem Studiengang wird das Speichern übersprungen
+	        if($changedStudiengang == new StudiengangData()) {
+	        	throw new Exception($noChange);
+	        }
+	        
 	        // if no changes, then do not save the Studiengang -> timestamp will not be changed
 	        if($changedStudiengang == new StudiengangData($changedStudiengang->stgID)) {
 	        	$this->addSuccess("Der Eintrag wurde erfolgreich gespeichert.");
