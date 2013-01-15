@@ -65,15 +65,14 @@ class Studiengang extends MA_Controller {
     	/* Deklarierung der Bildervariablen */
     	$stgStgLImage;
     	$stgStgAImage;
-    	$stgHImage1;
-    	$stgHImage2;
+    	$stgStudent1Image;
+    	$stgStudent2Image;
+    	$stgHImage;
     	$stgCurriculumImage;
     	$stgFImage;
-    	$stgBImage1;
-    	$stgBImage2;
-    	$stgKImage1;
-    	$stgKImage2;
-    	$stgImage;
+    	$stgBImage;
+    	$stgKImage;
+    	$stgGridViewImage
     	/* */
     	
     	try {
@@ -88,13 +87,14 @@ class Studiengang extends MA_Controller {
         // stgStgLImage
         $this->form_validation->set_rules('stgStgA', 'Name der Studiengangsassistenz', 'max_length[75]');
         // stgStgAImage
+        $this->form_validation->set_rules('stgStudent1Quote', 'Zitat Student 1', 'max_length[500]');
+        $this->form_validation->set_rules('stgStudent2Quote', 'Zitat Student 2', 'max_length[500]');
         $this->form_validation->set_rules('stgQuote', 'Zitat', 'max_length[500]');
-        $this->form_validation->set_rules('stgHighlights', 'Kurze Highlights', 'max_length[500]');
+        $this->form_validation->set_rules('stgHighlights', 'Highlights', 'max_length[1000]');
         $this->form_validation->set_rules('stgStgLInfo', 'Info zum Studiengangsleiter', 'max_length[150]');
         $this->form_validation->set_rules('stgStgAInfo', 'Info zur Studiengangsassistenz', 'max_length[150]');
         // stgHImage1
         // stgHImage2
-        $this->form_validation->set_rules('stgBigH', 'Gro&szlig;e Highlights', 'max_length[750]');
         // stgCurriculumImage
         $this->form_validation->set_rules('stgFStudienplaetze', 'Anzahl der Studienpl&auml;tze', 'max_length[3]');
         $this->form_validation->set_rules('stgFBewerbungsmodus', 'Bewerbungsmodus', 'max_length[100]');
@@ -104,7 +104,6 @@ class Studiengang extends MA_Controller {
         $this->form_validation->set_rules('stgFBesonderheit', 'Besonderheit', 'max_length[150]');
         $this->form_validation->set_rules('stgFAuslandsaufenthalt', 'Auslandsaufenthalt', 'max_length[150]');
         $this->form_validation->set_rules('stgFKosten', 'Kosten', 'max_length[75]');
-        $this->form_validation->set_rules('stgFZugangsvoraussetzung', 'Zugangsvoraussetzungen', 'max_length[250]');
         // stgFImage
         $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[750]');
         // stgBImage1
@@ -115,19 +114,19 @@ class Studiengang extends MA_Controller {
         // stgImage
         // freigabe
         
-        $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein.');
-        $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben.');
+        $this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein!');
+        $this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben!');
 
         $stg->stgKBez = getFormFieldValue("stgKBez");
         $stg->stgBez = getFormFieldValue("stgBez");
         $stg->stgArt = getFormFieldValue("stgArt");
         $stg->stgStgL = getFormFieldValue("stgStgL");
         $stg->stgQuote = getFormFieldValue("stgQuote");
+        $stg->stgStudent1Quote = getFormFieldValue("stgStudent1Quote");
+        $stg->stgStudent2Quote = getFormFieldValue("stgStudent2Quote");
         $stg->stgHighlights = getFormFieldValue("stgHighlights");
         $stg->stgStgLInfo = getFormFieldValue("stgStgLInfo");
         $stg->stgStgAInfo = getFormFieldValue("stgStgAInfo");
-    
-        $stg->stgBigH = getFormFieldValue("stgBigH");
     
         $stg->stgFOrganisationsform = getFormFieldValue("stgFOrganisationsform");
         $stg->stgFStudienplaetze = getFormFieldValue("stgFStudienplaetze");
@@ -138,22 +137,20 @@ class Studiengang extends MA_Controller {
         $stg->stgFBesonderheit = getFormFieldValue("stgFBesonderheit");
         $stg->stgFAuslandsaufenthalt = getFormFieldValue("stgFAuslandsaufenthalt");
         $stg->stgFKosten = getFormFieldValue("stgFKosten");
-        $stg->stgFZugangsvoraussetzungen = getFormFieldValue("stgFZugangsvoraussetzungen");
         $stg->stgBFelder = getFormFieldValue("stgBFelder");
         $stg->stgStgA = getFormFieldValue("stgStgA");
     	$stg->stgKBeschreibung = getFormFieldValue("stgKBeschreibung");
     	
     	$stgStgLImage = getFormFieldImage("stgStgLImage");
     	$stgStgAImage = getFormFieldImage("stgStgAImage");
-    	$stgHImage1 = getFormFieldImage("stgHImage1");
-    	$stgHImage2 = getFormFieldImage("stgHImage2");
+    	$stgStudent1Image = getFormFieldImage("stgStudent1Image")
+    	$stgStudent2Image = getFormFieldImage("stgStudent2Image")
+    	$stgHImage = getFormFieldImage("stgHImage");
     	$stgCurriculumImage = getFormFieldImage("stgCurriculumImage");
     	$stgFImage = getFormFieldImage("stgFImage");
-    	$stgBImage1 = getFormFieldImage("stgBImage1");
-    	$stgBImage2 = getFormFieldImage("stgBImage2");
-    	$stgKImage1 = getFormFieldImage("stgKImage1");
-    	$stgKImage2 = getFormFieldImage("stgKImage2");
-    	$stgImage = getFormFieldImage("stgImage");
+    	$stgBImage = getFormFieldImage("stgBImage");
+    	$stgKImage = getFormFieldImage("stgKImage");
+    	$stgGridViewImage = getFormFieldImage("stgGridViewImage");
     	
     	if($stg == new StudiengangData() && getFormFieldValue("target")) {
     		throw new Exception($noInput);	
@@ -162,15 +159,12 @@ class Studiengang extends MA_Controller {
     	$changedStudiengang = clone $stg;
     	$changedStudiengang->stgStgLImage = $stgStgLImage;
     	$changedStudiengang->stgStgAImage = $stgStgAImage;
-    	$changedStudiengang->stgHImage1 = $stgHImage1;
-    	$changedStudiengang->stgHImage2 = $stgHImage2;
+    	$changedStudiengang->stgHImage = $stgHImage;
     	$changedStudiengang->stgCurriculumImage = $stgCurriculumImage;
     	$changedStudiengang->stgFImage = $stgFImage;
-    	$changedStudiengang->stgBImage1 = $stgBImage1;
-    	$changedStudiengang->stgBImage2 = $stgBImage2;
-    	$changedStudiengang->stgKImage1 = $stgKImage1;
-    	$changedStudiengang->stgKImage2 = $stgKImage2;
-    	$changedStudiengang->stgImage = $stgImage;
+    	$changedStudiengang->stgBImage = $stgBImage;
+    	$changedStudiengang->stgKImage = $stgKImage;
+    	$changedStudiengang->stgGridViewImage = $stgGridViewImage;
         $changedStudiengang->freigabe = getFormFieldBoolean("freigabe");
         
         // if no changes, then do not save the Studiengang -> timestamp will not be changed
@@ -200,17 +194,24 @@ class Studiengang extends MA_Controller {
 				throw new Exception($validation);
 	    	}
         }
-    	
-        if($stgHImage1) {
-        	$stg->stgHImage1 = $stgHImage1;
-	    	if(!$stg->save("stgHImage1")) {
-				throw new Exception($validation);
-	    	}
+        
+        if($stgStudent1Image) {
+        	$stg->stgStudent1Image = $stgStudent1Image;
+        	if(!$stg->save("stgStudent1Image")) {
+        		throw new Exception($validation);
+        	}
+        }
+        
+        if($stgStudent2Image) {
+        	$stg->stgStudent2Image = $stgStudent2Image;
+        	if(!$stg->save("stgStudent2Image")) {
+        		throw new Exception($validation);
+        	}
         }
     	
-        if($stgHImage2) {
-        	$stg->stgHImage2 = $stgHImage2;
-	    	if(!$stg->save("stgHImage2")) {
+        if($stgHImage) {
+        	$stg->stgHImage = $stgHImage;
+	    	if(!$stg->save("stgHImage")) {
 				throw new Exception($validation);
 	    	}
         }
@@ -229,37 +230,23 @@ class Studiengang extends MA_Controller {
 	    	}
         }
     	
-        if($stgBImage1) {
-        	$stg->stgBImage1 = $stgBImage1;
-	    	if(!$stg->save("stgBImage1")) {
+        if($stgBImage) {
+        	$stg->stgBImage = $stgBImage;
+	    	if(!$stg->save("stgBImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($stgBImage2) {
-        	$stg->stgBImage2 = $stgBImage2;
-	    	if(!$stg->save("stgBImage2")) {
+        if($stgKImage) {
+        	$stg->stgKImage = $stgKImage;
+	    	if(!$stg->save("stgKImage")) {
 				throw new Exception($validation);
 	    	}
         }
     	
-        if($stgKImage1) {
-        	$stg->stgKImage1 = $stgKImage1;
-	    	if(!$stg->save("stgKImage1")) {
-				throw new Exception($validation);
-	    	}
-        }
-    	
-        if($stgKImage2) {
-        	$stg->stgKImage2 = $stgKImage2;
-        	if(!$stg->save("stgKImage2")) {
-        		throw new Exception($validation);
-        	}
-        }
-    	
-        if($stgImage) {
-        	$stg->stgImage = $stgImage;
-        	if(!$stg->save("stgImage")) {
+        if($stgGridViewImage) {
+        	$stg->stgGridViewImage = $stgGridViewImage;
+        	if(!$stg->save("stgGridViewImage")) {
         		throw new Exception($validation);
         	}
         }
@@ -296,15 +283,14 @@ class Studiengang extends MA_Controller {
     	
     	$stg->stgStgLImage = $stgStgLImage;
     	$stg->stgStgAImage = $stgStgAImage;
-    	$stg->stgHImage1 = $stgHImage1;
-    	$stg->stgHImage2 = $stgHImage2;
+    	$stg->stgStudent1Image = $stgStudent1Image;
+    	$stg->stgStudent2Image = $stgStudent2Image;
+    	$stg->stgHImage = $stgHImage;
     	$stg->stgCurriculumImage = $stgCurriculumImage;
     	$stg->stgFImage = $stgFImage;
-    	$stg->stgBImage1 = $stgBImage1;
-    	$stg->stgBImage2 = $stgBImage2;
-    	$stg->stgKImage1 = $stgKImage1;
-    	$stg->stgKImage2 = $stgKImage2;
-    	$stg->stgImage = $stgImage;
+    	$stg->stgBImage = $stgBImage;
+    	$stg->stgKImage = $stgKImage;
+    	$stg->stgGridViewImage = $stgGridViewImage;
     	
         $this->edit(null,$stg);
     }
