@@ -255,7 +255,7 @@ class Studiengang extends MA_Controller {
 	
 	        if($stg->freigabe) {
 	        	
-	        	// Freigabe nur wenn alle Felder ausgefüllt sind 
+	        	// Freigabe nur wenn alle Felder ausgefüllt sind
 	        	if(!$stg->checkFreigabe()) {
 	        		$stg->freigabe = false;
 	        		$this->addAlert("Der Studiengang kann nicht freigegeben werden, da nicht alle Felder ausgef&uuml;llt wurden.");
