@@ -6,7 +6,7 @@ tinyMCE.init({
         plugins : "autolink,lists,spellchecker,pagebreak,style,layer,table,save,advhr,advimage,advlink,emotions,iespell,inlinepopups,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras",
 
         // Theme options
-        theme_advanced_buttons1 : "bullist,|,code", // code only for testing
+        theme_advanced_buttons1 : "bullist", // code only for testing: "bullist,|,code"
         theme_advanced_buttons2 : "",
         theme_advanced_buttons3 : "",
         theme_advanced_buttons4 : "",
