@@ -1,11 +1,16 @@
+
 <table class="adminlist" cellpadding="0" cellspacing="2">
 	<thead>
 		<tr>
 			<th>&nbsp;#&nbsp;</th>
 			<th><a href="<?php echo $my_url."edit" ?>" class="new"><img alt="Neuer Studiengang" src="<?php echo $template_url ?>images/new.png" /></a></th>
-			<th><?php echo sort_header("stgKBez", "Kurzbezeichnung", $sortCol, $sortDir); ?>
+			<th><?php echo sort_header("stgKBez", "Kbz", $sortCol, $sortDir); ?>
 			</th>
 			<th><?php echo sort_header("stgBez", "Studiengang", $sortCol, $sortDir); ?>
+			</th>
+			<th><?php echo sort_header("stgArt", "Art", $sortCol, $sortDir); ?>
+			</th>
+			<th><?php echo sort_header("sgtFOrganisationsform", "Organisationsform", $sortCol, $sortDir); ?>
 			</th>
 			<th><?php echo sort_header("freigabe", "Freigabe", $sortCol, $sortDir); ?>
 			</th>
@@ -34,6 +39,10 @@
 			<td><?php echo anchor($my_url . "edit/" . $item->stgID, $item->stgKBez); ?>
 			</td>
 			<td><?php if($item->stgBez) echo anchor($my_url . "edit/" . $item->stgID, $item->stgBez); ?>
+			</td>
+			<td><?php if($item->stgArtLong) echo anchor($my_url . "edit/" . $item->stgID, $item->stgArtLong); ?>
+			</td>
+			<td><?php if($item->stgFOrganisationsformLong) echo anchor($my_url . "edit/" . $item->stgID, $item->stgFOrganisationsformLong); ?>
 			</td>
 			<td style="text-align: center;">
 				<a href="<?php echo $my_url . "freigabe/" . $item->stgID . "/" . ($item->freigabe ? 0 : 1); ?>">

@@ -2,11 +2,12 @@
 	$subCategories = Array(
 				"Studiengang",
 				"Studiengangsleitung",
+				"Zitate",
 				"Highlights",
-				"Curriculum",
 				"Fakten",
 				"Berufsfelder",
-				"Bild zum Studiengang"
+				"Curriculum",
+				"&Uuml;bersichtsbild"
 			);
 
 ?>

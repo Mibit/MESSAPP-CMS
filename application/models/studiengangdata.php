@@ -11,13 +11,15 @@ class StudiengangData extends MA_Model {
 	public $stgStgLImage;
 	public $stgStgA;
 	public $stgStgAImage;
+	public $stgStudent1Quote;
+	public $stgStudent1Image;
+	public $stgStudent2Quote;
+	public $stgStudent2Image;
 	public $stgQuote;
 	public $stgHighlights;
 	public $stgStgLInfo;
 	public $stgStgAInfo;
-	public $stgHImage1;
-	public $stgHImage2;
-	public $stgBigH;
+	public $stgHImage;
 	public $stgCurriculumImage;
 	public $stgFOrganisationsform;
 	public $stgFStudienplaetze;
@@ -28,15 +30,12 @@ class StudiengangData extends MA_Model {
 	public $stgFBesonderheit;
 	public $stgFAuslandsaufenthalt;
 	public $stgFKosten;
-	public $stgFZugangsvoraussetzungen;
 	public $stgFImage;
 	public $stgBFelder;
-	public $stgBImage1;
-	public $stgBImage2;
+	public $stgBImage;
 	public $stgKBeschreibung;
-	public $stgKImage1;
-	public $stgKImage2;
-	public $stgImage;
+	public $stgKImage;
+	public $stgGridViewImage;
 	public $freigabe;
 	public $timestamp;
 	
@@ -82,6 +81,33 @@ class StudiengangData extends MA_Model {
 		return parent::loadMultipleFromDatabase($SQLWhere,$order, $ordertype, $limitFrom, $limitCount);
 	}
 	
+	protected function fillObject(StudiengangData $stg) {
+		
+		switch(strtolower($stg->stgArt)) {
+			case "b":
+				$stg->stgArtLong = "Bachelor";
+				break;
+			case "m":
+				$stg->stgArtLong = "Master";
+				break;
+			case "p";
+				$stg->stgArtLong = "Post Graduate";
+				break;
+			default:
+				$stg->stgArtLong = "";
+		}
+		switch(strtolower($stg->stgFOrganisationsform)) {
+			case "vz":
+				$stg->stgFOrganisationsformLong = "Vollzeit";
+				break;
+			case "bb":
+				$stg->stgFOrganisationsformLong = "Berufsbegleitend";
+				break;
+			default:
+				$stg->stgFOrganisationsform = "";			
+		}
+	}
+	
 	private function switchToNormalMode($imagesIncluded = true, $timestampIncluded = false) {
 		$this->setTableName("studiengaenge");
 		$this->dbfields = array();
@@ -93,11 +119,14 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgArt");
 		$this->addStringField("stgStgL");
 		$this->addStringField("stgStgA");
+		$this->addStringField("stgStudent1Quote");
+		$this->addStringField("stgStudent1Image");
+		$this->addStringField("stgStudent2Quote");
+		$this->addStringField("stgStudent2Image");
 		$this->addStringField("stgQuote");
 		$this->addStringField("stgHighlights");
 		$this->addStringField("stgStgLInfo");
 		$this->addStringField("stgStgAInfo");
-		$this->addStringField("stgBigH");
 		$this->addStringField("stgFOrganisationsform");
 		$this->addStringField("stgFStudienplaetze");
 		$this->addStringField("stgFBewerbungsmodus");
@@ -107,7 +136,6 @@ class StudiengangData extends MA_Model {
 		$this->addStringField("stgFBesonderheit");
 		$this->addStringField("stgFAuslandsaufenthalt");
 		$this->addStringField("stgFKosten");
-		$this->addStringField("stgFZugangsvoraussetzungen");
 		$this->addStringField("stgBFelder");
 		$this->addStringField("stgKBeschreibung");
 		$this->addBooleanField("freigabe");
@@ -115,15 +143,12 @@ class StudiengangData extends MA_Model {
 		if($imagesIncluded) {
 			$this->addStringField("stgStgLImage");
 			$this->addStringField("stgStgAImage");
-			$this->addStringField("stgHImage1");
-			$this->addStringField("stgHImage2");
+			$this->addStringField("stgHImage");
 			$this->addStringField("stgCurriculumImage");
 			$this->addStringField("stgFImage");
-			$this->addStringField("stgBImage1");
-			$this->addStringField("stgBImage2");
-			$this->addStringField("stgKImage1");
-			$this->addStringField("stgKImage2");
-			$this->addStringField("stgImage");
+			$this->addStringField("stgBImage");
+			$this->addStringField("stgKImage");
+			$this->addStringField("stgGridViewImage");
 		}
 		
 		if($timestampIncluded) {
