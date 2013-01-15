@@ -7,16 +7,16 @@
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label></td>
+				<td><label for="scrText1">Text 1:</label></td>
 				<td><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label></td>
+				<td><label for="scrText2">Text 2:</label></td>
 				<td><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
 			</tr>
 			<tr>
 				<td>
-					<label for="scrImage">Bild: </label>
+					<label for="scrImage">Bild:</label>
 					</td><td>
 						<a href="" class="thickbox"></a>
 						<?php echo form_upload(array("name" => "scrImage", "value" => "")); ?>
@@ -34,16 +34,16 @@
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label></td>
+				<td><label for="scrText1">Text 1:</label></td>
 				<td><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label></td>
+				<td><label for="scrText2">Text 2:</label></td>
 				<td><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
 			</tr>
 			<tr>
 				<td>
-					<label for="scrImage">Bild: </label>
+					<label for="scrImage">Bild:</label>
 					</td><td>
 						<a href="" class="thickbox"></a>
 						<?php echo form_upload(array("name" => "scrImage", "value" => "")); ?>
@@ -62,16 +62,16 @@
 		<?php echo form_hidden("scrID", $scr->scrID); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label></td>
+				<td><label for="scrText1">Text 1:</label></td>
 				<td><?php echo form_input(array("name" => "scrText1", "value" => $scr->scrText1)); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label></td>
+				<td><label for="scrText2">Text 2:</label></td>
 				<td><?php echo form_input(array("name" => "scrText2", "value" => $scr->scrText2)); ?></td>
 			</tr>
 			<tr>
 				<td>
-					<label for="scrImage">Bild: </label>
+					<label for="scrImage">Bild:</label>
 					</td><td>
 						<a href="<?php echo "data:image/jpeg;base64," . base64_encode($scr->scrImage) ?>" class="thickbox"><?php if($scr->scrImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($scr->scrImage). "\" />"; } ?></a>
 						<?php echo form_upload(array("name" => "scrImage")); ?>
