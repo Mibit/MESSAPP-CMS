@@ -1,5 +1,11 @@
 $(document).ready(function() {
-tinyMCE.init({
+
+	editorInit();
+});
+
+function editorInit() {
+	
+	tinyMCE.init({
         // General options
         mode : "textareas",
         theme : "advanced",
@@ -28,6 +34,6 @@ tinyMCE.init({
         external_image_list_url : "js/image_list.js",
         media_external_list_url : "js/media_list.js",
 
-});
-
-});
+	});
+	
+}

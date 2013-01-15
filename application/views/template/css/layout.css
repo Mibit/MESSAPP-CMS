@@ -25,7 +25,10 @@ body {
 
 div.stgForm label { 
 	display: inline-block;
-	width: 270px;
+}
+
+div.stgEdit label { 
+	width: 255px;
 }
 
 div.stgForm img {
@@ -415,7 +418,7 @@ img.freigabe {
 	width: auto;
 }
 
-a.new img#newScr {
+a.new img {
 	height: 40px;
 }
 
@@ -461,3 +464,9 @@ div.removeButton:hover {
 	border-color: rgb(198,11,12);
 	
 	cursor: pointer;
+}
+
+td.editorLabel {
+	vertical-align: top;
+	padding-top: 35px;
+}

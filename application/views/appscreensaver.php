@@ -1,43 +1,23 @@
 <?php echo form_open("{$my_url}save", array("name" => "form", "id" => "form", "enctype" => "multipart/form-data")); ?>
 <?php echo form_hidden("number") ?>
 <div class="template">
-	
-	<script>
-		function addEntry() {
-			$('div.stgForm').append($('div.template').html());
-		}
-		
-		function removeEntry(removeButton) {
-			$(removeButton).parent().parent().remove();
-		}
-
-		function addIndizes() {
-			$("div.stgForm > fieldset").each(function(index) {
-				$(this).find("*[name]").each(function() {
-					if($(this).attr("name").indexOf("_hidden") !== -1) {
-						$(this).attr("name", $(this).attr("name").replace("_hidden","")+index+"_hidden");
-					} else {
-						$(this).attr("name", $(this).attr("name")+index);
-					}
-				});
-			});
-		}
-	</script>
 
 	<fieldset>
 		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
+				<td><label for="scrText1">Text 1: </label></td>
+				<td><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
+				<td><label for="scrText2">Text 2: </label></td>
+				<td><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
 			</tr>
 			<tr>
 				<td>
 					<label for="scrImage">Bild: </label>
-					
+					</td><td>
 						<a href="" class="thickbox"></a>
 						<?php echo form_upload(array("name" => "scrImage", "value" => "")); ?>
 					</td>
@@ -54,15 +34,17 @@
 		<?php echo form_hidden("scrID"); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
+				<td><label for="scrText1">Text 1: </label></td>
+				<td><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
+				<td><label for="scrText2">Text 2: </label></td>
+				<td><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
 			</tr>
 			<tr>
 				<td>
 					<label for="scrImage">Bild: </label>
-					
+					</td><td>
 						<a href="" class="thickbox"></a>
 						<?php echo form_upload(array("name" => "scrImage", "value" => "")); ?>
 					</td>
@@ -80,15 +62,17 @@
 		<?php echo form_hidden("scrID", $scr->scrID); ?>
 		<table>
 			<tr>
-				<td><label for="scrText1">Text 1: </label><?php echo form_input(array("name" => "scrText1", "value" => $scr->scrText1)); ?></td>
+				<td><label for="scrText1">Text 1: </label></td>
+				<td><?php echo form_input(array("name" => "scrText1", "value" => $scr->scrText1)); ?></td>
 			</tr>
 			<tr>
-				<td><label for="scrText2">Text 2: </label><?php echo form_input(array("name" => "scrText2", "value" => $scr->scrText2)); ?></td>
+				<td><label for="scrText2">Text 2: </label></td>
+				<td><?php echo form_input(array("name" => "scrText2", "value" => $scr->scrText2)); ?></td>
 			</tr>
 			<tr>
 				<td>
 					<label for="scrImage">Bild: </label>
-					
+					</td><td>
 						<a href="<?php echo "data:image/jpeg;base64," . base64_encode($scr->scrImage) ?>" class="thickbox"><?php if($scr->scrImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($scr->scrImage). "\" />"; } ?></a>
 						<?php echo form_upload(array("name" => "scrImage")); ?>
 						<?php echo form_hidden("scrImage_hidden", base64_encode($scr->scrImage)); ?>
@@ -101,7 +85,7 @@ endif; ?>
 	
 </div>
 <div style="text-align:right;"><a class="new" onClick="javascript: addEntry();">
-		<img id="newScr" alt="Neu" src="<?php echo $template_url ?>images/new.png" />
+		<img alt="Neu" src="<?php echo $template_url ?>images/new.png" />
 	</a></div>
 <?php echo form_submit(array("style" => "display:none;")); ?>
 <div id="status"><?php echo $systemMessages; ?><?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript: addIndizes(); $('form#form input[type=\'submit\']').trigger('click');"))?></div>

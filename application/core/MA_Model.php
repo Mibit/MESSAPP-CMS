@@ -257,12 +257,12 @@ class MA_Model extends CI_Model {
             }
             
             if($alternativeDescriptionMethod) {
-	            foreach ($this->loadMultipleOfThisFromDatabase($filter) as $object) {
+	            foreach ($this->loadMultipleFromDatabase() as $object) {
 	                $objectArray[$object->$getIdentifier] = $object->$alternativeDescriptionMethod();
 	            }
             } else {
                 $descriptionField = $this->dbfields[$descriptionFieldPosition];
-            	foreach ($this->loadMultipleOfThisFromDatabase($filter) as $object) {
+            	foreach ($this->loadMultipleFromDatabase(null, $descriptionField) as $object) {
 	                $objectArray[$object->$getIdentifier] = $object->$descriptionField;
 	            }
             }

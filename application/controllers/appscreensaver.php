@@ -23,6 +23,9 @@ class AppScreensaver extends MA_Controller {
 			$variables["screensaver"] = $scr;
 		}
 
+		//Thickbox für Bilder aktivieren
+		$this->setUseThickbox(true);
+		
 		//AC Methode um Views anzuzeigen
 		$this->loadView('appscreensaver', $variables);
 	}
@@ -38,8 +41,8 @@ class AppScreensaver extends MA_Controller {
 			
 			for($i=0; array_key_exists("scrID$i", $_POST); $i++){
 				$scrArray[] = new ScreensaverData( getFormFieldValue("scrID$i") );
-				$this->form_validation->set_rules('scrText1'.$i, ($i+1).' Eintrag Text 1', 'required|max_length[50]');
-				$this->form_validation->set_rules('scrText2'.$i, ($i+1).' Eintrag Text 2', 'required|max_length[50]');
+				$this->form_validation->set_rules('scrText1'.$i, 'Text 1 - Eintrag #'.($i+1), 'required|max_length[50]');
+				$this->form_validation->set_rules('scrText2'.$i, 'Text 2 - Eintrag #'.($i+1), 'required|max_length[50]');
 
 				$scrArray[$i]->scrText1 = getFormFieldValue("scrText1$i");
 				$scrArray[$i]->scrText2 = getFormFieldValue("scrText2$i");
@@ -55,7 +58,7 @@ class AppScreensaver extends MA_Controller {
 					$this->addError("Die Eintr&auml;ge konnten nicht gespeichert werden, da das Bild im ".($key+1).". Eintrag fehlt.");
 				}
 			}
-			if(!$this->form_validation->run() || count($this->getError())) {
+			if(count($scrArray) && !$this->form_validation->run() || count($this->getError())) {
 				throw new Exception($validation);
 			}
 			

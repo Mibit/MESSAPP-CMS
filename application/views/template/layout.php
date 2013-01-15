@@ -7,6 +7,7 @@
 		<link rel="stylesheet" href="<?php echo $template_url; ?>css/layout.css" />
 		<script src="<?php echo $template_url; ?>js/jquery.js"></script>
 		<script src="<?php echo $template_url; ?>js/list.js"></script>
+		<script src="<?php echo $template_url; ?>js/listBox.js"></script>
 		
 		<?php if(isset($header)) { echo $header; } ?>
 	
