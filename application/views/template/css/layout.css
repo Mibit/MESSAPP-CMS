@@ -470,3 +470,7 @@ td.editorLabel {
 	vertical-align: top;
 	padding-top: 35px;
 }
+
+img {
+	border: none;
+}
