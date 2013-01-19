@@ -45,6 +45,7 @@
 		
 	</head>
 	<body>
+		<!--  Beginn Overlay -->
 		<div class="laodingOverlay" style="
 			position:fixed; 
 			top:0; 
@@ -55,8 +56,8 @@
 			
 			background-color:#FFFFFF; 
 			opacity: .7;
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-			filter: alpha(opacity=50);	
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+			filter: alpha(opacity=70);	
 		">
 			
 		</div>
@@ -64,18 +65,13 @@
 			position:fixed; 
 			top:50%; 
 			left:50%; 
-			z-index: 1001; 
-			
-			
-			opacity: 1	;
-			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-			filter: alpha(opacity=50);	
+			z-index: 1001;
 		">
 			<div style="position:relative; left:-50px; top:-50px;">
 				<img src="<?php echo $template_url; ?>images/loading.gif" height="100px" width="auto" />
 			</div>
 		</div>
-		
+		<!-- Ende Ovelray -->
 		
 		<div id="headerbar">
 			<div id="home" class="separator-right">
