@@ -57,12 +57,29 @@
 		</td>
 	</tr>
 	<tr>
-		<td><label for="stgStgLInfo">Info zum Studiengangsleiter: </label></td>
+		<td><label for="stgStgLInfo">Telefon der Studiengangsassistenz:</label></td>
 		<td><?php echo form_input(array("name" => "stgStgLInfo", "value" => $stg->stgStgLInfo)); ?></td>
 	</tr>
 	<tr>
-		<td><label for="stgStgAInfo">Info zur Studiengangsassistenz: </label></td>
+		<td><label for="stgStgAInfo">E-Mail der Studiengangsassistenz:</label></td>
 		<td><?php echo form_input(array("name" => "stgStgAInfo", "value" => $stg->stgStgAInfo)); ?></td>
+	</tr>
+</table>
+</fieldset>
+<fieldset><legend><a id="Kurzbeschreibung">Kurzbeschreibung</a></legend>
+<table>
+	<tr>
+		<td class="editorLabel"><label for="stgKBeschreibung">Kurzbeschreibung:</label></td>
+		<td><?php echo form_textarea(array("name" => "stgKBeschreibung", "value" => $stg->stgKBeschreibung)); ?></td>
+	</tr>
+	<tr>
+		<td><label for="stgKImage">Bild zur Kurzbeschreibung:</label></td>
+		<td>
+		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgKImage) ?>" class="thickbox"><?php if($stg->stgKImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage). "\" />"; } ?></a>
+		<?php echo form_upload(array("name" => "stgKImage")); ?>
+		<?php echo form_hidden("stgKImage_hidden", base64_encode($stg->stgKImage)); ?>
+		</div>
+		</td>
 	</tr>
 </table>
 </fieldset>
@@ -178,19 +195,6 @@
 			<?php echo form_upload(array("name" => "stgBImage")); ?>
 			<?php echo form_hidden("stgBImage_hidden", base64_encode($stg->stgBImage)); ?>
 			</div>
-		</td>
-	</tr>
-	<tr>
-		<td class="editorLabel"><label for="stgKBeschreibung">Kurzbeschreibung:</label></td>
-		<td><?php echo form_textarea(array("name" => "stgKBeschreibung", "value" => $stg->stgKBeschreibung)); ?></td>
-	</tr>
-	<tr>
-		<td><label for="stgKImage">Bild zur Kurzbeschreibung:</label></td>
-		<td>
-		<div><a href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgKImage) ?>" class="thickbox"><?php if($stg->stgKImage) { echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgKImage). "\" />"; } ?></a>
-		<?php echo form_upload(array("name" => "stgKImage")); ?>
-		<?php echo form_hidden("stgKImage_hidden", base64_encode($stg->stgKImage)); ?>
-		</div>
 		</td>
 	</tr>
 </table>

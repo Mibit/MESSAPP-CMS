@@ -17,7 +17,9 @@ class StudiengangData extends MA_Model {
 	public $stgStudent2Image;
 	public $stgQuote;
 	public $stgHighlights;
+	// Telefon StgA
 	public $stgStgLInfo;
+	// E-Mail StgA
 	public $stgStgAInfo;
 	public $stgHImage;
 	public $stgCurriculumImage;
