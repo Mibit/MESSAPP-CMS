@@ -13,12 +13,13 @@
 		<?php if(isset($header)) { echo $header; } ?>
 
 		<script>
+			var offset = "left+3 top+7";
 			// Implementierung der Tooltips
 			$(document).ready(function() {
 				$( ".tooltip" ).each(function() {
 					$(this).tooltip({
 						position: {
-					        my: "left+3 top+7",
+					        my: offset,
 						}
 					});
 				});

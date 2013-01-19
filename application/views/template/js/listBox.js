@@ -1,10 +1,19 @@
 
 		function addEntry() {
 			$('div.stgForm').append($('div.template').html());
+			$('div.stgForm > fieldset').last().find("*.tooltip").each(function() {
+				$(this).tooltip({
+					position: {
+				        my: offset,
+					}
+				});
+			});
 			$('div.stgForm > fieldset').last().find("td.editorField").each(function() {
 				$(this).html( $(this).html().replace("<!--", "").replace("-->", "") );
 			});
-			editorInit();
+			if(typeof(tinyMCE)!="undefined") {
+				editorInit();
+			}
 		}
 		
 		function removeEntry(removeButton) {
