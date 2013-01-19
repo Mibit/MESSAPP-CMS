@@ -13,6 +13,11 @@
 		<?php if(isset($header)) { echo $header; } ?>
 
 		<script>
+			function save() {
+				$('form#form input[type=\'submit\']').trigger('click');
+				$("div.laodingOverlay").show();
+			}
+			
 			var offset = "left+3 top+7";
 			// Implementierung der Tooltips
 			$(document).ready(function() {
@@ -23,6 +28,11 @@
 						}
 					});
 				});
+			});
+
+			//Entfernen des Overlay, wenn Seite fertig geladen wurde
+			$(document).ready(function() {
+				$("div.laodingOverlay").hide();
 			});
 		</script>
 		<style>
@@ -35,6 +45,37 @@
 		
 	</head>
 	<body>
+		<div class="laodingOverlay" style="
+			position:fixed; 
+			top:0; 
+			left:0; 
+			width:100%; 
+			height:100%; 
+			z-index: 1000; 
+			
+			background-color:#FFFFFF; 
+			opacity: .7;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			filter: alpha(opacity=50);	
+		">
+			
+		</div>
+		<div class="laodingOverlay" style="
+			position:fixed; 
+			top:50%; 
+			left:50%; 
+			z-index: 1001; 
+			
+			
+			opacity: 1	;
+			-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+			filter: alpha(opacity=50);	
+		">
+			<div style="position:relative; left:-50px; top:-50px;">
+				<img src="<?php echo $template_url; ?>images/loading.gif" height="100px" width="auto" />
+			</div>
+		</div>
+		
 		
 		<div id="headerbar">
 			<div id="home" class="separator-right">

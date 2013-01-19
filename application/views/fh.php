@@ -18,7 +18,7 @@
 	
 </div>
 <?php echo form_submit(array("style" => "display:none;")); ?>
-<div id="status"><?php echo $systemMessages; ?><?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javaphsipt: $('form#form input[type=\'submit\']').trigger('click');"))?></div>
+<div id="status"><?php echo $systemMessages; ?><?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript:  save();"))?></div>
 
 <div class="clr" style="margin-bottom: <?php echo ((count($info) + count($success) + count($alert) + count($error))* 47  + (validation_errors() ? 47 + ((substr_count(validation_errors(), "<p>")-1) * 21) : 0) + 50); ?>px"></div>
 <?php echo form_close(); ?>
