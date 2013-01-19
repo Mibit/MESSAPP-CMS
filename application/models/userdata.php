@@ -29,8 +29,15 @@ class UserData extends MA_Model {
 			$updateUser->username = "update";
 			$updateUser->password = md5("update");
 			
+			$ukmUser = new UserData();
+			$ukmUser->userID = 3;
+			$ukmUser->username = "ukm";
+			$ukmUser->password = md5("fhkufstein");
+			$ukmUser->onlyUpdate = false;
+			
 			$this->users[] = $adminUser;
 			$this->users[] = $updateUser;
+			$this->users[] = $ukmUser;
 		}
 	}
 	public function load($userID) {

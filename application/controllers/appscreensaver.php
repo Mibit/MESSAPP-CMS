@@ -41,8 +41,8 @@ class AppScreensaver extends MA_Controller {
 			
 			for($i=0; array_key_exists("scrID$i", $_POST); $i++){
 				$scrArray[] = new ScreensaverData( getFormFieldValue("scrID$i") );
-				$this->form_validation->set_rules('scrText1'.$i, 'Text 1 - Eintrag #'.($i+1), 'required|max_length[50]');
-				$this->form_validation->set_rules('scrText2'.$i, 'Text 2 - Eintrag #'.($i+1), 'required|max_length[50]');
+				$this->form_validation->set_rules('scrText1'.$i, 'Text 1 - Eintrag #'.($i+1), 'max_length[50]');
+				$this->form_validation->set_rules('scrText2'.$i, 'Text 2 - Eintrag #'.($i+1), 'max_length[50]');
 
 				$scrArray[$i]->scrText1 = getFormFieldValue("scrText1$i");
 				$scrArray[$i]->scrText2 = getFormFieldValue("scrText2$i");

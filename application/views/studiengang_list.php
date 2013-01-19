@@ -3,7 +3,7 @@
 	<thead>
 		<tr>
 			<th>&nbsp;#&nbsp;</th>
-			<th><a href="<?php echo $my_url."edit" ?>" class="new"><img alt="Neuer Studiengang" src="<?php echo $template_url ?>images/new.png" /></a></th>
+			<th><a href="<?php echo $my_url."edit" ?>" class="new tooltip" title="Neuer Studiengang"><img alt="Neuer Studiengang" src="<?php echo $template_url ?>images/new.png" /></a></th>
 			<th><?php echo sort_header("stgKBez", "Kbz", $sortCol, $sortDir); ?>
 			</th>
 			<th><?php echo sort_header("stgBez", "Studiengang", $sortCol, $sortDir); ?>
@@ -32,7 +32,7 @@
 			<td><?php echo $counter; ?>
 			</td>
 			<td align="center"><a
-				href="<?php echo $my_url . "delete/" . $item->stgID; ?>" class="delete">
+				href="<?php echo $my_url . "delete/" . $item->stgID; ?>" class="delete tooltip" title="L&ouml;schen" >
 					<img alt="L&ouml;schen" src="<?php echo $template_url ?>images/delete.png" />
 			</a>
 			</td>
@@ -45,7 +45,7 @@
 			<td><?php if($item->stgFOrganisationsformLong) echo anchor($my_url . "edit/" . $item->stgID, $item->stgFOrganisationsformLong); ?>
 			</td>
 			<td style="text-align: center;">
-				<a href="<?php echo $my_url . "freigabe/" . $item->stgID . "/" . ($item->freigabe ? 0 : 1); ?>">
+				<a href="<?php echo $my_url . "freigabe/" . $item->stgID . "/" . ($item->freigabe ? 0 : 1); ?>" title="Freigabe" class="tooltip" >
 					<?php echo $item->freigabe ? "<img alt=\"freigegeben\" src=\"{$template_url}images/okay.png\" class=\"freigabe\" />" : "<img alt=\"freigegeben\" src=\"{$template_url}images/x.png\" class=\"freigabe\" />"; ?>
 				</a>
 			</td>

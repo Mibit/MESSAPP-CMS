@@ -3,7 +3,7 @@
 function listBoxElements() {
 	
 	$removeButton = '<div class="removeButtonContainer">
-						<div class="removeButton" onClick="javascript: removeEntry(this);">x</div>
+						<div class="removeButton tooltip" onClick="javascript: removeEntry(this);" title="Eintrag entfernen">x</div>
 					</div>';
 	
 	return $removeButton;

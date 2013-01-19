@@ -24,7 +24,7 @@
 		<div class="sidebarItemBox">
 			<div class="open"><a onClick="javascript:changeSubcategoryState(this, $(this).parent().siblings('.itemCategory'));" opened="<?php echo $active ? 1 : 0;?>" ><?php echo $active ? "-" : "+";?></a></div>
 			<a class="caption" onClick="javascript:redirectWithSave('<?php echo $my_url."edit/".$item->stgID; ?>', 0);" class="sidebarItem <?php if($activeElementID==$item->stgID) echo " active "; ?>">
-				<?php echo $item->stgKBez; ?>
+				<?php echo $item->stgKBez."&nbsp;-&nbsp;".$item->getArtKurz()."/".$item->getOrganisationformKurz(); ?>
 			</a>
 			<ul class="itemCategory" style="display: <?php echo $active ? "show" : "none"; ?>">
 				<?php foreach($subCategories as $category) : ?>

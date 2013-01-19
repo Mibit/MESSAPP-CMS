@@ -108,6 +108,26 @@ class StudiengangData extends MA_Model {
 		}
 	}
 	
+	public function getArtKurz() {
+		switch(strtolower($this->stgArt)) {
+			case "b":
+				return "BA";
+				break;
+			case "m":
+				return "MA";
+				break;
+			case "p";
+				return "PG";
+				break;
+			default:
+				return "";
+		}
+	}
+	
+	public function getOrganisationformKurz() {
+		return strtolower($this->stgFOrganisationsform);
+	}
+	
 	private function switchToNormalMode($imagesIncluded = true, $timestampIncluded = false) {
 		$this->setTableName("studiengaenge");
 		$this->dbfields = array();

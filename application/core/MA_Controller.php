@@ -82,7 +82,8 @@ class MA_Controller extends CI_Controller {
 			$variables["header"] .= "<script src=\"{$variables['template_url']}js/thickbox.js\"></script>";
 			$variables["header"] .= "<link rel=\"stylesheet\" href=\"{$variables['template_url']}css/thickbox.css\" />";
 		}
-		        
+		
+		
 		if($this->isList) {
 			$page = isset($_REQUEST['page']) ? $_REQUEST['page'] : 1;
 			$sortCol = isset($_REQUEST['sortCol']) ? $_REQUEST['sortCol'] : "";
