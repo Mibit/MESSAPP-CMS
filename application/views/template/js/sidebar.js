@@ -4,7 +4,7 @@ function redirectWithSave(url, active) {
 		window.location.replace(url);
 	} else {
 		$("form#form input[name=\"target\"]").val(url);
-		$("#form input[type=\"submit\"]").trigger("click");
+		save();
 	}
 }
 
