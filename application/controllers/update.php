@@ -91,6 +91,17 @@ class Update extends CI_Controller {
 			foreach($fields as $field) {
 				if(strpos($field, "Image")!==false) {
 					$stdObject->$field = base64_encode($object->$field);
+				} else if(strpos($field, "stgFOrganisationsform")!==false) {
+					// Änderung für die App
+					switch($stdObject->$field) {
+						case "vz":
+							$stdObject->$field = "Vollzeit";
+							break;
+						case "bb":
+							$stdObject->$field = "Berufsbegleitend";
+							break;
+					}
+					$stdObject->$field = str_replace("\"", "\u0022", $object->$field);
 				} else {
 					$stdObject->$field = str_replace("\"", "\u0022", $object->$field);
 				}
