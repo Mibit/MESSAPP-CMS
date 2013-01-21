@@ -10,7 +10,7 @@
 			</th>
 			<th><?php echo sort_header("stgArt", "Art", $sortCol, $sortDir); ?>
 			</th>
-			<th><?php echo sort_header("sgtFOrganisationsform", "Organisationsform", $sortCol, $sortDir); ?>
+			<th><?php echo sort_header("stgFOrganisationsform", "Organisationsform", $sortCol, $sortDir); ?>
 			</th>
 			<th><?php echo sort_header("freigabe", "Freigabe", $sortCol, $sortDir); ?>
 			</th>
