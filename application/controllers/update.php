@@ -93,7 +93,7 @@ class Update extends CI_Controller {
 					$stdObject->$field = base64_encode($object->$field);
 				} else if(strpos($field, "stgFOrganisationsform")!==false) {
 					// Änderung für die App
-					switch($stdObject->$field) {
+					switch($object->$field) {
 						case "vz":
 							$stdObject->$field = "Vollzeit";
 							break;
