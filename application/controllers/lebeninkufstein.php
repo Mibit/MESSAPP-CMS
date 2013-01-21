@@ -49,6 +49,10 @@ class LebenInKufstein extends MA_Controller {
 
 				$likArray[$i]->likImage = getFormFieldImage("likImage$i");
 			}
+			if($i!=4) {
+				$this->addError("Es m&uuml;ssen genau 4 Einträge existieren.");
+				throw new Exception($validation);
+			}
 			
 			$this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein.');
 			$this->form_validation->set_message('max_length', 'Sie haben zu viele Zeichen in das Feld %s eingegeben.');
