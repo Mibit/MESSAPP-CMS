@@ -8,11 +8,11 @@
 		<table>
 			<tr>
 				<td><label for="scrText1">Text 1:</label></td>
-				<td><?php echo form_input(array("name" => "scrText1", "value" => "")); ?></td>
+				<td><?php echo form_input(array("name" => "scrText1", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(50) ?></td>
 			</tr>
 			<tr>
 				<td><label for="scrText2">Text 2:</label></td>
-				<td><?php echo form_input(array("name" => "scrText2", "value" => "")); ?></td>
+				<td><?php echo form_input(array("name" => "scrText2", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(50) ?></td>
 			</tr>
 			<tr>
 				<td>

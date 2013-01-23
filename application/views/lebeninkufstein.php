@@ -10,7 +10,7 @@
 				<td><?php echo form_input(array("name" => "likTitel", "value" => "")); ?></td>
 			</tr>
 			<tr>
-				<td><label for="likText">Text:</label></td>
+				<td class="editorLabel"><label for="likText">Text:</label></td>
 				<td><?php echo form_textarea(array("name" => "likText", "value" => "")); ?>
 				</td>
 			</tr>
@@ -38,7 +38,7 @@
 				<td><?php echo form_input(array("name" => "likTitel", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(50)?></td>
 			</tr>
 			<tr>
-				<td><label for="likText">Text:</label></td>
+				<td class="editorLabel"><label for="likText">Text:</label></td>
 				<td><?php echo form_textarea(array("name" => "likText", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(750) ?>
 				</td>
 			</tr>
@@ -66,7 +66,7 @@
 				<td><?php echo form_input(array("name" => "likTitel", "value" => $lik->likTitel, "onKeyUp" => "javascript:charCounter(this)")); charCounter(50)?></td>
 			</tr>
 			<tr>
-				<td><label for="likText">Text:</label></td>
+				<td class="editorLabel"><label for="likText">Text:</label></td>
 				<td><?php echo form_textarea(array("name" => "likText", "value" => $lik->likText, "onKeyUp" => "javascript:charCounter(this)")); charCounter(750) ?>
 				</td>
 			</tr>

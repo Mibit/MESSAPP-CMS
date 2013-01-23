@@ -10,12 +10,12 @@
 		<table>
 			<tr>
 				<td><label for="stgKBez">Kurzbezeichnung des Studiengangs:</label></td>
-				<td><?php echo form_input(array("name" => "stgKBez", "value" => $stg->stgKBez)); ?>
+				<td><?php echo form_input(array("name" => "stgKBez", "value" => $stg->stgKBez, "onKeyUp" => "javascript:charCounter(this)")); charCounter(5) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgBez">Voller Studiengangsname:</label></td>
-				<td><?php echo form_input(array("name" => "stgBez", "value" => $stg->stgBez)); ?>
+				<td><?php echo form_input(array("name" => "stgBez", "value" => $stg->stgBez, "onKeyUp" => "javascript:charCounter(this)")); charCounter(60) ?>
 				</td>
 			</tr>
 			<tr>
@@ -62,7 +62,7 @@
 		<table>
 			<tr>
 				<td><label for="stgStgL">Name der Studiengangsleitung:</label></td>
-				<td><?php echo form_input(array("name" => "stgStgL", "value" => $stg->stgStgL)); ?>
+				<td><?php echo form_input(array("name" => "stgStgL", "value" => $stg->stgStgL, "onKeyUp" => "javascript:charCounter(this)")); charCounter(75) ?>
 				</td>
 			</tr>
 			<tr>
@@ -83,12 +83,12 @@
 			<tr>
 				<td class="editorLabel"><label for="stgHighlights">Zitat der
 						Studiengangsleitung:</label></td>
-				<td><?php echo form_textarea(array("name" => "stgQuote", "value" => $stg->stgQuote)); ?>
+				<td><?php echo form_textarea(array("name" => "stgQuote", "value" => $stg->stgQuote, "onKeyUp" => "javascript:charCounter(this)")); charCounter(500) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgStgA">Name der Studiengangsassistenz:</label></td>
-				<td><?php echo form_input(array("name" => "stgStgA", "value" => $stg->stgStgA)); ?>
+				<td><?php echo form_input(array("name" => "stgStgA", "value" => $stg->stgStgA, "onKeyUp" => "javascript:charCounter(this)")); charCounter(75) ?>
 				</td>
 			</tr>
 			<tr>
@@ -109,13 +109,13 @@
 			<tr>
 				<td><label for="stgStgLInfo">Telefon der Studiengangsassistenz:</label>
 				</td>
-				<td><?php echo form_input(array("name" => "stgStgLInfo", "value" => $stg->stgStgLInfo)); ?>
+				<td><?php echo form_input(array("name" => "stgStgLInfo", "value" => $stg->stgStgLInfo, "onKeyUp" => "javascript:charCounter(this)")); charCounter(150) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgStgAInfo">E-Mail der Studiengangsassistenz:</label>
 				</td>
-				<td><?php echo form_input(array("name" => "stgStgAInfo", "value" => $stg->stgStgAInfo)); ?>
+				<td><?php echo form_input(array("name" => "stgStgAInfo", "value" => $stg->stgStgAInfo, "onKeyUp" => "javascript:charCounter(this)")); charCounter(150) ?>
 				</td>
 			</tr>
 		</table>
@@ -142,7 +142,7 @@
 			<tr>
 				<td class="editorLabel"><label for="stgKBeschreibung">&Uuml;bersicht:</label>
 				</td>
-				<td><?php echo form_textarea(array("name" => "stgKBeschreibung", "value" => $stg->stgKBeschreibung)); ?>
+				<td><?php echo form_textarea(array("name" => "stgKBeschreibung", "value" => $stg->stgKBeschreibung, "onKeyUp" => "javascript:charCounter(this)")); charCounter(1000) ?>
 				</td>
 			</tr>
 		</table>
@@ -170,7 +170,7 @@
 			<tr>
 				<td class="editorLabel"><label for="stgStudent1Quote">Zitat des 1.
 						Studenten: </label></td>
-				<td><?php echo form_textarea(array("name" => "stgStudent1Quote", "value" => $stg->stgStudent1Quote)); ?>
+				<td><?php echo form_textarea(array("name" => "stgStudent1Quote", "value" => $stg->stgStudent1Quote, "onKeyUp" => "javascript:charCounter(this)")); charCounter(500) ?>
 				</td>
 			</tr>
 			<tr>
@@ -191,7 +191,7 @@
 			<tr>
 				<td class="editorLabel"><label for="stgStudent2Quote">Zitat des 2.
 						Studenten:</label></td>
-				<td><?php echo form_textarea(array("name" => "stgStudent2Quote", "value" => $stg->stgStudent2Quote)); ?>
+				<td><?php echo form_textarea(array("name" => "stgStudent2Quote", "value" => $stg->stgStudent2Quote, "onKeyUp" => "javascript:charCounter(this)")); charCounter(500) ?>
 				</td>
 			</tr>
 		</table>
@@ -218,7 +218,7 @@
 			<tr>
 				<td class="editorLabel"><label for="stgHighlights">Highlights:</label>
 				</td>
-				<td><?php echo form_textarea(array("name" => "stgHighlights", "value" => $stg->stgHighlights)); ?>
+				<td><?php echo form_textarea(array("name" => "stgHighlights", "value" => $stg->stgHighlights, "onKeyUp" => "javascript:charCounter(this)")); charCounter(1000) ?>
 				</td>
 			</tr>
 		</table>
@@ -245,44 +245,44 @@
 			<tr>
 				<td><label for="stgFStudienplaetze">Anzahl der Studienpl&auml;tze:</label>
 				</td>
-				<td><?php echo form_input(array("name" => "stgFStudienplaetze", "value" => $stg->stgFStudienplaetze)); ?>
+				<td><?php echo form_input(array("name" => "stgFStudienplaetze", "value" => $stg->stgFStudienplaetze, "onKeyUp" => "javascript:charCounter(this)")); charCounter(3) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFBewerbungsmodus">Bewerbungsmodus:</label></td>
-				<td><?php echo form_input(array("name" => "stgFBewerbungsmodus", "value" => $stg->stgFBewerbungsmodus)); ?>
+				<td><?php echo form_input(array("name" => "stgFBewerbungsmodus", "value" => $stg->stgFBewerbungsmodus, "onKeyUp" => "javascript:charCounter(this)")); charCounter(100) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFDauer">Dauer:</label></td>
-				<td><?php echo form_input(array("name" => "stgFDauer", "value" => $stg->stgFDauer)); ?>
+				<td><?php echo form_input(array("name" => "stgFDauer", "value" => $stg->stgFDauer, "onKeyUp" => "javascript:charCounter(this)")); charCounter(15) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFAkadGrad">Akademischer Grad:</label></td>
-				<td><?php echo form_input(array("name" => "stgFAkadGrad", "value" => $stg->stgFAkadGrad)); ?>
+				<td><?php echo form_input(array("name" => "stgFAkadGrad", "value" => $stg->stgFAkadGrad, "onKeyUp" => "javascript:charCounter(this)")); charCounter(45) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFUnterrichtssprache">Unterrichtssprache:</label>
 				</td>
-				<td><?php echo form_input(array("name" => "stgFUnterrichtssprache", "value" => $stg->stgFUnterrichtssprache)); ?>
+				<td><?php echo form_input(array("name" => "stgFUnterrichtssprache", "value" => $stg->stgFUnterrichtssprache, "onKeyUp" => "javascript:charCounter(this)")); charCounter(75) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFBesonderheit">Besonderheit:</label></td>
-				<td><?php echo form_input(array("name" => "stgFBesonderheit", "value" => $stg->stgFBesonderheit)); ?>
+				<td><?php echo form_input(array("name" => "stgFBesonderheit", "value" => $stg->stgFBesonderheit, "onKeyUp" => "javascript:charCounter(this)")); charCounter(150) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFAuslandsaufenthalt">Auslandsaufenthalt:</label>
 				</td>
-				<td><?php echo form_input(array("name" => "stgFAuslandsaufenthalt", "value" => $stg->stgFAuslandsaufenthalt)); ?>
+				<td><?php echo form_input(array("name" => "stgFAuslandsaufenthalt", "value" => $stg->stgFAuslandsaufenthalt, "onKeyUp" => "javascript:charCounter(this)")); charCounter(150) ?>
 				</td>
 			</tr>
 			<tr>
 				<td><label for="stgFKosten">Kosten:</label></td>
-				<td><?php echo form_input(array("name" => "stgFKosten", "value" => $stg->stgFKosten)); ?>
+				<td><?php echo form_input(array("name" => "stgFKosten", "value" => $stg->stgFKosten, "onKeyUp" => "javascript:charCounter(this)")); charCounter(75) ?>
 				</td>
 			</tr>
 
@@ -310,7 +310,7 @@
 			<tr>
 				<td class="editorLabel"><label for="stgBFelder">Berufsfelder:</label>
 				</td>
-				<td><?php echo form_textarea(array("name" => "stgBFelder", "value" => $stg->stgBFelder)); ?>
+				<td><?php echo form_textarea(array("name" => "stgBFelder", "value" => $stg->stgBFelder, "onKeyUp" => "javascript:charCounter(this)")); charCounter(750) ?>
 				</td>
 			</tr>
 

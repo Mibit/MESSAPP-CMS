@@ -87,12 +87,12 @@ class Studiengang extends MA_Controller {
 	        // stgStgLImage
 	        $this->form_validation->set_rules('stgStgA', 'Name der Studiengangsassistenz', 'max_length[75]');
 	        // stgStgAImage
-	        $this->form_validation->set_rules('stgStudent1Quote', 'Zitat Student 1', 'max_length[500]');
+	        $this->form_validation->set_rules('stgStudent1Quote', 'Zitat Student 1', 'max_length[2000]');
 	        // stgStudent1Image
-	        $this->form_validation->set_rules('stgStudent2Quote', 'Zitat Student 2', 'max_length[500]');
+	        $this->form_validation->set_rules('stgStudent2Quote', 'Zitat Student 2', 'max_length[2000]');
 	        // stgStudent2Image
-	        $this->form_validation->set_rules('stgQuote', 'Zitat', 'max_length[500]');
-	        $this->form_validation->set_rules('stgHighlights', 'Highlights', 'max_length[1000]');
+	        $this->form_validation->set_rules('stgQuote', 'Zitat', 'max_length[2000]');
+	        $this->form_validation->set_rules('stgHighlights', 'Highlights', 'max_length[2000]');
 	        $this->form_validation->set_rules('stgStgLInfo', 'Info zum Studiengangsleiter', 'max_length[150]');
 	        $this->form_validation->set_rules('stgStgAInfo', 'Info zur Studiengangsassistenz', 'max_length[150]');
 	        // stgHImage
@@ -106,9 +106,9 @@ class Studiengang extends MA_Controller {
 	        $this->form_validation->set_rules('stgFAuslandsaufenthalt', 'Auslandsaufenthalt', 'max_length[150]');
 	        $this->form_validation->set_rules('stgFKosten', 'Kosten', 'max_length[75]');
 	        // stgFImage
-	        $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[750]');
+	        $this->form_validation->set_rules('stgBFelder', 'Berufsfelder', 'max_length[2000]');
 	        // stgBImage
-	        $this->form_validation->set_rules('stgKBeschreibung', 'Kurzbeschreibung', 'max_length[1000]');
+	        $this->form_validation->set_rules('stgKBeschreibung', 'Kurzbeschreibung', 'max_length[2000]');
 	        // stgKImage
 	        // stgGridViewImage
 	        // freigabe

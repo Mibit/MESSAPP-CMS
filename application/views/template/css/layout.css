@@ -466,11 +466,20 @@ div.removeButton:hover {
 	cursor: pointer;
 }
 
-td.editorLabel {
+td {
 	vertical-align: top;
+}
+
+td.editorLabel {
 	padding-top: 35px;
 }
 
 img {
 	border: none;
+}
+
+div.limit {
+	padding-top: 0.5ex;
+	font-size: 1.3ex;
+	color: #666666;
 }

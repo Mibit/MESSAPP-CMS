@@ -59,7 +59,7 @@ class Update extends CI_Controller {
 		if($this->staticDataChanged($unixTimestamp, $fh->phsTimestamp)) {
 			$phs = new InternationalePartnerData();
 			$fields = array_merge(Array($phs->primary), $phs->dbfields);
-			$internationalepartner = $this->formatDataForJSON($phs->loadMultipleFromDatabase(), $fields);
+			$internationalepartner = $this->formatDataForJSON($phs->loadMultipleFromDatabase(null, "phsLand"), $fields);
 		}
 		$stammdaten = new stdClass();
 		if($this->staticDataChanged($unixTimestamp, $fh->fhTimestamp)) {

@@ -1,7 +1,7 @@
 <?php
 
 function charCounter($numberOfChars){
-	echo "<div><input type='hidden' value='$numberOfChars'/>Sie haben noch <span>&nbsp;</span> Zeichen zur Verf&uuml;gung.</div>";
+	echo "<div class=\"limit\"><input type='hidden' value='$numberOfChars'/>Sie haben noch <span>&nbsp;</span> Zeichen zur Verf&uuml;gung.</div>";
 }
 
 function listBoxElements() {

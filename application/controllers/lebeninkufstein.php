@@ -48,7 +48,7 @@ class LebenInKufstein extends MA_Controller {
 			for($i=0; array_key_exists("likID$i", $_POST); $i++){
 				$likArray[] = new LebenInKufsteinData( getFormFieldValue("likID$i") );
 				$this->form_validation->set_rules('likTitel'.$i, 'Titel - Eintrag #'.($i+1), 'required|max_length[50]');
-				$this->form_validation->set_rules('likText'.$i, 'Text - Eintrag #'.($i+1), 'required|max_length[750]');
+				$this->form_validation->set_rules('likText'.$i, 'Text - Eintrag #'.($i+1), 'required|max_length[2000]');
 
 				$likArray[$i]->likTitel = getFormFieldValue("likTitel$i");
 				$likArray[$i]->likText = getFormFieldValue("likText$i");

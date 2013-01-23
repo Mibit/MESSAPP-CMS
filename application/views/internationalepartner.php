@@ -12,7 +12,7 @@
 			</tr>
 			<tr>
 				<td class="editorLabel"><label for="phsPartnerhochschulen">Partnerhochschulen:</label></td>
-				<td class="editorField"><!--<?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => "")); ?>--></td>
+				<td class="editorField"><!--<?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(2000) ?>--></td>
 			</tr>
 		</table>
 	</fieldset>
@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td class="editorLabel"><label for=phsPartnerhochschulen>Partnerhochschulen:</label></td>
-				<td><?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => "")); ?></td>
+				<td><?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(2000) ?></td>
 			</tr>
 		</table>
 	</fieldset>
@@ -51,7 +51,7 @@
 			</tr>
 			<tr>
 				<td class="editorLabel"><label for="phsPartnerhochschulen">Partnerhochschulen:</label></td>
-				<td><?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => $phs->phsPartnerhochschulen)); ?></td>
+				<td><?php echo form_textarea(array("name" => "phsPartnerhochschulen", "value" => $phs->phsPartnerhochschulen, "onKeyUp" => "javascript:charCounter(this)")); charCounter(2000) ?></td>
 			</tr>
 		</table>
 	</fieldset>
