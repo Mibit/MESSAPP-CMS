@@ -7,12 +7,18 @@
 		<link rel="stylesheet" href="<?php echo $template_url; ?>css/ui-lightness/jquery-ui-1.10.0.custom.min.css" />
 		<link rel="stylesheet" href="<?php echo $template_url; ?>css/layout.css" />
 		<script src="<?php echo $template_url; ?>js/jquery.js"></script>
+		<script src="<?php echo $template_url; ?>js/jquery.limit-1.2.js"></script>
 		<script src="<?php echo $template_url; ?>js/jquery-ui-1.10.0.custom.min.js"></script>
 		<script src="<?php echo $template_url; ?>js/list.js"></script>
 		<script src="<?php echo $template_url; ?>js/listBox.js"></script>
 		<?php if(isset($header)) { echo $header; } ?>
 
 		<script>
+
+			function charCounter(field) {
+				$(field).limit($(field).next('div').children('input').val(),$(field).next('div').children('span'));
+			}
+		
 			function save() {
 				$('form#form input[type=\'submit\']').trigger('click');
 				$("div.laodingOverlay").show();
@@ -30,6 +36,12 @@
 				});
 			});
 
+			$(document).ready(function() {
+				$( "input, textarea" ).each(function() {
+					charCounter(this);
+				});
+			});
+			
 			//Entfernen des Overlay, wenn Seite fertig geladen wurde
 			$(document).ready(function() {
 				$("div.laodingOverlay").hide();

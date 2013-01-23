@@ -19,9 +19,15 @@ class LebenInKufstein extends MA_Controller {
 
 		if (!$lik){
 			$variables["lebeninkufstein"] = $lebenInKufstein->loadMultipleFromDatabase();
+			for($i=count($variables["lebeninkufstein"])-1; $i<4; $i++) {
+				$variables["lebeninkufstein"][$i] = new LebenInKufsteinData();
+			}
 		} else {
 			$variables["lebeninkufstein"] = $lik;
 		}
+		
+		// HTML Editor hinzufügen
+		$this->setHtmlEditor(true);
 		
 		//Thickbox für Bilder aktivieren
 		$this->setUseThickbox(true);
@@ -42,16 +48,12 @@ class LebenInKufstein extends MA_Controller {
 			for($i=0; array_key_exists("likID$i", $_POST); $i++){
 				$likArray[] = new LebenInKufsteinData( getFormFieldValue("likID$i") );
 				$this->form_validation->set_rules('likTitel'.$i, 'Titel - Eintrag #'.($i+1), 'required|max_length[50]');
-				$this->form_validation->set_rules('likText'.$i, 'Text - Eintrag #'.($i+1), 'required|max_length[50]');
+				$this->form_validation->set_rules('likText'.$i, 'Text - Eintrag #'.($i+1), 'required|max_length[750]');
 
 				$likArray[$i]->likTitel = getFormFieldValue("likTitel$i");
 				$likArray[$i]->likText = getFormFieldValue("likText$i");
 
 				$likArray[$i]->likImage = getFormFieldImage("likImage$i");
-			}
-			if($i!=4) {
-				$this->addError("Es m&uuml;ssen genau 4 Einträge existieren.");
-				throw new Exception($validation);
 			}
 			
 			$this->form_validation->set_message('required', 'Geben Sie einen Wert in das Feld %s ein.');

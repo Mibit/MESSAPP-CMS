@@ -278,8 +278,7 @@ class Studiengang extends MA_Controller {
 	        
     	} catch(Exception $ex) {
     		if(($ex->getMessage()==$noInput || $ex->getMessage()==$noChange) && ($target = getFormFieldValue("target"))) {
-    			header("Location: $target");
-    			return;
+    			redirect($target);
     		} elseif($ex->getMessage()!=$validation && $ex->getMessage()!=$noInput && $ex->getMessage()!=$noChange) {
     			$this->addError($ex->getMessage());
     		}

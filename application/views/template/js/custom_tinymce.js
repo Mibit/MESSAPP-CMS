@@ -34,6 +34,12 @@ function editorInit() {
         external_image_list_url : "js/image_list.js",
         media_external_list_url : "js/media_list.js",
 
+        setup : function(ed) {
+            // Display an alert onclick
+            ed.onKeyUp.add(function(ed) {
+               charCounter($("#"+ed.editorContainer).prev("textarea"));
+            });
+        }
 	});
 	
 }

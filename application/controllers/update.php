@@ -46,7 +46,7 @@ class Update extends CI_Controller {
 		$screensaver = array();
 		$lebeninkufstein = array();
 		$internationalepartner = array();
-		if($screensaverChanged = $this->staticDataChanged($unixTimestamp, $fh->scrTimestamp)) {
+		if($this->staticDataChanged($unixTimestamp, $fh->scrTimestamp)) {
 			$scr = new ScreensaverData();
 			$fields = array_merge(Array($scr->primary), $scr->dbfields);
 			$screensaver = $this->formatDataForJSON($scr->loadMultipleFromDatabase(), $fields);
@@ -73,7 +73,7 @@ class Update extends CI_Controller {
 						"timestamp" => $current_timestamp, 
 						"studiengaenge" => $studiengaenge,
 						"entfernte_studiengaenge" => $entfernteStudiengaenge,
-						"screensaver" => (!$screensaverChanged || count($screensaver) ? $screensaver : array(array("scrImage" => $stammdaten->fhLogo)) ),
+						"screensaver" => $screensaver,
 						"leben_in_kufstein" => $lebeninkufstein,
 						"internationale_partnerhochschulen" => $internationalepartner,
 						"fh" => $stammdaten
@@ -93,8 +93,7 @@ class Update extends CI_Controller {
 					$stdObject->$field = base64_encode($object->$field);
 				} else if(strpos($field, "stgFOrganisationsform")!==false) {
 					// Änderung für die App
-					
-					switch(strtolower($object->$field)) {
+					switch($object->$field) {
 						case "vz":
 							$stdObject->$field = "Vollzeit";
 							break;
@@ -102,6 +101,7 @@ class Update extends CI_Controller {
 							$stdObject->$field = "Berufsbegleitend";
 							break;
 					}
+					$stdObject->$field = str_replace("\"", "\u0022", $object->$field);
 				} else {
 					$stdObject->$field = str_replace("\"", "\u0022", $object->$field);
 				}

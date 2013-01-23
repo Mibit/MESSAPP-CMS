@@ -48,7 +48,7 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = 'www.wi.fh-kufstein.ac.at:60882';
+$db['default']['hostname'] = 'www.wi.fh-kufstein.ac.at:60881';
 $db['default']['username'] = 'sa';
 $db['default']['password'] = '1.admin';
 $db['default']['database'] = 'messApp';

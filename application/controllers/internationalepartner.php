@@ -46,8 +46,8 @@ class InternationalePartner extends MA_Controller {
 			
 			for($i=0; array_key_exists("phsID$i", $_POST); $i++){
 				$phsArray[] = new InternationalePartnerData( getFormFieldValue("phsID$i") );
-				$this->form_validation->set_rules('phsLand'.$i, 'Land - Eintrag #'.($i+1), 'required|max_length[50]');
-				$this->form_validation->set_rules('phsPartnerhochschulen'.$i, 'Partnerhochschulen - Eintrag #'.($i+1), 'required|max_length[50]');
+				$this->form_validation->set_rules('phsLand'.$i, 'Land - Eintrag #'.($i+1), 'required');
+				$this->form_validation->set_rules('phsPartnerhochschulen'.$i, 'Partnerhochschulen - Eintrag #'.($i+1), 'required|max_length[1000]');
 
 				$phsArray[$i]->phsLand = getFormFieldValue("phsLand$i");
 				$phsArray[$i]->phsPartnerhochschulen = getFormFieldValue("phsPartnerhochschulen$i");

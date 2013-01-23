@@ -153,7 +153,7 @@
 		</legend>
 		<table>
 			<tr>
-				<td><label for="stgStudent1Image">Bild f&uuml;r Zitat des 1. Studenten:</label>
+				<td><label for="stgStudent1Image">Bild für Zitat des 1. Studenten:</label>
 				</td>
 				<td>
 					<div>
@@ -174,7 +174,7 @@
 				</td>
 			</tr>
 			<tr>
-				<td><label for="stgStudent2Image">Bild f&uuml;r Zitat des 2. Studenten:</label>
+				<td><label for="stgStudent2Image">Bild für Zitat des 2. Studenten:</label>
 				</td>
 				<td>
 					<div>
@@ -285,6 +285,7 @@
 				<td><?php echo form_input(array("name" => "stgFKosten", "value" => $stg->stgFKosten)); ?>
 				</td>
 			</tr>
+
 		</table>
 	</fieldset>
 	<fieldset>
@@ -312,6 +313,7 @@
 				<td><?php echo form_textarea(array("name" => "stgBFelder", "value" => $stg->stgBFelder)); ?>
 				</td>
 			</tr>
+
 		</table>
 	</fieldset>
 	<fieldset>
@@ -326,8 +328,8 @@
 						<a
 							href="<?php echo "data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage) ?>"
 							class="thickbox"><?php if($stg->stgCurriculumImage) { 
-echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage). "\" />";
-} ?> </a>
+								echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumImage). "\" />";
+							} ?> </a>
 						<?php echo form_upload(array("name" => "stgCurriculumImage")); ?>
 						<?php echo form_hidden("stgCurriculumImage_hidden", base64_encode($stg->stgCurriculumImage)); ?>
 					</div>
@@ -344,5 +346,6 @@ echo "<img src=\"data:image/jpeg;base64," . base64_encode($stg->stgCurriculumIma
 	&nbsp;&nbsp;
 	<?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript: save();"))?>
 </div>
-<div class="clr" style="margin-bottom: <?php echo ((count($info) + count($success) + count($alert) + count($error))* 47 + (validation_errors() ? 47 + ((substr_count(validation_errors(), "<p>")-1) * 21) : 0) + 50); ?>px"></div>
+
+<div class="clr" style="margin-bottom: <?php echo ((count($info) + count($success) + count($alert) + count($error))* 47  + (validation_errors() ? 47 + ((substr_count(validation_errors(), "<p>")-1) * 21) : 0) + 50); ?>px"></div>
 <?php echo form_close(); ?>

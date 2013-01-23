@@ -3,7 +3,6 @@
 <div class="template">
 
 	<fieldset>
-		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("likID"); ?>
 		<table>
 			<tr>
@@ -12,7 +11,8 @@
 			</tr>
 			<tr>
 				<td><label for="likText">Text:</label></td>
-				<td><?php echo form_input(array("name" => "likText", "value" => "")); ?></td>
+				<td><?php echo form_textarea(array("name" => "likText", "value" => "")); ?>
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -27,19 +27,20 @@
 </div>
 
 <div class="stgForm">
+<div>Es m&uuml;ssen aufgrund des App-Designs genau 4 solcher Boxen gespeichert werden!</div><br />
 <?php if(!count($lebeninkufstein)) : ?>
 		
 	<fieldset>
-		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("likID"); ?>
 		<table>
 			<tr>
 				<td><label for="likTitel">Titel:</label></td>
-				<td><?php echo form_input(array("name" => "likTitel", "value" => "")); ?></td>
+				<td><?php echo form_input(array("name" => "likTitel", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(50)?></td>
 			</tr>
 			<tr>
 				<td><label for="likText">Text:</label></td>
-				<td><?php echo form_input(array("name" => "likText", "value" => "")); ?></td>
+				<td><?php echo form_textarea(array("name" => "likText", "value" => "", "onKeyUp" => "javascript:charCounter(this)")); charCounter(750) ?>
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -58,16 +59,16 @@
 
 
 	<fieldset>
-		<?php echo listBoxElements(); ?>
 		<?php echo form_hidden("likID", $lik->likID); ?>
 		<table>
 			<tr>
 				<td><label for="likTitel">Titel:</label></td>
-				<td><?php echo form_input(array("name" => "likTitel", "value" => $lik->likTitel)); ?></td>
+				<td><?php echo form_input(array("name" => "likTitel", "value" => $lik->likTitel, "onKeyUp" => "javascript:charCounter(this)")); charCounter(50)?></td>
 			</tr>
 			<tr>
 				<td><label for="likText">Text:</label></td>
-				<td><?php echo form_input(array("name" => "likText", "value" => $lik->likText)); ?></td>
+				<td><?php echo form_textarea(array("name" => "likText", "value" => $lik->likText, "onKeyUp" => "javascript:charCounter(this)")); charCounter(750) ?>
+				</td>
 			</tr>
 			<tr>
 				<td>
@@ -84,9 +85,6 @@
 endif; ?>
 	
 </div>
-<div style="text-align:right;"><a class="new" onClick="javascript: addEntry();">
-		<img alt="Neu" src="<?php echo $template_url ?>images/new.png" title="Neuer Eintrag" class="tooltip" />
-	</a></div>
 <?php echo form_submit(array("style" => "display:none;")); ?>
 <div id="status"><?php echo $systemMessages; ?><?php echo form_button(array("name" => "submit", "content" => "Speichern", "class" => "button", "onClick" => "javascript: addIndizes();  save();"))?></div>
 
