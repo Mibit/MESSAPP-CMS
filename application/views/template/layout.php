@@ -16,7 +16,7 @@
 		<script>
 
 			function charCounter(field) {
-				$(field).limit($(field).next('div').children('input').val(),$(field).next('div').children('span'));
+				$(field).limit($(field).siblings('div').children('input').val(),$(field).siblings('div').children('span'));
 			}
 		
 			function save() {

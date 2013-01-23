@@ -37,7 +37,9 @@ function editorInit() {
         setup : function(ed) {
             // Display an alert onclick
             ed.onKeyUp.add(function(ed) {
-               charCounter($("#"+ed.editorContainer).prev("textarea"));
+            	var textarea = $("#"+ed.editorContainer).siblings("textarea");
+            	textarea.val(ed.contentDocument.body.innerHTML);
+               charCounter(textarea);
             });
         }
 	});
